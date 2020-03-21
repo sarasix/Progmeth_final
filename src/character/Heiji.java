@@ -1,4 +1,4 @@
-package character;
+package logic;
 
 public class Heiji extends Character{
 	private int walk;
@@ -7,7 +7,7 @@ public class Heiji extends Character{
 		super(indexX,indexY,isLight);
 		this.walk=3;
 	}
-	public void ability() {
+	public boolean ability() {
 		
 	}
 	public int getWalk() {

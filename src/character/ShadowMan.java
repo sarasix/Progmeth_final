@@ -1,4 +1,4 @@
-package character;
+package logic;
 
 public class ShadowMan extends Character{
 	private int walk;
@@ -6,7 +6,14 @@ public class ShadowMan extends Character{
 		super(indexX,indexY,isLight);
 		walk=3;
 	}
-	public void ability() {
+	public void ability(Character Other) {
+		int indexXOther=Other.getIndexX();
+		int indexYOther=Other.getIndexY();
+		Other.setIndexX(this.getIndexX());
+		Other.setIndexY(this.getIndexY());
+		this.setIndexX(indexXOther);
+		this.setIndexY(indexYOther);
+		
 		
 	}
 	public int getWalk() {

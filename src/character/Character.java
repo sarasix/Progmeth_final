@@ -1,8 +1,6 @@
-package character;
+package logic;
 
-import map.putMap;
-
-public abstract class Character extends putMap {
+public abstract class Character {
 	private int indexX;
 	private int indexY;
 	private boolean isChoice;
@@ -12,7 +10,8 @@ public abstract class Character extends putMap {
 	
 	public Character(int indexX,int indexY, boolean isLight)
 	{
-		super(indexX,indexY);
+		this.indexX=indexX;
+		this.indexY=indexY;
 		this.isChoice=true;
 		this.isMrJack=false;
 		this.isLight=isLight;
@@ -48,7 +47,7 @@ public abstract class Character extends putMap {
 	public void setIsLight(boolean isLight) {
 		this.isLight=isLight;
 	}
-    public abstract void ability();
+    public abstract boolean ability();
     
     
 }

@@ -1,4 +1,8 @@
-package character;
+package logic;
+
+
+
+
 
 public class Kogoro extends Character{
 	private int walk;
@@ -6,11 +10,16 @@ public class Kogoro extends Character{
 		super(indexX,indexY,isLight);
 		walk=3;
 	}
-	public void ability() {
-		//ÂéÒÂä¿
+	public boolean ability() {
+		int indexX,indexY;
+		Scanner indexX;
+		Scanner indexY
+		
+		
 	}
 	public int getWalk() {
 		return walk;
 	}
+
 
 }
