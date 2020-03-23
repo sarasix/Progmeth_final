@@ -2,7 +2,7 @@ package round;
 import java.util.*;
 
 import character.Character;
-public class playDetective {
+public class PlayDetective {
 	private ArrayList<Character> randomCard;
 	
 	public ArrayList<Character> playDetective(ArrayList<Character> card4) {

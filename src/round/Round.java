@@ -3,8 +3,8 @@ import java.util.*;
 
 import character.Character;
 import character.Conan;
-import round.playDetective;
-import round.playMrJack;
+import round.PlayDetective;
+import round.PlayMrJack;
 public class Round {
 	private int lamp,manhole,door ;
 	private ArrayList<String> order;
@@ -45,10 +45,10 @@ public class Round {
 	public void play() {
 		for(int i=0;i<4;i++) {
 			if(order.get(i)=="D") {
-				playDetective play = new playDetective(this.card4);
+				PlayDetective play = new PlayDetective(this.card4);
 			}
 			else {
-				playMrJack play = new playMrJack(this.card4);
+				PlayMrJack play = new PlayMrJack(this.card4);
 				
 			}
 		}

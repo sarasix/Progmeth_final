@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import character.Character;
 
-public class playMrJack {
+public class PlayMrJack {
 private ArrayList<Character> randomCard;
 	
 	public ArrayList<Character> playMrJack(ArrayList<Character> card4) {
