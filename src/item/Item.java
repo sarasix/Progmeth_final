@@ -1,23 +1,10 @@
-package logic;
+package item;
 
-public class Item {
-	private int indexX;
-	private int indexY;
+import map.putMap;
+
+public class Item extends putMap{
+	
 	public Item(int indexX,int indexY) {
-		this.indexX=indexX;
-		this.indexY=indexY;
+		super(indexX,indexY);
 	}
-	public int getIndexX() {
-		return indexX;
-	}
-	public int getIndexY() {
-		return indexY;
-	}
-	public void setIndexX(int indexX) {
-		this.indexX=indexX;
-	}
-	public void setIndexY(int indexY) {
-		this.indexY=indexY;
-	}
-
 }

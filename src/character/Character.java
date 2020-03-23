@@ -1,8 +1,10 @@
-package logic;
+package character;
 
-public abstract class Character {
-	private int indexX;
-	private int indexY;
+import map.putMap;
+
+public class Character extends putMap{
+	//private int indexX;
+	//private int indexY;
 	private boolean isChoice;
 	private boolean isMrJack;
 	private boolean isLight;
@@ -10,31 +12,20 @@ public abstract class Character {
 	
 	public Character(int indexX,int indexY, boolean isLight)
 	{
-		this.indexX=indexX;
-		this.indexY=indexY;
+		super(indexX,indexY);
 		this.isChoice=true;
 		this.isMrJack=false;
 		this.isLight=isLight;
 	}
 	
-	public int getIndexX() {
-		return this.indexX;
-	}
-	public int getIndexY() {
-		return this.indexY;
-	}
+	
 	public boolean getIsChoice() {
 		return this.isChoice;
 	}
 	public void setIsChoice(boolean isChoice) {
 		this.isChoice=isChoice;
 	}
-	public void setIndexX(int indexX) {
-		this.indexX=indexX;
-	}
-	public void setIndexY(int indexY) {
-		this.indexY=indexY;
-	}
+	
 	public void setIsMrJack() {
 		this.isMrJack=true;
 	}
@@ -45,9 +36,9 @@ public abstract class Character {
 		return isLight;
 	}
 	public void setIsLight(boolean isLight) {
-		this.isLight=isLight;
+	    this.isLight=isLight;	
 	}
-    public abstract boolean ability();
-    
-    
+	
+	
+	
 }

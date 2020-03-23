@@ -1,4 +1,4 @@
-package logic;
+package character;
 
 public interface Movable {
 	

@@ -1,4 +1,6 @@
-package logic;
+package item;
+
+import character.Movable;
 
 public class HoleCover extends Item implements Movable{
 	public HoleCover(int indexX,int indexY) {

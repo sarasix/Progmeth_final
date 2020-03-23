@@ -1,4 +1,6 @@
-package logic;
+package item;
+
+import character.Movable;
 
 public class ExitBarricade extends Item implements Movable{
 	public ExitBarricade(int indexX,int indexY) {

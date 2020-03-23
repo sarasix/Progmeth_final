@@ -1,4 +1,6 @@
-package logic;
+package item;
+
+import character.Movable;
 
 public class Lamp extends Item implements Movable {
 	public Lamp(int indexX,int indexY) {

@@ -1,4 +1,6 @@
-package logic;
+package character;
+
+import item.HoleCover;
 
 public class Heiji extends Character{
 	private int walk;
@@ -7,7 +9,12 @@ public class Heiji extends Character{
 		super(indexX,indexY,isLight);
 		this.walk=3;
 	}
-	public boolean ability() {
+	public boolean ability(int indexX,int indexY,Object t) {
+		if(t instanceof HoleCover) {
+			return ((HoleCover) t).movable(indexX,indexY);
+			
+		}
+		return false;
 		
 	}
 	public int getWalk() {

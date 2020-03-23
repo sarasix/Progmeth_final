@@ -1,6 +1,8 @@
-package logic;
+package character;
 
-public class Ran extends Character {
+import item.ExitBarricade;
+
+public class Ran extends Character{
 	
 	private int walk;
 	public Ran(int indexX,int indexY,boolean isLight) {
@@ -8,15 +10,15 @@ public class Ran extends Character {
 		walk=3;
 		
 	}
-	public boolean ability(int indexX, int indexY,ExitBarricade e) {
+	public boolean ability(int indexX, int indexY,Object t) {
 		//ย้ายที่กั้นทางออก
-		boolean j=e.movable(indexX, indexY);
-		return j;
-		
+		if(t instanceof ExitBarricade) {
+			return ((ExitBarricade) t).movable(indexX,indexY);
+		}
+		return false;
 	}
 	public int getWalk() {
 		return walk;
 	}
-	@Override
-	
+
 }

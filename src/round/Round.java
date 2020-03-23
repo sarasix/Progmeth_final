@@ -9,8 +9,9 @@ public class Round {
 	private int lamp,manhole,door ;
 	private ArrayList<String> order;
 	public ArrayList<Character> card4;
-	public ArrayList<Character> allCharactor;
-	public int[] light,choice ; 
+	public static ArrayList<Character> allCharactor;
+	public int[] light ;
+	public int[] choice; 
 	public int n;
 	public Round(int lamp,int manhole,int door,ArrayList<String> order,ArrayList<Integer> choice) 
 	{
@@ -92,10 +93,13 @@ public class Round {
 		return n;
 	}
 	public void remove(int index) {
-		this.choice[index] = 0;	
+		//this.choice[index] = 0;
+		this.allCharactor.get(index).setIsChoice(false);
 		
 	}
-	
+	public static Character indexToCha(int index) {
+		return allCharactor.get(index);
+	}
 	
 	
 	
