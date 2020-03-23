@@ -1,8 +1,8 @@
 package map;
 
-public class putMap {
+public class PutMap {
 	private int indexX,indexY;
-	public putMap(int indexX,int indexY) {
+	public PutMap(int indexX,int indexY) {
 		this.indexX = indexX;
 		this.indexY = indexY;
 	}

@@ -1,8 +1,8 @@
 package character;
 
-import map.putMap;
+import map.PutMap;
 
-public class Character extends putMap{
+public class Character extends PutMap{
 	//private int indexX;
 	//private int indexY;
 	private boolean isChoice;

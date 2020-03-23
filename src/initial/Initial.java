@@ -2,7 +2,7 @@ package initial;
 import java.util.*;
 
 import item.*;
-import map.putMap;
+import map.PutMap;
 import round.Round;
 import map.Map;
 import character.*;
@@ -17,7 +17,7 @@ public class Initial  {
 										{1,3,1,4,1,1,1,3,1,1,1,1,1},
 										{5,1,1,1,1,1,1,4,1,1,1,1,5}
 									  };
-	public putMap[][] m2 = new putMap[][]  {{},
+	public PutMap[][] m2 = new PutMap[][]  {{},
 											{},
 											{},
 											{},
