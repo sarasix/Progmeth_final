@@ -3,10 +3,11 @@ import java.util.*;
 
 import item.*;
 import map.putMap;
+import round.Round;
 import map.Map;
 import character.*;
 import character.ShadowMan;
-public class Initial {
+public class Initial  {
 	
 	public int[][] m1  = new int [][] { {5,1,1,1,1,4,1,1,1,1,1,1,5},
 										{1,1,3,1,1,3,1,2,1,4,3,1,1},
@@ -35,22 +36,25 @@ public class Initial {
 											   {3,2,1}
 			
 											  };
+
+	public ArrayList<Integer> choice = new ArrayList<Integer>();
+											  
 	public ArrayList<String> order1 = new ArrayList<String> ();
 	public ArrayList<String> order2 = new ArrayList<String> ();
 
 								
 	public ArrayList<Lamp> allLamp  = new ArrayList <Lamp>();
-	public ArrayList<ExitBarricade> allExitBarricade = new ArrayList<>();
-	public ArrayList<HoleCover> allHoleCover = new ArrayList<>();
+	public ArrayList<ExitBarricade> allExitBarricade = new ArrayList<ExitBarricade>();
+	public ArrayList<HoleCover> allHoleCover = new ArrayList<HoleCover>();
 	
 	Lamp lamp0 = new Lamp(1,2); 
-	Lamp lamp1 = new Lamp(1,2);
-	Lamp lamp2 = new Lamp(1,2);
-	Lamp lamp3 = new Lamp(1,2);
-	Lamp lamp4 = new Lamp(1,2);
-	Lamp lamp5 = new Lamp(1,2);
-	Lamp lamp6 = new Lamp(1,2);
-	Lamp lamp7 = new Lamp(1,2);
+	Lamp lamp1 = new Lamp(1,5);
+	Lamp lamp2 = new Lamp(1,10);
+	Lamp lamp3 = new Lamp(2,7);
+	Lamp lamp4 = new Lamp(5,1);
+	Lamp lamp5 = new Lamp(4,5);
+	Lamp lamp6 = new Lamp(4,10);
+	Lamp lamp7 = new Lamp(5,7);
 	
 	ExitBarricade exitBarricade0 = new ExitBarricade(0,0);
 	ExitBarricade exitBarricade1 = new ExitBarricade(0,12);
@@ -71,19 +75,28 @@ public class Initial {
 	Haibara haibara = new Haibara(2,4,true);
 	Kid kid = new Kid (4,9,true);
 	
+	public int getLawRemoveItem(int round,int item) {
+		return this.lawRemoveItem[round][item];
+	}
 	
+	public ArrayList<String> getOrder1(){
+		return this.order1;
+	}
+	public ArrayList<String> getOrder2(){
+		return this.order2;
+	}
 	
 	public void setAllLamp(ArrayList<Lamp> allLamp,Lamp lamp) {
 		this.allLamp.add(lamp);
-		m2[lamp.getindexX][lamp.getondexY] = lamp;
+		m2[lamp.getindexX][lamp.getindexY] = lamp;
 	}
 	public void setAllExitBarricade(ArrayList<ExitBarricade> allExitBarricade,ExitBarricade exitBarricade) {
 		this.allExitBarricade.add(exitBarricade);
-		m2[exitBarricade.getindexX][exitBarricade.getondexY] = exitBarricade;
+		m2[exitBarricade.getindexX][exitBarricade.getindexY] = exitBarricade;
 	}
 	public void setAllHoleCover(ArrayList<HoleCover> allHoleCover,HoleCover holeCover) {
 		this.allHoleCover.add(holeCover);
-		m2[holeCover.getindexX][holeCover.getondexY] = holeCover;
+		m2[holeCover.getindexX][holeCover.getindexY] = holeCover;
 	}
 	
 	public void setCharactor() {
@@ -108,10 +121,24 @@ public class Initial {
 		order2.add("D");
 		order2.add("J");
 	}
+	public void setMap() {
+		Map map = new Map(this.m1,this.m2);
+
+	}
+	public void setChoice() {
+		int c = 0;
+		for(var i : choice) {
+			i = 1;
+			if(c==7) {
+				break;
+			}
+		}
+	}
+	public ArrayList <Integer> getChoice() {
+		return choice;
+	}
 	
-	
-	
-	public void setGameInitial() {
+	public Initial() {
 		setAllLamp(allLamp,lamp0);
 		setAllLamp(allLamp,lamp1);
 		setAllLamp(allLamp,lamp2);
@@ -130,16 +157,13 @@ public class Initial {
 		setAllHoleCover(allHoleCover, holeCover4);
 		setCharactor();
 		setOrder();
-		
+		setMap();
+		setChoice();
 		
 		
 		
 		
 	}
-	public void setMap() {
-		Map map = new Map(m1,m2);
-
-	}
-	
+		
 	
 }

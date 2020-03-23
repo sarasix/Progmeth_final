@@ -12,7 +12,7 @@ public class Round {
 	public ArrayList<Character> allCharactor;
 	public int[] light,choice ; 
 	public int n;
-	public Round(int lamp,int manhole,int door,ArrayList<String> order,int[] choice) 
+	public Round(int lamp,int manhole,int door,ArrayList<String> order,ArrayList<Integer> choice) 
 	{
 		this.lamp = lamp;
 		this.manhole = manhole;
