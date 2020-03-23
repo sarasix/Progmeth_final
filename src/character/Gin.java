@@ -1,4 +1,4 @@
-package logic;
+package character;
 
 public class Gin extends Character{
 	private int walk;
@@ -8,6 +8,7 @@ public class Gin extends Character{
 	}
     public boolean ability() {
     	//เรียกตัวละครให้เข้าใกล้ได้ 1-3 ช่อง
+    	return true;
     }
     public int getWalk() {
     	return walk;

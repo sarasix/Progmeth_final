@@ -44,14 +44,18 @@ public class Round {
 	}
 	
 	public void play() {
+		ArrayList<Character> randomCard  = card4;
 		for(int i=0;i<4;i++) {
 			if(order.get(i)=="D") {
-				PlayDetective play = new PlayDetective(this.card4);
-			}
+				System.out.println("Detective");
+				}
 			else {
-				PlayMrJack play = new PlayMrJack(this.card4);
-				
+				System.out.println("MrJack");
 			}
+			System.out.println("Please select card");
+			Player player = new Player(randomCard,0);
+		
+			randomCard = Player.getRandomCard();
 		}
 	}
 	

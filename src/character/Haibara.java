@@ -1,4 +1,4 @@
-package logic;
+package character;
 
 public class Haibara extends Character{
 	private int walk;
@@ -9,6 +9,7 @@ public class Haibara extends Character{
 	public boolean ability()
 	{
 		//ส่องแสงไปทิศไหนก็ได้
+		return true;
 		
 	}
 	public int getWalk() {

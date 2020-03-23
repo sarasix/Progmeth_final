@@ -88,15 +88,15 @@ public class Initial  {
 	
 	public void setAllLamp(ArrayList<Lamp> allLamp,Lamp lamp) {
 		this.allLamp.add(lamp);
-		m2[lamp.getindexX][lamp.getindexY] = lamp;
+		m2[lamp.getIndexX()][lamp.getIndexY()] = lamp;
 	}
 	public void setAllExitBarricade(ArrayList<ExitBarricade> allExitBarricade,ExitBarricade exitBarricade) {
 		this.allExitBarricade.add(exitBarricade);
-		m2[exitBarricade.getindexX][exitBarricade.getindexY] = exitBarricade;
+		m2[exitBarricade.getIndexX()][exitBarricade.getIndexY()] = exitBarricade;
 	}
 	public void setAllHoleCover(ArrayList<HoleCover> allHoleCover,HoleCover holeCover) {
 		this.allHoleCover.add(holeCover);
-		m2[holeCover.getindexX][holeCover.getindexY] = holeCover;
+		m2[holeCover.getIndexX()][holeCover.getIndexY()] = holeCover;
 	}
 	
 	public void setCharactor() {

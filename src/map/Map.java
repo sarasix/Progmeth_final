@@ -10,6 +10,10 @@ public class Map {
 		
 		
 	}
-	//public 
-
+	public int getM1(int indexX,int indexY) {
+		return m1[indexX][indexY];
+	}
+	public PutMap getM2(int indexX,int indexY) {
+		return m2[indexX][indexY];
+	}
 }

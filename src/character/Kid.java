@@ -1,4 +1,4 @@
-package logic;
+package character;
 
 public class Kid extends Character{
 	private int walk;
@@ -8,7 +8,7 @@ public class Kid extends Character{
 		
 	}
 	public boolean ability() {
-		
+		return true;
 	}
 	public int getWalk() {
 		return walk;
