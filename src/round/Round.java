@@ -1,5 +1,6 @@
 package round;
 import java.util.*;
+import map.Map;
 
 import character.Character;
 import character.Conan;
@@ -13,15 +14,25 @@ public class Round {
 	public int[] light ;
 	public int[] choice; 
 	public int n;
-	public Round(int lamp,int manhole,int door,ArrayList<String> order,ArrayList<Integer> choice) 
+	public Map mapAll;
+	public Round(int lamp,int manhole,int door,ArrayList<String> order,ArrayList<Integer> choice,Map map) 
 	{
 		this.lamp = lamp;
 		this.manhole = manhole;
 		this.door = door;
 		this.order = order;
+		for(int i = 0 ; i< 7;i++) {
+			for(int j = 0 ;j<13; j++) {
+				System.out.print(map.getM1(i, j)+ " ");
+			}
+			System.out.print("\n");
+		}
+		
 		
 	}
+	
 	public void removeLamp() {
+		
 		
 	}
 	public void random() {

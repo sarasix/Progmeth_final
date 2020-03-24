@@ -3,13 +3,13 @@ import java.util.*;
 
 import item.*;
 import map.PutMap;
-import round.Round;
 import map.Map;
 import character.*;
 import character.ShadowMan;
 public class Initial  {
 	
-	public int[][] m1  = new int [][] { {5,1,1,1,1,4,1,1,1,1,1,1,5},
+	public int[][] m1  = new int[][]
+										{ {5,1,1,1,1,4,1,1,1,1,1,1,5},
 										{1,1,3,1,1,3,1,2,1,4,3,1,1},
 										{1,2,2,1,1,2,1,3,1,1,1,1,1},
 										{1,4,1,2,1,4,1,4,1,2,2,4,1},	
@@ -17,14 +17,9 @@ public class Initial  {
 										{1,3,1,4,1,1,1,3,1,1,1,1,1},
 										{5,1,1,1,1,1,1,4,1,1,1,1,5}
 									  };
-	public PutMap[][] m2 = new PutMap[][]  {{},
-											{},
-											{},
-											{},
-											{},
-											{},
-									 		{},
-											};
+	public PutMap[][] m2 = new PutMap[7][13];  
+	
+	public Map mapAll = new Map(m1,m2);
 											
 	public int[][] lawRemoveItem = new int[][]{{8,5,3},
 											   {7,5,3},
@@ -121,9 +116,10 @@ public class Initial  {
 		order2.add("D");
 		order2.add("J");
 	}
-	public void setMap() {
-		Map map = new Map(this.m1,this.m2);
 
+	public Map getMap() {
+		Map mapAll = new Map(m1,m2);
+		return mapAll;
 	}
 	public void setChoice() {
 		int c = 0;
@@ -157,7 +153,6 @@ public class Initial  {
 		setAllHoleCover(allHoleCover, holeCover4);
 		setCharactor();
 		setOrder();
-		setMap();
 		setChoice();
 		
 		

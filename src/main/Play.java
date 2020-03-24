@@ -18,7 +18,6 @@ public class Play {
 	
 	}
 	public static void loopRound (){
-		
 		for(int i=0;i<8;i++) {
 			System.out.println("round"+i);
 			if(i%2 == 0) {
@@ -27,9 +26,10 @@ public class Play {
 			else {
 				order = order2;
 			}
-			Round roundCurrent = new Round(initial.getLawRemoveItem(i,0),initial.getLawRemoveItem(i,1) , initial.getLawRemoveItem(i,2),order,choice);
+			Round roundCurrent = new Round(initial.getLawRemoveItem(i,0),initial.getLawRemoveItem(i,1) , initial.getLawRemoveItem(i,2),order,choice,initial.getMap());
 			
 			game.add(roundCurrent);
 		}
-	}
+
+			}
 }
