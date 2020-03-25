@@ -8,9 +8,9 @@ public class Kogoro extends Character{
 		super(indexX,indexY,isLight);
 		walk=3;
 	}
-	public boolean ability(int indexX,int indexY,Object t) {
+	public boolean ability(int indexX,int indexY,Object t,Object y) {
 		if(t instanceof Lamp) {
-			return ((Lamp) t).movable(indexX,indexY);
+			return ((Lamp) t).movable(indexX,indexY, y);
 		}
 		
 		

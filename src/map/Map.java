@@ -16,4 +16,9 @@ public class Map {
 	public PutMap getM2(int indexX,int indexY) {
 		return m2[indexX][indexY];
 	}
+	public void setM2(PutMap g,PutMap t) {
+		g=t;
+		
+	}
+	
 }
