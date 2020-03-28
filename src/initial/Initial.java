@@ -21,14 +21,14 @@ public class Initial  {
 	
 	public Map mapAll = new Map(m1,m2);
 											
-	public int[][] lawRemoveItem = new int[][]{{8,5,3},
-											   {7,5,3},
-											   {6,4,3},
-											   {5,4,2},
-											   {4,3,2},
-											   {3,3,2},
-											   {3,2,1},
-											   {3,2,1}
+	public int[][] lawRemoveItem = new int[][]{{8,3,5},
+											   {7,3,5},
+											   {6,3,4},
+											   {5,2,4},
+											   {4,2,3},
+											   {3,2,3},
+											   {3,1,2},
+											   {3,1,2}
 			
 											  };
 
@@ -74,6 +74,7 @@ public class Initial  {
 		return this.lawRemoveItem[round][item];
 	}
 	
+	
 	public ArrayList<String> getOrder1(){
 		return this.order1;
 	}
@@ -94,6 +95,15 @@ public class Initial  {
 		m2[holeCover.getIndexX()][holeCover.getIndexY()] = holeCover;
 	}
 	
+	public ArrayList<Lamp> getAllLamp (){
+		return this.allLamp;
+	}
+	public ArrayList<ExitBarricade> getAllExitBarricade (){
+		return this.allExitBarricade;
+	}
+	public ArrayList<HoleCover> getAllHoleCover (){
+		return this.allHoleCover;
+	}
 	public void setCharactor() {
 		m2[0][3] = gin;
 		m2[4][2] = shadowMan;

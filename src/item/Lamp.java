@@ -8,4 +8,5 @@ public class Lamp extends Item {
 		
 	}
 	
+	
 }
