@@ -5,8 +5,7 @@ import map.Map;
 
 import character.*;
 import character.Character;
-import round.PlayDetective;
-import round.PlayMrJack;
+
 public class Round {
 	private int numLamp,numExitBarricade,numHoleCover ;
 	private ArrayList<String> order;
@@ -115,7 +114,7 @@ public class Round {
 			System.out.println("Please select card");
 			Player player = new Player(randomCard,0);
 		
-			randomCard = Player.getRandomCard();
+			randomCard = Player.getRandomCards();
 		}
 	}
 	

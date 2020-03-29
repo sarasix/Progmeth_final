@@ -42,24 +42,24 @@ public class Initial  {
 	public ArrayList<ExitBarricade> allExitBarricade = new ArrayList<ExitBarricade>();
 	public ArrayList<HoleCover> allHoleCover = new ArrayList<HoleCover>();
 	
-	Lamp lamp0 = new Lamp(1,2); 
-	Lamp lamp1 = new Lamp(1,5);
-	Lamp lamp2 = new Lamp(1,10);
-	Lamp lamp3 = new Lamp(2,7);
-	Lamp lamp4 = new Lamp(5,1);
-	Lamp lamp5 = new Lamp(4,5);
-	Lamp lamp6 = new Lamp(4,10);
-	Lamp lamp7 = new Lamp(5,7);
+	Lamp lamp0 = new Lamp(1,2,0); 
+	Lamp lamp1 = new Lamp(1,5,1);
+	Lamp lamp2 = new Lamp(1,10,2);
+	Lamp lamp3 = new Lamp(2,7,3);
+	Lamp lamp4 = new Lamp(5,1,4);
+	Lamp lamp5 = new Lamp(4,5,5);
+	Lamp lamp6 = new Lamp(4,10,6);
+	Lamp lamp7 = new Lamp(5,7,7);
+    //parameter/ delete lamp blablabla	
+	ExitBarricade exitBarricade0 = new ExitBarricade(0,0,0);
+	ExitBarricade exitBarricade1 = new ExitBarricade(0,12,1);
+	ExitBarricade exitBarricade2 = new ExitBarricade(6,0,2);
 	
-	ExitBarricade exitBarricade0 = new ExitBarricade(0,0);
-	ExitBarricade exitBarricade1 = new ExitBarricade(0,12);
-	ExitBarricade exitBarricade2 = new ExitBarricade(6,0);
-	
-	HoleCover holeCover0 = new HoleCover(3,1);
-	HoleCover holeCover1 = new HoleCover(3,5);
-	HoleCover holeCover2 = new HoleCover(3,7);
-	HoleCover holeCover3 = new HoleCover(3,11);
-	HoleCover holeCover4 = new HoleCover(1,9);
+	HoleCover holeCover0 = new HoleCover(3,1,0);
+	HoleCover holeCover1 = new HoleCover(3,5,1);
+	HoleCover holeCover2 = new HoleCover(3,7,2);
+	HoleCover holeCover3 = new HoleCover(3,11,3);
+	HoleCover holeCover4 = new HoleCover(1,9,4);
 	
 	Gin gin = new Gin(0,3,true);
 	ShadowMan shadowMan = new ShadowMan(4,2,true);
@@ -82,18 +82,7 @@ public class Initial  {
 		return this.order2;
 	}
 	
-	public void setAllLamp(ArrayList<Lamp> allLamp,Lamp lamp) {
-		this.allLamp.add(lamp);
-		m2[lamp.getIndexX()][lamp.getIndexY()] = lamp;
-	}
-	public void setAllExitBarricade(ArrayList<ExitBarricade> allExitBarricade,ExitBarricade exitBarricade) {
-		this.allExitBarricade.add(exitBarricade);
-		m2[exitBarricade.getIndexX()][exitBarricade.getIndexY()] = exitBarricade;
-	}
-	public void setAllHoleCover(ArrayList<HoleCover> allHoleCover,HoleCover holeCover) {
-		this.allHoleCover.add(holeCover);
-		m2[holeCover.getIndexX()][holeCover.getIndexY()] = holeCover;
-	}
+	
 	
 	public ArrayList<Lamp> getAllLamp (){
 		return this.allLamp;
@@ -145,22 +134,22 @@ public class Initial  {
 	}
 	
 	public Initial() {
-		setAllLamp(allLamp,lamp0);
-		setAllLamp(allLamp,lamp1);
-		setAllLamp(allLamp,lamp2);
-		setAllLamp(allLamp,lamp3);
-		setAllLamp(allLamp,lamp4);
-		setAllLamp(allLamp,lamp5);
-		setAllLamp(allLamp,lamp6);
-		setAllLamp(allLamp,lamp7);
-		setAllExitBarricade(allExitBarricade, exitBarricade0);
-		setAllExitBarricade(allExitBarricade, exitBarricade1);
-		setAllExitBarricade(allExitBarricade, exitBarricade2);
-		setAllHoleCover(allHoleCover, holeCover0);
-		setAllHoleCover(allHoleCover, holeCover1);
-		setAllHoleCover(allHoleCover, holeCover2);
-		setAllHoleCover(allHoleCover, holeCover3);
-		setAllHoleCover(allHoleCover, holeCover4);
+		allLamp.add(lamp0);
+		allLamp.add(lamp1);
+		allLamp.add(lamp2);
+		allLamp.add(lamp3);
+		allLamp.add(lamp4);
+		allLamp.add(lamp5);
+		allLamp.add(lamp6);
+		allLamp.add(lamp7);
+		allExitBarricade.add(exitBarricade0);
+		allExitBarricade.add(exitBarricade1);
+		allExitBarricade.add(exitBarricade2);
+		allHoleCover.add(holeCover0);
+		allHoleCover.add(holeCover1);
+		allHoleCover.add(holeCover2);
+		allHoleCover.add(holeCover3);
+		allHoleCover.add(holeCover4);
 		setCharactor();
 		setOrder();
 		setChoice();

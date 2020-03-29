@@ -10,7 +10,9 @@ public class Haibara extends Character {
 		//this.walk=3;
 		this.directionLight=0;
 	}
-	
+	public void setDirectionLight(int h) {
+		this.directionLight=h;
+	}
 	public int getDirectionLight() {
 		return this.directionLight;
 	}

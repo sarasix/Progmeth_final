@@ -1,5 +1,9 @@
 package character;
 
+import java.util.Scanner;
+
+import round.Round;
+
 public class Gin extends Character{
 	
 	public Gin(int indexX,int indexY,boolean isLight) {
@@ -8,7 +12,11 @@ public class Gin extends Character{
 	}
     public void ability() {
     	//เรียกตัวละครให้เข้าใกล้ได้ 1-3 ช่อง
-    	
+    	Scanner scan = new Scanner(System.in);
+    	System.out.println("Choose a character to walk");
+    	int h= scan.nextInt();
+    	Character m= Round.indexToCha(h);
+    	m.walk();
     }
     
 }

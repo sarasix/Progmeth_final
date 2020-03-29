@@ -7,9 +7,14 @@ import map.PutMap;
 public class Item extends PutMap implements Movable{
 	
 	private int typeField;
-	public Item(int indexX,int indexY,int typeField) {
+	private int number;
+	public Item(int indexX,int indexY,int typeField,int number) {
 		super(indexX,indexY);
 		this.typeField=typeField;
+		Map.m2[indexX][indexY] = this;
+		this.number=number;
+		
+		
 	}
 	public boolean movable(int indexX,int indexY) {
 		if (this.getIndexX()==indexX && this.getIndexY()==indexY)
@@ -24,8 +29,8 @@ public class Item extends PutMap implements Movable{
 				int indexYPrevious=this.getIndexY();
 				this.setIndexX(indexX);
 				this.setIndexY(indexY);
-				PutMap N= new PutMap(indexX,indexY);
-				Map.m2[indexX][indexY]=N;
+				//PutMap N= new PutMap(indexX,indexY);
+				Map.m2[indexX][indexY]=this;
 				Map.m2[indexXPrevious][indexYPrevious]=null;
 				return true;
 			}

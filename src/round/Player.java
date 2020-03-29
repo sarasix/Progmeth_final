@@ -6,26 +6,26 @@ import java.util.Scanner;
 import character.Character;
 
 public class Player {
-private static ArrayList<Character> randomCard;
+private static ArrayList<Character> randomCards;
 private int selectNumber; 
 	
-	public Player(ArrayList<Character> randomCard,int selectNumber) {
+	public Player(ArrayList<Character> randomCards,int selectNumber) {
 		this.selectNumber = selectNumber;
-		this.randomCard = randomCard;
+		this.randomCards = randomCards;
 		
 		selectCharacter();
 		
-		this.randomCard.remove(this.selectNumber);
+		this.randomCards.remove(this.selectNumber);
 	}
 	
-	public static ArrayList<Character> getRandomCard() {
-		return randomCard;
+	public static ArrayList<Character> getRandomCards() {
+		return randomCards;
 	}
 	
 	public void selectCharacter() {
 		Scanner scan = new Scanner (System.in);
 	
-		Character selectCard = randomCard.get(this.selectNumber);
+		Character selectCard = randomCards.get(this.selectNumber);
 		
 		int walk = 1;
 		System.out.println("Select to do\n1. walk\n2. ablity");

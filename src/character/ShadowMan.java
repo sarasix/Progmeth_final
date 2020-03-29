@@ -1,6 +1,9 @@
 package character;
 
+import java.util.Scanner;
+
 import map.Map;
+import round.Round;
 
 public class ShadowMan extends Character {
 	//private int walk;
@@ -8,22 +11,26 @@ public class ShadowMan extends Character {
 		super(indexX,indexY,isLight,3);
 		//walk=3;
 	}
-	public boolean ability(Object t,Object y) {
+	public void ability() {
 		
-		if(!(y instanceof Map))
-			return false;
-		if(t instanceof Character) {
-			int indexXOther=((Character)t).getIndexX();
-			int indexYOther=((Character)t).getIndexY();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Choose a character you want to switch with");
+		int G=scan.nextInt();
+		Character P=Round.indexToCha(G);
+		
+		int indexXOther=P.getIndexX();
+		int indexYOther=P.getIndexY();
 			
-			((Character) t).setIndexX(this.getIndexX());
-			((Character) t).setIndexY(this.getIndexY());
-			this.setIndexX(indexXOther);
-			this.setIndexY(indexYOther);
-			return true;
-		}
+		P.setIndexX(this.getIndexX());
+		P.setIndexY(this.getIndexY());
+		Map.m2[P.getIndexX()][P.getIndexY()]=P;
+		this.setIndexX(indexXOther);
+		this.setIndexY(indexYOther);
+		Map.m2[this.getIndexX()][this.getIndexY()]=this;
 		
-		return false;
+		
+		
+		
 		
 	}
 }
