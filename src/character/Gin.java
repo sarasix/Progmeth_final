@@ -16,7 +16,7 @@ public class Gin extends Character{
     	System.out.println("Choose a character to walk");
     	int h= scan.nextInt();
     	Character m= Round.indexToCha(h);
-    	m.walk();
+    	
     }
     
 }

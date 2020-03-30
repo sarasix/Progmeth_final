@@ -15,7 +15,9 @@ public class Main {
 	public static ArrayList<String> order = new ArrayList<String>();
 	public static Map map = initial.getMap();
 	public static ArrayList<Character> allCharacter = initial.getAllCharacter();
-			
+	public static int dir;		
+	public static int step;
+	public static int inputCard;
 	public static ArrayList<Character> card4 = new ArrayList<Character>();
 	
 	public static Random rand = new Random();
@@ -127,8 +129,34 @@ public class Main {
 			card4.add(allCharacter.get(randomNumber));
 		}		
 		
-	}	
-
+	}
+	public static boolean validPosition(int[] pos) {
+		if(pos[0]>=0&&pos[0]<=6&&pos[1]>=0&&pos[1]<=12) {
+			return true;
+		}
+		return false;
+	}
+    public static int[] dirToPosition() {
+    	int[] k = new int[2];
+    	if(dir == 1) {
+			k[0]=card4.get(inputCard-1).getIndexX();
+			k[1]=card4.get(inputCard-1).getIndexY()-1;
+			
+			
+		} else if (dir==2) {
+			k[0]=card4.get(inputCard-1).getIndexX();
+			k[1]=card4.get(inputCard-1).getIndexY()+1;
+			
+			
+		} else if (dir==3) {
+			k[0]=card4.get(inputCard-1).getIndexX()-1;
+			k[1]=card4.get(inputCard-1).getIndexY();
+		} else if (dir==4) {
+			k[0]=card4.get(inputCard-1).getIndexX()+1;
+			k[1]=card4.get(inputCard-1).getIndexY();
+		}
+    	return k;
+    }
 	public static void play() {
 		for(int i=0;i<4;i++) {
 			printMap();
@@ -144,29 +172,134 @@ public class Main {
 			}
 			System.out.println();
 			System.out.println("Please select card");
-			int inputCard = scan.nextInt();
-	
+			inputCard = scan.nextInt();
+			int inputNum;
+			int[] u= new int[2]; 
 			if(card4.get(inputCard-1) instanceof Haibara) {
-				card4.get(inputCard-1).walk();
+				do {
+					System.out.println("How many steps you want to walk? Maximum: "+card4.get(inputCard-1).getWalk());
+					step=scan.nextInt();
+				}while(!(step>=1&&step<=card4.get(inputCard-1).getWalk()));
+				for(int j=1;j<=step;j++) {
+					
+					do
+					{
+						
+						do
+						{
+							System.out.println("step"+j+"Please insert walk direction : [1]<- [2]-> [3]^ [4]v");
+							dir= scan.nextInt();
+						}while(!(dir<=4&&dir>=1));
+						
+						u=dirToPosition();
+						if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
+							card4.get(inputCard-1).walk(u);
+							break;
+						}
+						if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
+							System.out.println("Choose a hole you want to appear: ");
+							int indexXHole;
+							int indexYHole;
+							int[] newU=new int[2];
+							do
+							{
+								System.out.print("Insert a row for your hole position: ");
+								indexXHole=scan.nextInt();
+								System.out.print("\nInsert a column for your hole position: ");
+								indexYHole=scan.nextInt();
+								newU[0]=indexXHole;
+								newU[1]=indexYHole;
+							}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
+							card4.get(inputCard-1).walk(newU);
+							break;
+						}
+								
+					       
+						
+					}while(true);
+					
+					
+				}
+				int j;
+				do
+				{
+					System.out.println("Choose the direction for your Haibara's Light: [1]<- [2]-> [3] ^  [4] v");
+					j=scan.nextInt();
+				}while(!(j>=1&&j<=4));
+				((Haibara) card4.get(inputCard-1)).setDirectionLight(j);
+				
 			}
-			else
-			{
-				System.out.println("[1]walk [2]ability");
-				int inputNum = scan.nextInt();
+			else if (card4.get(inputCard-1) instanceof Kid) {
+			
+				
+			}
+			else{
+				
+				do
+				{
+					System.out.println("[1]walk [2]ability");
+					inputNum = scan.nextInt();
+				}while(!(inputNum==1||inputNum==2));
+				
 				if(inputNum==1) {
-					if(card4.get(inputCard-1) instanceof Kid)
-					{
-						card4.get(inputCard-1).walk();
-					}
-					else
-					{
-						card4.get(inputCard-1).walk();
+					//int[] u= new int[2];
+					do {
+						System.out.println("How many steps you want to walk? Maximum: "+card4.get(inputCard-1).getWalk());
+						step=scan.nextInt();
+					}while(!(step>=1&&step<=card4.get(inputCard-1).getWalk()));
+					for(int j=1;j<=step;j++) {
+						
+						do
+						{
+							
+							do
+							{
+								System.out.println("step"+j+"Please insert walk direction : [1]<- [2]-> [3]^ [4]v");
+								dir= scan.nextInt();
+							}while(!(dir<=4&&dir>=1));
+							
+							u=dirToPosition();
+							if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
+								card4.get(inputCard-1).walk(u);
+								break;
+							}
+							if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
+								System.out.println("Choose a hole you want to appear: ");
+								int indexXHole;
+								int indexYHole;
+								int[] newU=new int[2];
+								do
+								{
+									System.out.print("Insert a row for your hole position: ");
+									indexXHole=scan.nextInt();
+									System.out.print("\nInsert a column for your hole position: ");
+									indexYHole=scan.nextInt();
+									newU[0]=indexXHole;
+									newU[1]=indexYHole;
+								}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
+								card4.get(inputCard-1).walk(newU);
+								break;
+							}
+									
+						       
+							
+						}while(true);
+						
+						
 					}
 				
 				}
 				if(inputNum==2) {
 					System.out.println(chaToName(card4.get(inputCard-1))+" ability!!");
-					card4.get(inputCard-1).ability();
+					//Conan Gin ShadowMan Ran Kogoro Heiji 
+					//card4.get(inputCard-1).ability();
+					if(card4.get(inputCard-1) instanceof Conan) {
+						card4.get(inputCard-1).ability();
+					} else if(card4.get(inputCard-1) instanceof ShadowMan) {
+						System.out.println("Choose a character you want to switch position with Shadow Man: ");
+						Scas
+						
+					}
 				}
 				
 			}
