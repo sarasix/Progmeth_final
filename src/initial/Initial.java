@@ -5,7 +5,7 @@ import item.*;
 import map.PutMap;
 import map.Map;
 import character.*;
-import character.ShadowMan;
+import character.Character;
 public class Initial  {
 	
 	public int[][] m1  = new int[][]
@@ -36,6 +36,9 @@ public class Initial  {
 											  
 	public ArrayList<String> order1 = new ArrayList<String> ();
 	public ArrayList<String> order2 = new ArrayList<String> ();
+	
+	public ArrayList<Character> allCharacter = new ArrayList<Character>();
+	
 
 								
 	public ArrayList<Lamp> allLamp  = new ArrayList <Lamp>();
@@ -102,6 +105,15 @@ public class Initial  {
 		m2[3][8] = ran;
 		m2[2][4] = haibara;
 		m2[4][9] = kid;
+		allCharacter.add(gin);
+		allCharacter.add(shadowMan);
+		allCharacter.add(conan);
+		allCharacter.add(kogoro);
+		allCharacter.add(heiji);
+		allCharacter.add(ran);
+		allCharacter.add(haibara);
+		allCharacter.add(kid);
+		
 		
 	}
 	public void setOrder() {
@@ -121,18 +133,18 @@ public class Initial  {
 		return mapAll;
 	}
 	public void setChoice() {
-		int c = 0;
-		for(var i : choice) {
-			i = 1;
-			if(c==7) {
-				break;
-			}
+		for(int i =0 ; i<8;i++)
+		{
+			choice.add(1);
 		}
+		
 	}
 	public ArrayList <Integer> getChoice() {
 		return choice;
 	}
-	
+	public ArrayList<Character> getAllCharacter() {
+		return this.allCharacter;
+	}
 	public Initial() {
 		allLamp.add(lamp0);
 		allLamp.add(lamp1);

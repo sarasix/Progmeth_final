@@ -138,6 +138,12 @@ public class Character extends PutMap implements Walk{
 		
 		
 	}
+
+	@Override
+	public int[] walk(int dir) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 	
