@@ -28,6 +28,11 @@ public class Kogoro extends Character{
 		
 		//return t.movable(indexXLampSpace,indexYLampSpace);
 	}
+	@Override
+	public void ability() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 

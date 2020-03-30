@@ -152,27 +152,28 @@ public class Main {
 			else
 			{
 				System.out.println("[1]walk [2]ability");
+				int inputNum = scan.nextInt();
+				if(inputNum==1) {
+					if(card4.get(inputCard-1) instanceof Kid)
+					{
+						card4.get(inputCard-1).walk();
+					}
+					else
+					{
+						card4.get(inputCard-1).walk();
+					}
 				
-			}
-			int inputNum = scan.nextInt();
-			if(inputNum==1) {
-				if(card4.get(inputCard-1) instanceof Kid)
-				{
-					card4.get(inputCard-1).walk();
 				}
-				else
-				{
-					card4.get(inputCard-1).walk();
+				if(inputNum==2) {
+					card4.get(inputCard-1).ability();
 				}
 				
 			}
 			
-			if(inputNum==2) {
-				card4.get(inputCard-1).ability();
-			}
+			
 		
 			
-			card4.remove(inputNum-1);
+			card4.remove(inputCard-1);
 			
 		}
 		
