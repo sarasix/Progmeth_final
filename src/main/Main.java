@@ -1,7 +1,6 @@
 package main;
 import initial.*;
 import item.*;
-import round.*;
 import java.util.*;
 
 import character.*;
@@ -16,7 +15,11 @@ public class Main {
 	public static ArrayList<String> order = new ArrayList<String>();
 	public static Map map = initial.getMap();
 	public static ArrayList<Character> allCharacter = initial.getAllCharacter();
-	static Random rand = new Random();
+			
+	public static ArrayList<Character> card4 = new ArrayList<Character>();
+	
+	public static Random rand = new Random();
+	
 	private static int randomNumber;
 	
 	
@@ -43,6 +46,7 @@ public class Main {
 	public static void round(int numLamp,int numExitBarricade,int numHoleCover,ArrayList<String> order) {
 		removeItem(numLamp,numExitBarricade,numHoleCover);
 		printMap();
+		randomCard();
 		
 		
 	}
@@ -75,15 +79,6 @@ public class Main {
 	
 	public static void removeItem(int numLamp,int numExitBarricade,int numHoleCover) {
 		
-		/*if (Map.allLamp.size() > numLamp) {
-			
-			randomNumber =   rand.nextInt(Map.allLamp.size());
-			System.out.println("Lamp remove!!");
-			
-			Map.m2[Map.allLamp.get(randomNumber).getIndexX()][ Map.allLamp.get(randomNumber).getIndexY()] = 
-			ArrayList<Lamp> newAllLamp = Map.getAllLamp();
-			newAllLamp.remove(n);
-		}*/
 		if(Map.allLamp.size() > numLamp)
 		{
 			randomNumber =   rand.nextInt(Map.allLamp.size());
@@ -107,18 +102,66 @@ public class Main {
 			Map.m2[Map.allHoleCover.get(randomNumber).getIndexX()][ Map.allHoleCover.get(randomNumber).getIndexY()] = null;
 			Map.allHoleCover.remove(randomNumber);
 			
-		}
-				
+		}	
 	}
 		
-	
-	
-	
-	
-	
+	public static void randomCard() {
+
+		card4 = new ArrayList<Character>();
+		for(int i = 0; i<4 ; i++)
+		{
+			while(true)
+			{
+				randomNumber =   rand.nextInt(8);		
+				if(i!=0) {
+					if(!card4.contains(allCharacter.get(randomNumber))) {
+						break;	
+					}
+				}
+				else {
+					break;
+				}
+			}
+			card4.add(allCharacter.get(randomNumber));
+		}		
+		for(int i=0 ;i<4;i++) {			
+			System.out.print("["+(i+1)+"]"+indexToName(chaToIndex(card4.get(i)))+" ");
+			
+		}
+		System.out.println();
+	}	
 		
 	public static Character indexToCha(int index) {
 		return allCharacter.get(index);
+	}
+	public static String indexToName(int index) {
+		String name = null;
+		if(index == 0) {
+			name = "gin";
+		}
+		if(index == 1) {
+			name = "shadowMan";
+		}
+		if(index == 2) {
+			name = "conan";
+		}
+		if(index == 3) {
+			name = "kogoro";
+		}
+		if(index == 4) {
+			name = "heiji";
+		}
+		if(index == 5) {
+			name = "ran";
+		}
+		if(index == 6) {
+			name = "haibara";
+		}
+		if(index == 7) {
+			name = "kid";
+		}
+		
+		return name;
 	}
 	
 	public static int chaToIndex(Character cha ) {
