@@ -165,6 +165,7 @@ public class Main {
 				
 				}
 				if(inputNum==2) {
+					System.out.println(chaToName(card4.get(inputCard-1))+" ability!!");
 					card4.get(inputCard-1).ability();
 				}
 				
@@ -180,6 +181,9 @@ public class Main {
 	}
 	public static Character indexToCha(int index) {
 		return allCharacter.get(index);
+	} 
+	public static String chaToName(Character character) {
+		return indexToName(chaToIndex(character));
 	}
 	public static String indexToName(int index) {
 		String name = null;
