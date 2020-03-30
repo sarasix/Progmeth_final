@@ -4,11 +4,8 @@ import item.*;
 import round.*;
 import java.util.*;
 
+import character.*;
 import character.Character;
-import character.Conan;
-import character.Gin;
-import character.Kogoro;
-import character.ShadowMan;
 import map.Map;
 
 public class Main {
@@ -52,15 +49,15 @@ public class Main {
 	public static void printMap() {
 		for(int i = 0 ; i< 7;i++) {
 			for(int j = 0 ;j<13; j++) {				
-				if(map.getM2(i,j) != null) {				
-					if(map.getM2(i,j)instanceof Lamp) {
-						System.out.print("l"+ " ");
-					}
-					else if(map.getM2(i,j)instanceof ExitBarricade) {
+				if(Map.m2[i][j] != null) {				
+					if(Map.m2[i][j] instanceof Lamp) {
 						System.out.print("E"+ " ");
 					}
-					else if(map.getM2(i,j)instanceof HoleCover) {
-						System.out.print("H"+ " ");
+					else if(Map.m2[i][j]instanceof ExitBarricade) {
+						System.out.print("X"+ " ");
+					}
+					else if(Map.m2[i][j]instanceof HoleCover) {
+						System.out.print("O"+ " ");
 					}
 					else {
 						System.out.print("*"+ " ");
@@ -70,7 +67,7 @@ public class Main {
 					System.out.print(map.getM1(i, j)+ " ");
 				}
 			}
-			System.out.println("\n");
+			System.out.print("\n");
 			
 			
 		}			
@@ -78,42 +75,53 @@ public class Main {
 	
 	public static void removeItem(int numLamp,int numExitBarricade,int numHoleCover) {
 		
-		if (Map.allLamp.size() > numLamp) {
+		/*if (Map.allLamp.size() > numLamp) {
 			
 			randomNumber =   rand.nextInt(Map.allLamp.size());
 			System.out.println("Lamp remove!!");
+			
 			Map.m2[Map.allLamp.get(randomNumber).getIndexX()][ Map.allLamp.get(randomNumber).getIndexY()] = 
 			ArrayList<Lamp> newAllLamp = Map.getAllLamp();
 			newAllLamp.remove(n);
-		}
-		if (Map.allLamp.size() > numLamp) {
-				Random rand = new Random();
-				n =   rand.nextInt(map.getAllLamp().size());
-				System.out.println("Lamp remove!!");
-				this.map.setM2(map.getAllLamp().get(n).getIndexX(), map.getAllLamp().get(n).getIndexY(), null);
-				ArrayList<Lamp> newAllLamp = map.getAllLamp();
-				newAllLamp.remove(n);
-				this.map.setAllLamp(newAllLamp);
-		}
+		}*/
+		if(Map.allLamp.size() > numLamp)
+		{
+			randomNumber =   rand.nextInt(Map.allLamp.size());
+			System.out.println("Lamp remove!!");
+			Map.m2[Map.allLamp.get(randomNumber).getIndexX()][ Map.allLamp.get(randomNumber).getIndexY()] = null;
+			Map.allLamp.remove(randomNumber);
 			
-	}
-	
-	
-	
-	
-	
-		public void editChoice() {
-		for(var i : this.allCharactor) {
-			if(!i.getIsChoice()) {
-				this.choice[chaToIndex(i)] = 0 ;
-			}
 		}
+		if(Map.allExitBarricade.size() > numExitBarricade)
+		{
+			randomNumber =   rand.nextInt(Map.allExitBarricade.size());
+			System.out.println("ExitBarricade remove!!");
+			Map.m2[Map.allExitBarricade.get(randomNumber).getIndexX()][ Map.allExitBarricade.get(randomNumber).getIndexY()] = null;
+			Map.allExitBarricade.remove(randomNumber);
+			
+		}
+		if(Map.allHoleCover.size() > numHoleCover)
+		{
+			randomNumber =   rand.nextInt(Map.allHoleCover.size());
+			System.out.println("HoleCover remove!!");
+			Map.m2[Map.allHoleCover.get(randomNumber).getIndexX()][ Map.allHoleCover.get(randomNumber).getIndexY()] = null;
+			Map.allHoleCover.remove(randomNumber);
+			
+		}
+				
+	}
 		
-	}
+	
+	
+	
+	
+	
+		
 	public static Character indexToCha(int index) {
-		return allCharactor.get(index);
+		return allCharacter.get(index);
 	}
-	public int chaToIndex(Character cha ) {
+	
+	public static int chaToIndex(Character cha ) {
 		int index = 0;
 		if(cha instanceof Gin) {
 			index = 0;

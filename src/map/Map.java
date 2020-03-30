@@ -33,13 +33,13 @@ public class Map {
 		
 	}
 	
-	public ArrayList<Lamp> getAllLamp(){
+	public static ArrayList<Lamp> getAllLamp(){
 		return allLamp;
 	}
-	public ArrayList<ExitBarricade> getAllExitBarricade(){
+	public static ArrayList<ExitBarricade> getAllExitBarricade(){
 		return allExitBarricade;
 	}
-	public ArrayList<HoleCover> getAllHoleCover(){
+	public static ArrayList<HoleCover> getAllHoleCover(){
 		return allHoleCover;
 	}
 	
