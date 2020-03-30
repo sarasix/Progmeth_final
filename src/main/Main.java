@@ -19,6 +19,7 @@ public class Main {
 	public static ArrayList<Character> card4 = new ArrayList<Character>();
 	
 	public static Random rand = new Random();
+	public static Scanner scan = new Scanner(System.in);
 	
 	private static int randomNumber;
 	
@@ -31,7 +32,7 @@ public class Main {
 	}
 	public static void loopRound (){
 		for(int i=0;i<8;i++) {
-			System.out.println("round"+i);
+			System.out.println("round"+(i+1));
 			if(i%2 == 0) {
 				order = order1;
 			}
@@ -45,8 +46,9 @@ public class Main {
 	}
 	public static void round(int numLamp,int numExitBarricade,int numHoleCover,ArrayList<String> order) {
 		removeItem(numLamp,numExitBarricade,numHoleCover);
-		printMap();
+		
 		randomCard();
+		play();
 		
 		
 	}
@@ -124,13 +126,44 @@ public class Main {
 			}
 			card4.add(allCharacter.get(randomNumber));
 		}		
-		for(int i=0 ;i<4;i++) {			
-			System.out.print("["+(i+1)+"]"+indexToName(chaToIndex(card4.get(i)))+" ");
+		
+	}	
+
+	public static void play() {
+		for(int i=0;i<4;i++) {
+			printMap();
+			if(order.get(i)=="D") {
+				System.out.println("=====Detective=====");
+				}
+			else {
+				System.out.println("=====MrJack=====");
+			}
+			for(int j=0 ;j<(4-i);j++) {			
+				System.out.print("["+(j+1)+"]"+indexToName(chaToIndex(card4.get(j)))+" ");
+				
+			}
+			System.out.println();
+			System.out.println("Please select card");
+			int inputCard = scan.nextInt();
+	
+			if(card4.get(inputCard-1) instanceof Haibara) {
+				
+			}
+			else
+			{
+				System.out.println("[1]walk [2]ability");
+				
+			}
+			int inputNum = scan.nextInt();
+			if(inputNum==1) {
+				card4.get(inputCard-1).walk();
+			}
+			
+			card4.remove(inputNum);
 			
 		}
-		System.out.println();
-	}	
 		
+	}
 	public static Character indexToCha(int index) {
 		return allCharacter.get(index);
 	}
@@ -192,5 +225,6 @@ public class Main {
 		}
 		return index;
 	}
+	
 	
 }

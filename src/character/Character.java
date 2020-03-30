@@ -51,6 +51,7 @@ public class Character extends PutMap implements Walk{
 		//boolean invalid;
 		int step;
 		do {
+			System.out.println("step = ?");
 			step=scan.nextInt();
 		}while(!(step>=1&&step<=this.walk));
 		for(int i=1;i<=step;i++) {
@@ -60,6 +61,7 @@ public class Character extends PutMap implements Walk{
 	//			invalid=true;
 				do
 				{
+					System.out.println("step"+i+"[1]<- [2]-> [3]^ [4]v");
 					dir= scan.nextInt();
 				}
 				while(!(dir<=4&&dir>=1));
@@ -68,22 +70,22 @@ public class Character extends PutMap implements Walk{
 				int[] k = new int[2];
 				//1left 2right 3up 4down
 				if(dir == 1) {
-					k[0]=indexX-1;
-					k[1]=indexY;
+					k[0]=indexX;
+					k[1]=indexY-1;
 					
 					
 				} else if (dir==2) {
-					k[0]=indexX+1;
-					k[1]=indexY;
-					
-				} else if (dir==3) {
-					k[0]=indexX;
-					k[1]=indexY-1;
-				} else if (dir==4) {
 					k[0]=indexX;
 					k[1]=indexY+1;
+					
+				} else if (dir==3) {
+					k[0]=indexX-1;
+					k[1]=indexY;
+				} else if (dir==4) {
+					k[0]=indexX+1;
+					k[1]=indexY;
 				}
-				if(k[0]>=0&&k[0]<=12&&k[1]>=0&&k[1]<=6) {
+				if(k[0]>=0&&k[0]<=6&&k[1]>=0&&k[1]<=12) {
 					if(Map.m1[k[0]][k[1]]==1) {
 						if(Map.m2[k[0]][k[1]]==null) {
 							int indexXPrevious=this.getIndexX();
@@ -92,6 +94,7 @@ public class Character extends PutMap implements Walk{
 							this.setIndexX(k[0]);
 							this.setIndexY(k[1]);
 							Map.m2[k[0]][k[1]]=this;
+							System.out.println("ok"+k[0]+" "+k[01]);
 							break;
 						}
 						
