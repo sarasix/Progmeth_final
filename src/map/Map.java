@@ -8,17 +8,31 @@ import item.Lamp;
 import initial.*;
 
 public class Map {
-	public static int[][] m1;
-	public static PutMap[][] m2;
+	
 	public static Initial initial = new Initial();
+	public static int[][] m1 = new int[][]
+											{ {5,1,1,1,1,4,1,1,1,1,1,1,5},
+											{1,1,3,1,1,3,1,2,1,4,3,1,1},
+											{1,2,2,1,1,2,1,3,1,1,1,1,1},
+											{1,4,1,2,1,4,1,4,1,2,2,4,1},	
+											{1,1,1,1,1,3,1,2,1,1,3,1,1},
+											{1,3,1,4,1,1,1,3,1,1,1,1,1},
+											{5,1,1,1,1,1,1,4,1,1,1,1,5}
+										  };
+	public static PutMap[][] m2 = new PutMap[7][13];  
+	
 	public static ArrayList<Lamp> allLamp = initial.getAllLamp();
 	public static ArrayList<ExitBarricade> allExitBarricade = initial.getAllExitBarricade();
 	public static ArrayList<HoleCover> allHoleCover = initial.getAllHoleCover();
+
 
 	public Map(int[][] m1,PutMap[][]m2) {
 		
 		Map.m1 = m1;
 		Map.m2 = m2;
+		//m1 = initial.getM1();
+		//m2 = initial.getM2();
+		
 		
 		
 	}
