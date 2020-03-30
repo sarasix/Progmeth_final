@@ -2,10 +2,10 @@ package initial;
 import java.util.*;
 
 import item.*;
-import map.*;
+import map.PutMap;
 import map.Map;
 import character.*;
-import character.Character;
+import character.ShadowMan;
 public class Initial  {
 	
 	public int[][] m1  = new int[][]
@@ -19,6 +19,7 @@ public class Initial  {
 									  };
 	public PutMap[][] m2 = new PutMap[7][13];  
 	
+	public Map mapAll = new Map(m1,m2);
 											
 	public int[][] lawRemoveItem = new int[][]{{8,3,5},
 											   {7,3,5},
@@ -41,11 +42,6 @@ public class Initial  {
 	public ArrayList<ExitBarricade> allExitBarricade = new ArrayList<ExitBarricade>();
 	public ArrayList<HoleCover> allHoleCover = new ArrayList<HoleCover>();
 	
-	public ArrayList<Character> allCharacter = new ArrayList<Character>();
-	
-	public Map mapAll = new Map(m1,m2);
-	
-	
 	Lamp lamp0 = new Lamp(1,2,0); 
 	Lamp lamp1 = new Lamp(1,5,1);
 	Lamp lamp2 = new Lamp(1,10,2);
@@ -54,7 +50,7 @@ public class Initial  {
 	Lamp lamp5 = new Lamp(4,5,5);
 	Lamp lamp6 = new Lamp(4,10,6);
 	Lamp lamp7 = new Lamp(5,7,7);
-    
+    //parameter/ delete lamp blablabla	
 	ExitBarricade exitBarricade0 = new ExitBarricade(0,0,0);
 	ExitBarricade exitBarricade1 = new ExitBarricade(0,12,1);
 	ExitBarricade exitBarricade2 = new ExitBarricade(6,0,2);
@@ -106,15 +102,6 @@ public class Initial  {
 		m2[3][8] = ran;
 		m2[2][4] = haibara;
 		m2[4][9] = kid;
-		this.allCharacter.add(gin);
-		this.allCharacter.add(shadowMan);
-		this.allCharacter.add(conan);
-		this.allCharacter.add(kogoro);
-		this.allCharacter.add(heiji);
-		this.allCharacter.add(ran);
-		this.allCharacter.add(haibara);
-		this.allCharacter.add(kid);
-		
 		
 	}
 	public void setOrder() {
@@ -129,23 +116,21 @@ public class Initial  {
 		order2.add("J");
 	}
 
-	
+	public Map getMap() {
+		Map mapAll = new Map(m1,m2);
+		return mapAll;
+	}
 	public void setChoice() {
-		for(int i = 0 ;i <8 ; i++) {
-			choice.add(1);
+		int c = 0;
+		for(var i : choice) {
+			i = 1;
+			if(c==7) {
+				break;
+			}
 		}
 	}
 	public ArrayList <Integer> getChoice() {
 		return choice;
-	}
-	public ArrayList <Character> getallCharacter(){
-		return this.allCharacter;
-	}
-	public int [][] getM1() {
-		return m1;
-	}
-	public PutMap[][] getM2() {
-		return m2;
 	}
 	
 	public Initial() {

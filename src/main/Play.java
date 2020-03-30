@@ -13,9 +13,6 @@ public class Play {
 	public static ArrayList<String> order2 = initial.getOrder2();
 	public static ArrayList<String> order = new ArrayList<String>();
 	public static Map map = initial.getMap();
-	
-	
-	private int numlamp;
 	//public static ArrayList<Lamp> allLamp = initial.getAllLamp();
 	//public static ArrayList<ExitBarricade> allExitBarricade = initial.getAllExitBarricade();
 	//public static ArrayList<HoleCover> allHoleCovers = initial.getAllHoleCover();
@@ -40,5 +37,5 @@ public class Play {
 			game.add(roundCurrent);
 		}
 
-	}
+			}
 }
