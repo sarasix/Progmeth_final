@@ -147,7 +147,7 @@ public class Main {
 			int inputCard = scan.nextInt();
 	
 			if(card4.get(inputCard-1) instanceof Haibara) {
-				
+				card4.get(inputCard-1).walk();
 			}
 			else
 			{
@@ -156,10 +156,23 @@ public class Main {
 			}
 			int inputNum = scan.nextInt();
 			if(inputNum==1) {
-				card4.get(inputCard-1).walk();
+				if(card4.get(inputCard-1) instanceof Kid)
+				{
+					card4.get(inputCard-1).walk();
+				}
+				else
+				{
+					card4.get(inputCard-1).walk();
+				}
+				
 			}
 			
-			card4.remove(inputNum);
+			if(inputNum==2) {
+				card4.get(inputCard-1).ability();
+			}
+		
+			
+			card4.remove(inputNum-1);
 			
 		}
 		

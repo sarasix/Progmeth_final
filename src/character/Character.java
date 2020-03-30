@@ -5,7 +5,7 @@ import java.util.Scanner;
 import map.Map;
 import map.PutMap;
 
-public class Character extends PutMap implements Walk{
+public abstract class Character extends PutMap implements Walk{
 	//private int indexX;
 	//private int indexY;
 	private boolean isChoice;
@@ -148,6 +148,9 @@ public class Character extends PutMap implements Walk{
 		return null;
 	}
 	
+	
+	public abstract void ability();
 
+	
 	
 }
