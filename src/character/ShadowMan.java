@@ -2,6 +2,8 @@ package character;
 
 import java.util.Scanner;
 
+import main.Main;
+
 import map.Map;
 import round.Round;
 
@@ -13,17 +15,13 @@ public class ShadowMan extends Character {
 	}
 	public void ability() {
 		
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Choose a character you want to switch with");
-		int G=scan.nextInt();
-		Character P=Round.indexToCha(G);
 		
-		int indexXOther=P.getIndexX();
-		int indexYOther=P.getIndexY();
+		int indexXOther=Main.CharacterOther.getIndexX();
+		int indexYOther=Main.CharacterOther.getIndexY();
 			
-		P.setIndexX(this.getIndexX());
-		P.setIndexY(this.getIndexY());
-		Map.m2[P.getIndexX()][P.getIndexY()]=P;
+		Main.CharacterOther.setIndexX(this.getIndexX());
+		Main.CharacterOther.setIndexY(this.getIndexY());
+		Map.m2[Main.CharacterOther.getIndexX()][Main.CharacterOther.getIndexY()]=Main.CharacterOther;
 		this.setIndexX(indexXOther);
 		this.setIndexY(indexYOther);
 		Map.m2[this.getIndexX()][this.getIndexY()]=this;

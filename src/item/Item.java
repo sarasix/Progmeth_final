@@ -1,6 +1,7 @@
 package item;
 
 import character.Movable;
+import main.Main;
 import map.Map;
 import map.PutMap;
 
@@ -16,28 +17,21 @@ public class Item extends PutMap implements Movable{
 		
 		
 	}
-	public boolean movable(int indexX,int indexY) {
-		if (this.getIndexX()==indexX && this.getIndexY()==indexY)
-			return false;
-		
-		if(Map.m1[indexX][indexY] == this.typeField) //spaceforlight
-		{
-			if(Map.m2[indexX][indexY] == null )
-			{
-				
-				int indexXPrevious=this.getIndexX();
-				int indexYPrevious=this.getIndexY();
-				this.setIndexX(indexX);
-				this.setIndexY(indexY);
+	public void movable() {
+		int indexXPrevious=this.getIndexX();
+		int indexYPrevious=this.getIndexY();
+		this.setIndexX(Main.indexItemField[0]);
+		this.setIndexY(Main.indexItemField[1]);
 				//PutMap N= new PutMap(indexX,indexY);
-				Map.m2[indexX][indexY]=this;
-				Map.m2[indexXPrevious][indexYPrevious]=null;
-				return true;
-			}
+		Map.m2[Main.indexItemField[0]][Main.indexItemField[1]]=this;
+		Map.m2[indexXPrevious][indexYPrevious]=null;
 			
-			
-		}
-		return false;
+	}
+	public int getNumber() {
+		return this.number;
+	}
+	public int getTypeField() {
+		return this.typeField;
 	}
 	
 }

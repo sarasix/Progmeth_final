@@ -2,6 +2,6 @@ package character;
 
 public interface Movable {
 	
-	public abstract boolean movable(int indexX,int indexY);
+	public abstract void movable();
 
 }

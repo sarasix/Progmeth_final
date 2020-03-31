@@ -7,6 +7,7 @@ import character.*;
 import character.Character;
 import map.Map;
 
+
 public class Main {
 	public static Initial initial = new Initial();	
 	public static ArrayList<Integer> choice = initial.getChoice();
@@ -14,11 +15,15 @@ public class Main {
 	public static ArrayList<String> order2 = initial.getOrder2();
 	public static ArrayList<String> order = new ArrayList<String>();
 	public static Map map = initial.getMap();
+	public static Character CharacterNow;
+	public static Character CharacterOther;
 	public static ArrayList<Character> allCharacter = initial.getAllCharacter();
 	public static int dir;		
 	public static int step;
 	public static int inputCard;
+	public static Item itemChosen;
 	public static ArrayList<Character> card4 = new ArrayList<Character>();
+	public static int[] indexItemField=new int[2];
 	
 	public static Random rand = new Random();
 	public static Scanner scan = new Scanner(System.in);
@@ -136,24 +141,24 @@ public class Main {
 		}
 		return false;
 	}
-    public static int[] dirToPosition() {
+    public static int[] dirToPosition(Character Ch) {
     	int[] k = new int[2];
     	if(dir == 1) {
-			k[0]=card4.get(inputCard-1).getIndexX();
-			k[1]=card4.get(inputCard-1).getIndexY()-1;
+			k[0]=Ch.getIndexX();
+			k[1]=Ch.getIndexY()-1;
 			
 			
 		} else if (dir==2) {
-			k[0]=card4.get(inputCard-1).getIndexX();
-			k[1]=card4.get(inputCard-1).getIndexY()+1;
+			k[0]=Ch.getIndexX();
+			k[1]=Ch.getIndexY()+1;
 			
 			
 		} else if (dir==3) {
-			k[0]=card4.get(inputCard-1).getIndexX()-1;
-			k[1]=card4.get(inputCard-1).getIndexY();
+			k[0]=Ch.getIndexX()-1;
+			k[1]=Ch.getIndexY();
 		} else if (dir==4) {
-			k[0]=card4.get(inputCard-1).getIndexX()+1;
-			k[1]=card4.get(inputCard-1).getIndexY();
+			k[0]=Ch.getIndexX()+1;
+			k[1]=Ch.getIndexY();
 		}
     	return k;
     }
@@ -174,12 +179,13 @@ public class Main {
 			System.out.println("Please select card");
 			inputCard = scan.nextInt();
 			int inputNum;
-			int[] u= new int[2]; 
-			if(card4.get(inputCard-1) instanceof Haibara) {
+			int[] u= new int[2];
+			CharacterNow=card4.get(inputCard-1);
+			if(CharacterNow instanceof Haibara || CharacterNow instanceof Kid) {
 				do {
-					System.out.println("How many steps you want to walk? Maximum: "+card4.get(inputCard-1).getWalk());
+					System.out.println("How many steps you want to walk? Maximum: "+CharacterNow.getWalk());
 					step=scan.nextInt();
-				}while(!(step>=1&&step<=card4.get(inputCard-1).getWalk()));
+				}while(!(step>=1&&step<=CharacterNow.getWalk()));
 				for(int j=1;j<=step;j++) {
 					
 					do
@@ -191,9 +197,9 @@ public class Main {
 							dir= scan.nextInt();
 						}while(!(dir<=4&&dir>=1));
 						
-						u=dirToPosition();
+						u=dirToPosition(CharacterNow);
 						if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
-							card4.get(inputCard-1).walk(u);
+							CharacterNow.walk(u);
 							break;
 						}
 						if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
@@ -210,7 +216,7 @@ public class Main {
 								newU[0]=indexXHole;
 								newU[1]=indexYHole;
 							}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
-							card4.get(inputCard-1).walk(newU);
+							CharacterNow.walk(newU);
 							break;
 						}
 								
@@ -220,17 +226,16 @@ public class Main {
 					
 					
 				}
-				int j;
-				do
-				{
-					System.out.println("Choose the direction for your Haibara's Light: [1]<- [2]-> [3] ^  [4] v");
-					j=scan.nextInt();
-				}while(!(j>=1&&j<=4));
-				((Haibara) card4.get(inputCard-1)).setDirectionLight(j);
+				if(CharacterNow instanceof Haibara) {
+					int j;
+					do
+					{
+						System.out.println("Choose the direction for your Haibara's Light: [1]<- [2]-> [3] ^  [4] v");
+						j=scan.nextInt();
+					}while(!(j>=1&&j<=4));
+					((Haibara) CharacterNow).setDirectionLight(j);
+				}
 				
-			}
-			else if (card4.get(inputCard-1) instanceof Kid) {
-			
 				
 			}
 			else{
@@ -244,9 +249,9 @@ public class Main {
 				if(inputNum==1) {
 					//int[] u= new int[2];
 					do {
-						System.out.println("How many steps you want to walk? Maximum: "+card4.get(inputCard-1).getWalk());
+						System.out.println("How many steps you want to walk? Maximum: "+CharacterNow.getWalk());
 						step=scan.nextInt();
-					}while(!(step>=1&&step<=card4.get(inputCard-1).getWalk()));
+					}while(!(step>=1&&step<=CharacterNow.getWalk()));
 					for(int j=1;j<=step;j++) {
 						
 						do
@@ -258,9 +263,9 @@ public class Main {
 								dir= scan.nextInt();
 							}while(!(dir<=4&&dir>=1));
 							
-							u=dirToPosition();
+							u=dirToPosition(CharacterNow);
 							if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
-								card4.get(inputCard-1).walk(u);
+								CharacterNow.walk(u);
 								break;
 							}
 							if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
@@ -277,7 +282,7 @@ public class Main {
 									newU[0]=indexXHole;
 									newU[1]=indexYHole;
 								}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
-								card4.get(inputCard-1).walk(newU);
+								CharacterNow.walk(newU);
 								break;
 							}
 									
@@ -293,11 +298,139 @@ public class Main {
 					System.out.println(chaToName(card4.get(inputCard-1))+" ability!!");
 					//Conan Gin ShadowMan Ran Kogoro Heiji 
 					//card4.get(inputCard-1).ability();
-					if(card4.get(inputCard-1) instanceof Conan) {
-						card4.get(inputCard-1).ability();
-					} else if(card4.get(inputCard-1) instanceof ShadowMan) {
+					if(CharacterNow instanceof Conan) {
+						CharacterNow.ability();
+					} else if(CharacterNow instanceof ShadowMan) {
 						System.out.println("Choose a character you want to switch position with Shadow Man: ");
-						Scas
+						int indexCha;
+						do
+						{
+							System.out.println("[0]Gin");
+							System.out.println("[2]Conan");
+							System.out.println("[3]Kogoro");
+							System.out.println("[4]Heiji");
+							System.out.println("[5]Ran");
+							System.out.println("[6]Haibara");
+							System.out.println("[7]Kid");
+							indexCha=scan.nextInt();
+						}while(!(indexCha==0||indexCha==2||indexCha==3||indexCha==4||indexCha==5||indexCha==6||indexCha==7));
+						CharacterOther=indexToCha(indexCha);
+						CharacterNow.ability();
+						
+						
+					} else if (CharacterNow instanceof Gin) {
+						System.out.println("Choose a character you want to walk: ");
+						int indexCha;
+						do
+						{
+							System.out.println("[0]Gin");
+							System.out.println("[1]ShadowMan");
+							System.out.println("[2]Conan");
+							System.out.println("[3]Kogoro");
+							System.out.println("[4]Heiji");
+							System.out.println("[5]Ran");
+							System.out.println("[6]Haibara");
+							System.out.println("[7]Kid");
+							indexCha=scan.nextInt();
+						}while(!(indexCha<=7&&indexCha>=0));
+						CharacterOther=indexToCha(indexCha);
+						do {
+							System.out.println("How many steps you want to walk? Maximum: "+CharacterOther.getWalk());
+							step=scan.nextInt();
+						}while(!(step>=1&&step<=CharacterOther.getWalk()));
+						for(int j=1;j<=step;j++) {
+							
+							do
+							{
+								
+								do
+								{
+									System.out.println("step"+j+"Please insert walk direction : [1]<- [2]-> [3]^ [4]v");
+									dir= scan.nextInt();
+								}while(!(dir<=4&&dir>=1));
+								
+								u=dirToPosition(CharacterOther);
+								if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
+									CharacterOther.walk(u);
+									break;
+								}
+								if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
+									System.out.println("Choose a hole you want to appear: ");
+									int indexXHole;
+									int indexYHole;
+									int[] newU=new int[2];
+									do
+									{
+										System.out.print("Insert a row for your hole position: ");
+										indexXHole=scan.nextInt();
+										System.out.print("\nInsert a column for your hole position: ");
+										indexYHole=scan.nextInt();
+										newU[0]=indexXHole;
+										newU[1]=indexYHole;
+									}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
+									CharacterOther.walk(newU);
+									break;
+								}
+										
+							       
+								
+							}while(true);
+							
+							
+						}	
+						
+					}
+					else if(CharacterNow instanceof Heiji || CharacterNow instanceof Kogoro || CharacterNow instanceof Ran) {
+						int getItem;
+						if(CharacterNow instanceof Heiji) {
+							do 
+							{
+								System.out.println("Choose a hole cover");
+								
+								for(int j=0;j<Map.allHoleCover.size();j++) {
+									System.out.println("["+j+"] HoleCover"+Map.allHoleCover.get(j).getNumber());
+								
+								}
+								getItem=scan.nextInt();
+							}while(!(getItem>=0&&getItem<Map.allHoleCover.size()));
+						    itemChosen=Map.allHoleCover.get(getItem);
+						}
+						if(CharacterNow instanceof Ran) {
+							do 
+							{
+								System.out.println("Choose an exit barricade");
+								
+								for(int j=0;j<Map.allExitBarricade.size();j++) {
+									System.out.println("["+j+"] ExitBarricade"+Map.allExitBarricade.get(j).getNumber());
+								
+								}
+								getItem=scan.nextInt();
+							}while(!(getItem>=0&&getItem<Map.allExitBarricade.size()));
+						    itemChosen=Map.allExitBarricade.get(getItem);
+						}
+						if(CharacterNow instanceof Kogoro) {
+							do 
+							{
+								System.out.println("Choose a lamp");
+								
+								for(int j=0;j<Map.allLamp.size();j++) {
+									System.out.println("["+j+"] Lamp"+Map.allLamp.get(j).getNumber());
+								
+								}
+								getItem=scan.nextInt();
+							}while(!(getItem>=0&&getItem<Map.allLamp.size()));
+						    itemChosen=Map.allLamp.get(getItem);
+						}
+						do 
+						{
+							System.out.println("Choose a suitable field you want to place this item on");
+							System.out.print("Insert a row of position: ");
+							indexItemField[0]=scan.nextInt();
+							System.out.print("\nInsert a column of position: ");
+							indexItemField[1]=scan.nextInt();
+							
+						}while(!(validPosition(indexItemField)&&Map.m1[indexItemField[0]][indexItemField[1]]==itemChosen.getTypeField()&&Map.m2[indexItemField[0]][indexItemField[1]]==null));
+						CharacterNow.ability();
 						
 					}
 				}
