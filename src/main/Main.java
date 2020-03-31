@@ -18,6 +18,8 @@ public class Main {
 	public static Character CharacterNow;
 	public static Character CharacterOther;
 	public static ArrayList<Character> allCharacter = initial.getAllCharacter();
+	public static ArrayList<Character> choiceCharacter = new ArrayList<Character>();
+	
 	public static int dir;		
 	public static int step;
 	public static int inputCard;
@@ -26,19 +28,26 @@ public class Main {
 	public static int[] indexItemField=new int[2];
 	
 	public static Random rand = new Random();
-	public static Scanner scan = new Scanner(System.in);
-	
+	public static Scanner scan = new Scanner(System.in);	
 	private static int randomNumber;
 	
+	public static Character MrJack;
+	public static boolean gameWin = false;
 	
 	
 	public static void main(String[] arg) {
 		System.out.println("start");
+		randomNumber = rand.nextInt(8);
+		MrJack = allCharacter.get(randomNumber);
+		System.out.println("MrJack is "+chaToName(MrJack));
 		loopRound();
 	
 	}
 	public static void loopRound (){
 		for(int i=0;i<8;i++) {
+			if(gameWin==true) {
+				break;
+			}
 			System.out.println("round"+(i+1));
 			if(i%2 == 0) {
 				order = order1;
@@ -46,19 +55,21 @@ public class Main {
 			else {
 				order = order2;
 			}
-			round(initial.getLawRemoveItem(i,0),initial.getLawRemoveItem(i,1) , initial.getLawRemoveItem(i,2),order);
+			
+			int numLamp = initial.getLawRemoveItem(i,0);
+			int numExitBarricade = initial.getLawRemoveItem(i,1) ;
+			int numHoleCover = initial.getLawRemoveItem(i,2);
+			
+			removeItem(numLamp,numExitBarricade,numHoleCover);
+			randomCard();
+			play();
+			isLight();
+			isChoice();
 			
 		}
 
 	}
-	public static void round(int numLamp,int numExitBarricade,int numHoleCover,ArrayList<String> order) {
-		removeItem(numLamp,numExitBarricade,numHoleCover);
-		
-		randomCard();
-		play();
-		
-		
-	}
+	
 	public static void printMap() {
 		for(int i = 0 ; i< 7;i++) {
 			for(int j = 0 ;j<13; j++) {				
@@ -217,6 +228,7 @@ public class Main {
 								newU[1]=indexYHole;
 							}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
 							CharacterNow.walk(newU);
+							
 							break;
 						}
 								
@@ -444,6 +456,104 @@ public class Main {
 			
 		}
 		
+	}
+	public static void isLight () {
+		for(int index = 0; index < 8; index++ ) {
+			
+			Character character = allCharacter.get(index);
+			int x = character.getIndexX();
+			int y = character.getIndexY();
+			int light = 0;
+			for(int i = x-1 ;i<= x+1 ; i++ ) {
+				for(int j = y-1 ; j<= y+1 ; j++ ) {
+					int[] pos = new int [] {i,j};
+					if( validPosition(pos)){
+						if (Map.m2[i][j] instanceof Lamp) {
+							allCharacter.get(index).setIsLight(true);
+							light = 1;
+							break;
+						}
+					
+					}
+				}
+				if(light ==1 ) {
+					break;
+				}
+			}
+			if(light == 0) {
+				allCharacter.get(index).setIsLight(false);
+				
+			}
+		}
+		for (int i=0;i<8;i++) {
+			if(allCharacter.get(i).getIsLight()==true) {
+				System.out.print("["+chaToName(allCharacter.get(i))+" "+"light"+"] ");
+				
+			}
+			
+			if(allCharacter.get(i).getIsLight()==true) {
+				System.out.print("["+chaToName(allCharacter.get(i))+" "+"dark"+"] ");
+				
+			}
+		}
+		System.out.println();
+		//เพิ่ม set ใน walk
+	}
+	
+	public static void isChoice() {
+		System.out.print("Now Jack is in ");
+		boolean light = true;
+		if(MrJack.getIsLight()) {
+			light = true;
+			System.out.println("light!!");
+			
+		}
+		else {
+			light = false;
+			System.out.println("dark!!");
+			
+		}
+		
+		for(int i =0; i <8; i++) {
+			if(allCharacter.get(i).getIsChoice()) {
+				if(allCharacter.get(i).getIsLight()!=light) {
+						allCharacter.get(i).setIsChoice(false);
+				}				
+			}
+		}
+		System.out.println("====In Choice====");
+		choiceCharacter = new ArrayList<Character>();
+		int c = 0;
+		for(int i =0 ; i <8; i++) {
+			if(allCharacter.get(i).getIsChoice()) {
+				c++;
+				System.out.println("["+(c)+"]"+chaToName(allCharacter.get(i))+" ");
+				choiceCharacter.add(allCharacter.get(i));
+			}
+		}
+		System.out.println("Do you want to investigate now [1]yes [2]no");
+		int inputNumber = scan.nextInt();
+		c = 0;
+		if(inputNumber ==1) {
+			System.out.println("Who is Jack");
+			for(int i =0 ; i <8; i++) {
+				if(allCharacter.get(i).getIsChoice()) {
+					c++;
+					System.out.println("["+(c)+"]"+chaToName(allCharacter.get(i))+" ");			
+				}
+			}
+			inputNumber = scan.nextInt();
+			if(choiceCharacter.get(inputNumber-1) == MrJack) {
+				System.out.println("Detective Win!!!!");
+			}
+			else {
+				System.out.println("MrJack Win!!!!");
+			}
+			gameWin = true;
+			
+			
+		}
+	
 	}
 	public static Character indexToCha(int index) {
 		return allCharacter.get(index);
