@@ -40,6 +40,7 @@ public class Main {
 		randomNumber = rand.nextInt(8);
 		MrJack = allCharacter.get(randomNumber);
 		System.out.println("MrJack is "+chaToName(MrJack));
+		MrJack.setIsMrJack(true);
 		loopRound();
 	
 	}

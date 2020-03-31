@@ -1,6 +1,7 @@
 package character;
 
 import java.util.Random;
+import main.Main;
 
 import round.Round;
 
@@ -20,7 +21,7 @@ public class Conan extends Character {
 		{
 			Random rand = new Random();
 			int i =   rand.nextInt(8);
-			if(!Round.indexToCha(i).getIsMrJack()) {
+			if(!Main.indexToCha(i).getIsMrJack()) {
 				if(Round.indexToCha(i).getIsChoice()) {
 					Round.indexToCha(i).setIsChoice(false);
 					System.out.println(i+" removed from choice");

@@ -33,8 +33,8 @@ public abstract class Character extends PutMap implements Walk{
 		this.isChoice=isChoice;
 	}
 	
-	public void setIsMrJack() {
-		this.isMrJack=true;
+	public void setIsMrJack(boolean isJack) {
+		this.isMrJack=isJack;
 	}
 	public boolean getIsMrJack() {
 		return this.isMrJack;
