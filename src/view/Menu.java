@@ -18,7 +18,7 @@ public class Menu {
 	public static Scene gameScene;
 	public AnchorPane gamePane;
 	public static Stage gameStage = new Stage();
-	public static ImageView buttonPlay = new ImageView(Resloader.buttonFree); 
+	public static ImageView buttonPlay = new ImageView(Resloader.buttonPlay); 
 	
 	public Menu() {
 		gameStage = new Stage();
@@ -39,8 +39,8 @@ public class Menu {
 	
 	}
 	private void createPlay() {
-		buttonPlay.setX(900);
-		buttonPlay.setY(500);
+		buttonPlay.setX(800);
+		buttonPlay.setY(400);
 		
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {

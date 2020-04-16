@@ -7,8 +7,16 @@ public class Kid extends Character implements Walk{
 	//	walk=4;
 		
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	public void ability() {
-		return null;
 		
 	}
 	
