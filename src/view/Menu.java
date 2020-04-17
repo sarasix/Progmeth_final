@@ -47,6 +47,7 @@ public class Menu {
 				System.out.println("ok");
 				GamePlay.gameStage.show();
 				
+				
 			}
 		};
 		buttonPlay.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
