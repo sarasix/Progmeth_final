@@ -3,6 +3,11 @@ package view;
 
 import java.util.ArrayList;
 
+import character.*;
+import character.Character;
+import initial.Initial;
+import item.*;
+import item.Item;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -33,7 +38,7 @@ import resloader.Resloader;
 
 public class GamePlay {
 	public static Scene gameScene;
-	public AnchorPane gamePane;
+	public static AnchorPane gamePane;
 	public static Stage gameStage = new Stage();
 	public static AnchorPane window;
 	public static Scene subScene ;
@@ -117,19 +122,87 @@ public class GamePlay {
 		gamePane.getChildren().add(root);
 	}
 	private void createTable() {
-		
+		Initial initial = new Initial();
 		for(int i=0 ;i<7;i++) {
 			for (int j=0 ;j<13;j++) {
-				ImageView tempTable = new ImageView(Resloader.table);
+				ImageView tempTable = new ImageView();
+				if (Initial.m1[i][j] == 1) {
+					tempTable = new ImageView(Resloader.table);
+				}
+				if (Initial.m1[i][j] == 2) {
+					tempTable = new ImageView(Resloader.wall);
+				}
+				if (Initial.m1[i][j] == 3) {
+					tempTable = new ImageView(Resloader.lampBase);
+				}
+				if (Initial.m1[i][j] == 4) {
+					tempTable = new ImageView(Resloader.hole);
+				}
+				if (Initial.m1[i][j] == 5) {
+					tempTable = new ImageView(Resloader.Exit);
+				}
+					
 				tempTable.setFitHeight(64);
 				tempTable.setFitWidth(64);
 			
 				tempTable.setX(145+66*j);
 				tempTable.setY(100+66*i);
 				
+				
 				tables[i][j] = tempTable ;
 				Group root = new Group(tables[i][j]);
 				gamePane.getChildren().add(root);
+				
+				ImageView tempTable2 = new ImageView();
+				
+				if(Initial.m2[i][j] instanceof Item) {
+					if(Initial.m2[i][j] instanceof Item) {
+
+						if(Initial.m2[i][j] instanceof Lamp) {
+							tempTable2 = new ImageView(Resloader.lamp);
+						}
+						if(Initial.m2[i][j] instanceof ExitBarricade) {
+							tempTable2 = new ImageView(Resloader.exitBarricade);
+						}
+						if(Initial.m2[i][j] instanceof HoleCover) {
+							tempTable2 = new ImageView(Resloader.holeCover);
+						}
+					}
+					if(Initial.m2[i][j] instanceof Character) {
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+						if(Initial.m2[i][j] instanceof Character) {
+							tempTable2 = new ImageView(Resloader.apple1);
+						}
+					}
+				
+				}
+				tempTable2.setFitHeight(60);
+				tempTable2.setFitWidth(60);
+			
+				tempTable2.setX(148+66*j);
+				tempTable2.setY(100+66*i);
+				Group root2 = new Group(tempTable2);
+				gamePane.getChildren().add(root2);
 				
 				
 			}

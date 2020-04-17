@@ -8,7 +8,7 @@ import character.*;
 import character.Character;
 public class Initial  {
 	
-	public int[][] m1  = new int[][]
+	public static int[][] m1  = new int[][]
 										{ {5,1,1,1,1,4,1,1,1,1,1,1,5},
 										{1,1,3,1,1,3,1,2,1,4,3,1,1},
 										{1,2,2,1,1,2,1,3,1,1,1,1,1},
@@ -17,7 +17,7 @@ public class Initial  {
 										{1,3,1,4,1,1,1,3,1,1,1,1,1},
 										{5,1,1,1,1,1,1,4,1,1,1,1,5}
 									  };
-	public PutMap[][] m2 = new PutMap[7][13];  
+	public static PutMap[][] m2 = new PutMap[7][13];  
 	
 	public Map mapAll = new Map(m1,m2);
 											
