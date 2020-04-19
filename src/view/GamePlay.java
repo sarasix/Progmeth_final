@@ -2,6 +2,8 @@ package view;
 
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 import character.*;
 import character.Character;
@@ -33,6 +35,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import main.Main;
+import map.Map;
 import resloader.Resloader;
 
 
@@ -46,12 +50,17 @@ public class GamePlay {
 	
 	
 	
-	public static ImageView buttonHowToPlay = new ImageView(Resloader.buttonFree);;
-	public static ImageView table = new ImageView(Resloader.table); ; 
+	public static ImageView buttonHowToPlay = new ImageView(Resloader.buttonFree);
+	public static ImageView table = new ImageView(Resloader.table);
 	public static ImageView apple1 = new ImageView(Resloader.apple1);
 	public static ImageView buttonPlay = new ImageView(Resloader.buttonPlay);
 	public static ImageView[][] tables = new ImageView[7][13] ;
 	
+	public static Random rand = new Random();
+	public static Scanner scan = new Scanner(System.in);	
+	private static int randomNumber;
+	
+	public static boolean start = false;
 	
 	public GamePlay() {
 		
@@ -74,6 +83,7 @@ public class GamePlay {
 		createHowToPlay();
 		createTable();
 		//createSubScene();
+		//start();
 		
 	}
 	
@@ -87,33 +97,11 @@ public class GamePlay {
 	private void createHowToPlay() {
 		buttonHowToPlay.setX(20);
 		buttonHowToPlay.setY(500);
-		
-		
-		
+			
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 				
-				
-				ImageView resume1 = buttonPlay;
-				
-	            Stage subStage = new Stage(StageStyle.TRANSPARENT);
-	            AnchorPane subPane = new AnchorPane();
-				subStage.setScene(new Scene(subPane,Color.TRANSPARENT));
-				resume1.setX(10);
-				resume1.setY(10);
-				
-				
-				EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
-					public void handle(MouseEvent e) {
-						subStage.hide();
-						
-					}
-				};
-				
-				resume1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler1);
-				
-				subPane.getChildren().add(resume1);
-				subStage.show();
+				createSubScene(buttonPlay);
 			}
 		};
 		buttonHowToPlay.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
@@ -155,47 +143,55 @@ public class GamePlay {
 				
 				ImageView tempTable2 = new ImageView();
 				
-				if(Initial.m2[i][j] instanceof Item) {
-					if(Initial.m2[i][j] instanceof Item) {
-
-						if(Initial.m2[i][j] instanceof Lamp) {
-							tempTable2 = new ImageView(Resloader.lamp);
-						}
-						if(Initial.m2[i][j] instanceof ExitBarricade) {
-							tempTable2 = new ImageView(Resloader.exitBarricade);
-						}
-						if(Initial.m2[i][j] instanceof HoleCover) {
-							tempTable2 = new ImageView(Resloader.holeCover);
-						}
-					}
-					if(Initial.m2[i][j] instanceof Character) {
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-						if(Initial.m2[i][j] instanceof Character) {
-							tempTable2 = new ImageView(Resloader.apple1);
-						}
-					}
 				
+				if(Map.m2!=null)
+				{
+					if(Map.m2[i][j] instanceof Item) {
+						if(Map.m2[i][j] instanceof Item) {
+							
+							if(Map.m2[i][j] instanceof Lamp) {
+								tempTable2 = new ImageView(Resloader.lamp);
+							}
+							if(Map.m2[i][j] instanceof ExitBarricade) {
+								tempTable2 = new ImageView(Resloader.exitBarricade);
+							}
+							if(Map.m2[i][j] instanceof HoleCover) {
+								tempTable2 = new ImageView(Resloader.holeCover);
+							}
+						}
+					}
+					if(Map.m2[i][j] instanceof Character) {
+							
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+								
+							}
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+							}
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+							}
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+							}
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+							}
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+							}
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+							}
+							if(Map.m2[i][j] instanceof Character) {
+								tempTable2 = new ImageView(Resloader.conan);
+							}
+					}
+					
+					
 				}
+				
 				tempTable2.setFitHeight(60);
 				tempTable2.setFitWidth(60);
 			
@@ -209,25 +205,81 @@ public class GamePlay {
 		}
 		
 	
-		
 	}
-	public void createSubScene(){
-		apple1.setX(300);
-		apple1.setY(300);
-		
-		
+	public static void createSubScene(ImageView iv){
+			
+		iv.setX(300);
+		iv.setY(300);
+			
+		Stage subStage = new Stage(StageStyle.TRANSPARENT);
+	    AnchorPane subPane = new AnchorPane();
+		subStage.setScene(new Scene(subPane,Color.TRANSPARENT));
 		
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
+				subStage.hide();
+						
+				}
+			};
 				
+		iv.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
 				
-			}
-		};
-		apple1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
-	
-		Group root = new Group(apple1);
-		gamePane.getChildren().add(root);
+		subPane.getChildren().add(iv);
+		subStage.show();
 		
+	}
+	public static void start() {
+		System.out.println("start");
+		randomNumber = rand.nextInt(8);
+		Main.MrJack = Main.allCharacter.get(randomNumber);
+		System.out.println("MrJack is "+Main.chaToName(Main.MrJack));
+		Main.MrJack.setIsMrJack(true);
+		
+		createSubScene( new ImageView (Resloader.buttonPlay) );
+		createSubScene( GamePlay.indexToIV(randomNumber) );
+		
+		
+		//Main.loopRound();	
+	}
+	public static ImageView indexToIV(int i) {
+		ImageView iv = new ImageView();
+		if(i == 0 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		if(i == 1 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		if(i == 2 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		if(i == 3 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		if(i == 4 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		if(i == 5 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		if(i == 6 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		if(i == 7 )
+		{
+			iv = new ImageView(Resloader.conan);
+		}
+		
+		//
+		//
+		// แก้ตามตัวละคร
+		return iv;
 	}
 	
 	

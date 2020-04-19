@@ -165,6 +165,8 @@ public class Initial  {
 		setCharactor();
 		setOrder();
 		setChoice();
+		Map.m1 = this.m1;
+		Map.m2 = this.m2;
 		
 		
 		

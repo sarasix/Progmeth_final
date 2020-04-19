@@ -12,6 +12,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import main.Main;
 import resloader.Resloader;
 
 public class Menu {
@@ -46,6 +47,8 @@ public class Menu {
 			public void handle(MouseEvent e) {
 				System.out.println("ok");
 				GamePlay.gameStage.show();
+				gameStage.hide();
+				
 				
 				
 				

@@ -1,11 +1,15 @@
 package main;
 import initial.*;
 import item.*;
+import javafx.scene.image.ImageView;
+
 import java.util.*;
 
 import character.*;
 import character.Character;
 import map.Map;
+import resloader.Resloader;
+import view.GamePlay;
 
 
 public class Main {
@@ -35,14 +39,24 @@ public class Main {
 	public static boolean gameWin = false;
 	
 	
-	public static void main(String[] arg) {
+	/*public static void main(String[] arg) {
+		start();
+	
+	}*/
+	public static void start() {
 		System.out.println("start");
 		randomNumber = rand.nextInt(8);
 		MrJack = allCharacter.get(randomNumber);
+		
+		GamePlay.createSubScene( new ImageView (Resloader.buttonPlay) );
+		GamePlay.createSubScene( GamePlay.indexToIV(randomNumber) );
+		
 		System.out.println("MrJack is "+chaToName(MrJack));
 		MrJack.setIsMrJack(true);
 		loopRound();
-	
+		
+		
+		
 	}
 	public static void loopRound (){
 		for(int i=0;i<8;i++) {
@@ -63,9 +77,9 @@ public class Main {
 			
 			removeItem(numLamp,numExitBarricade,numHoleCover);
 			randomCard();
-			play();
+			//play();
 			isLight();
-			isChoice();
+			//isChoice();
 			
 		}
 

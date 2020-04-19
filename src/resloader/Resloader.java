@@ -18,6 +18,7 @@ public class Resloader {
 	public static final Image exitBarricade = new Image(ClassLoader.getSystemResource("exitBarricade.png").toString());;
 	public static final Image holeCover = new Image(ClassLoader.getSystemResource("apple.png").toString());;
 	public static final Image wheat = new Image(ClassLoader.getSystemResource("wheat.png").toString());;
+	public static final Image conan = new Image(ClassLoader.getSystemResource("conanonboard1.png").toString());;
 
 	
 }
