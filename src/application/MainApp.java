@@ -16,7 +16,7 @@ public class MainApp extends Application {
 			//Scene scene = new Scene(root,1280,720);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			//primaryStage.setScene(GamePlay.gameScene);
-			GamePlay g = new GamePlay();
+			
 			Menu m = new Menu();
 			primaryStage = Menu.gameStage;
 			
@@ -24,7 +24,7 @@ public class MainApp extends Application {
 			
 			//primaryStage = GamePlay.gameStage;
 			primaryStage.show();
-			Main.start();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -33,6 +33,5 @@ public class MainApp extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
 	
 }

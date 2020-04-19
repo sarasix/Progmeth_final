@@ -117,7 +117,9 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 
 #.project
-/main/
+/Exit.png
+/ExitBarricade.png
+/resloader/
 /view/
 /application/
-/resloader/
+/holecover.png

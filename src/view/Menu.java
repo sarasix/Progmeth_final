@@ -45,8 +45,12 @@ public class Menu {
 		
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
+				
 				System.out.println("ok");
-				GamePlay.gameStage.show();
+				GamePlay g = new GamePlay();
+				
+				g.gameStage.show();
+				
 				gameStage.hide();
 				
 				

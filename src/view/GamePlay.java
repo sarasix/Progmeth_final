@@ -64,16 +64,17 @@ public class GamePlay {
 	
 	public GamePlay() {
 		
-		
+		//start();
 		gameStage = new Stage();
 		gamePane = new AnchorPane();
 		gameScene = new Scene(gamePane, 1152,648);
 		gameStage.setScene(gameScene);
 		gameStage.setTitle("Game");
 		
-		window = new AnchorPane();
-		subScene = new Scene(window,300,300);
-		subStage.setScene(subScene);
+		//window = new AnchorPane();
+		//subScene = new Scene(window,300,300);
+		//subStage.setScene(subScene);
+	 
 		
 		
 		
@@ -83,7 +84,8 @@ public class GamePlay {
 		createHowToPlay();
 		createTable();
 		//createSubScene();
-		//start();
+		start();
+		
 		
 	}
 	
@@ -162,30 +164,30 @@ public class GamePlay {
 					}
 					if(Map.m2[i][j] instanceof Character) {
 							
-							if(Map.m2[i][j] instanceof Character) {
+							if(Map.m2[i][j] instanceof Conan) {
 								tempTable2 = new ImageView(Resloader.conan);
 								
 							}
-							if(Map.m2[i][j] instanceof Character) {
-								tempTable2 = new ImageView(Resloader.conan);
+							if(Map.m2[i][j] instanceof Haibara) {
+								tempTable2 = new ImageView(Resloader.haibara);
 							}
-							if(Map.m2[i][j] instanceof Character) {
-								tempTable2 = new ImageView(Resloader.conan);
+							if(Map.m2[i][j] instanceof Ran) {
+								tempTable2 = new ImageView(Resloader.ran);
 							}
-							if(Map.m2[i][j] instanceof Character) {
-								tempTable2 = new ImageView(Resloader.conan);
+							if(Map.m2[i][j] instanceof Kogoro) {
+								tempTable2 = new ImageView(Resloader.kogoro);
 							}
-							if(Map.m2[i][j] instanceof Character) {
-								tempTable2 = new ImageView(Resloader.conan);
+							if(Map.m2[i][j] instanceof Heiji) {
+								tempTable2 = new ImageView(Resloader.heiji);
 							}
-							if(Map.m2[i][j] instanceof Character) {
-								tempTable2 = new ImageView(Resloader.conan);
+							if(Map.m2[i][j] instanceof Gin) {
+								tempTable2 = new ImageView(Resloader.gin);
 							}
-							if(Map.m2[i][j] instanceof Character) {
-								tempTable2 = new ImageView(Resloader.conan);
+							if(Map.m2[i][j] instanceof ShadowMan) {
+								tempTable2 = new ImageView(Resloader.shadowMan);
 							}
-							if(Map.m2[i][j] instanceof Character) {
-								tempTable2 = new ImageView(Resloader.conan);
+							if(Map.m2[i][j] instanceof Kid) {
+								tempTable2 = new ImageView(Resloader.kid);
 							}
 					}
 					
@@ -208,8 +210,7 @@ public class GamePlay {
 	}
 	public static void createSubScene(ImageView iv){
 			
-		iv.setX(300);
-		iv.setY(300);
+		
 			
 		Stage subStage = new Stage(StageStyle.TRANSPARENT);
 	    AnchorPane subPane = new AnchorPane();
@@ -225,6 +226,7 @@ public class GamePlay {
 		iv.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
 				
 		subPane.getChildren().add(iv);
+		//gameStage=subStage;
 		subStage.show();
 		
 	}
@@ -235,7 +237,7 @@ public class GamePlay {
 		System.out.println("MrJack is "+Main.chaToName(Main.MrJack));
 		Main.MrJack.setIsMrJack(true);
 		
-		createSubScene( new ImageView (Resloader.buttonPlay) );
+		//createSubScene( new ImageView (Resloader.buttonPlay) );
 		createSubScene( GamePlay.indexToIV(randomNumber) );
 		
 		
@@ -245,40 +247,42 @@ public class GamePlay {
 		ImageView iv = new ImageView();
 		if(i == 0 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.ginCard);
 		}
 		if(i == 1 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.shadowManCard);
 		}
 		if(i == 2 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.conanCard);
 		}
 		if(i == 3 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.kogoroCard);
 		}
 		if(i == 4 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.heijiCard);
 		}
 		if(i == 5 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.ranCard);
 		}
 		if(i == 6 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.haibaraCard);
 		}
 		if(i == 7 )
 		{
-			iv = new ImageView(Resloader.conan);
+			iv = new ImageView(Resloader.kidCard);
 		}
 		
 		//
 		//
 		// แก้ตามตัวละคร
+		iv.setFitHeight(366);
+		iv.setFitWidth(300);
 		return iv;
 	}
 	
