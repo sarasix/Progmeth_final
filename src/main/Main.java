@@ -48,18 +48,15 @@ public class Main {
 		randomNumber = rand.nextInt(8);
 		MrJack = allCharacter.get(randomNumber);
 		
-		GamePlay.createSubScene( new ImageView (Resloader.buttonPlay) );
-		GamePlay.createSubScene( GamePlay.indexToIV(randomNumber) );
-		
+		GamePlay.createOverlabSubScane( new ImageView (Resloader.buttonPlay),GamePlay.indexToIV(randomNumber));
+	
 		System.out.println("MrJack is "+chaToName(MrJack));
 		MrJack.setIsMrJack(true);
 		loopRound();
-		
-		
-		
+			
 	}
 	public static void loopRound (){
-		for(int i=0;i<8;i++) {
+		for(int i=0;i<1;i++) { // แก้กลับเป็น  8 ด้วย 
 			if(gameWin==true) {
 				break;
 			}
@@ -71,6 +68,33 @@ public class Main {
 				order = order2;
 			}
 			
+			if(i==0) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			if(i==1) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			if(i==2) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			if(i==3) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			if(i==4) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			if(i==5) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			if(i==6) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			if(i==7) {
+				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
+			}
+			//
+			//แก้ให้มันอยู๋ตรงกลาง + เปลี่ยนเป็นตัวเลข
+			//
 			int numLamp = initial.getLawRemoveItem(i,0);
 			int numExitBarricade = initial.getLawRemoveItem(i,1) ;
 			int numHoleCover = initial.getLawRemoveItem(i,2);
@@ -141,7 +165,7 @@ public class Main {
 	}
 		
 	public static void randomCard() {
-
+		int[] card4Index = new int[4]; 
 		card4 = new ArrayList<Character>();
 		for(int i = 0; i<4 ; i++)
 		{
@@ -157,9 +181,13 @@ public class Main {
 					break;
 				}
 			}
+			card4Index[i] = randomNumber;
 			card4.add(allCharacter.get(randomNumber));
-		}		
-		
+		}	
+		if(GamePlay.order == 1) {
+			GamePlay.createCard4(new ImageView(Resloader.blue),GamePlay.indexToIV(card4Index[0]),GamePlay.indexToIV(card4Index[1]),GamePlay.indexToIV(card4Index[2]),GamePlay.indexToIV(card4Index[3]));
+			System.out.println("sddwwa");
+		}//GamePlay.gamePane.getChildren().add(GamePlay.createCard4(new ImageView(Resloader.blue),GamePlay.indexToIV(card4Index[0]),GamePlay.indexToIV(card4Index[1]),GamePlay.indexToIV(card4Index[2]),GamePlay.indexToIV(card4Index[3])));
 	}
 	public static boolean validPosition(int[] pos) {
 		if(pos[0]>=0&&pos[0]<=6&&pos[1]>=0&&pos[1]<=12) {
@@ -204,6 +232,9 @@ public class Main {
 			System.out.println();
 			System.out.println("Please select card");
 			inputCard = scan.nextInt();
+			
+			
+			
 			int inputNum;
 			int[] u= new int[2];
 			CharacterNow=card4.get(inputCard-1);

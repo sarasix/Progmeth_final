@@ -49,11 +49,9 @@ public class Menu {
 				System.out.println("ok");
 				GamePlay g = new GamePlay();
 				
-				g.gameStage.show();
-				
+				GamePlay.gameStage.show();
+				Main.start();
 				gameStage.hide();
-				
-				
 				
 				
 			}

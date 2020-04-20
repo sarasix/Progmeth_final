@@ -2,7 +2,8 @@ package character;
 
 import java.util.Scanner;
 
-import round.Round;
+import main.Main;
+
 
 public class Gin extends Character{
 	
@@ -15,7 +16,7 @@ public class Gin extends Character{
     	Scanner scan = new Scanner(System.in);
     	System.out.println("Choose a character to walk");
     	int h= scan.nextInt();
-    	Character m= Round.indexToCha(h);
+    	Character m= Main.indexToCha(h);
     	
     }
     

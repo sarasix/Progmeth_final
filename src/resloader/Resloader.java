@@ -9,7 +9,7 @@ public class Resloader {
 	public static final Image table = new Image(ClassLoader.getSystemResource("tarang.jpg").toString());;
 	public static final Image bgMenu = new Image(ClassLoader.getSystemResource("bgGame.jpg").toString());;
 	public static final Image buttonPlay= new Image(ClassLoader.getSystemResource("1-16250_video-play-button-play-button-png-red-transparent.png").toString());;
-	public static final Image apple1 = new Image(ClassLoader.getSystemResource("apple1.png").toString());;
+	public static final Image apple = new Image(ClassLoader.getSystemResource("apple.png").toString());;
 	public static final Image Exit = new Image(ClassLoader.getSystemResource("Exit.png").toString());;
 	public static final Image lampBase = new Image(ClassLoader.getSystemResource("lampBase.png").toString());;
 	public static final Image hole = new Image(ClassLoader.getSystemResource("hole.png").toString());;
@@ -37,7 +37,7 @@ public class Resloader {
 
 	
 
-
+	public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());;
 
 
 

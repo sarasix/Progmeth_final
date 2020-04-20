@@ -5,7 +5,6 @@ import java.util.Scanner;
 import main.Main;
 
 import map.Map;
-import round.Round;
 
 public class ShadowMan extends Character {
 	//private int walk;

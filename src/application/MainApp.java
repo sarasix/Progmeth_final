@@ -20,9 +20,6 @@ public class MainApp extends Application {
 			Menu m = new Menu();
 			primaryStage = Menu.gameStage;
 			
-			
-			
-			//primaryStage = GamePlay.gameStage;
 			primaryStage.show();
 			
 		} catch(Exception e) {

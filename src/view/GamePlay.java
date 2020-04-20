@@ -30,6 +30,8 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
@@ -52,9 +54,12 @@ public class GamePlay {
 	
 	public static ImageView buttonHowToPlay = new ImageView(Resloader.buttonFree);
 	public static ImageView table = new ImageView(Resloader.table);
-	public static ImageView apple1 = new ImageView(Resloader.apple1);
 	public static ImageView buttonPlay = new ImageView(Resloader.buttonPlay);
 	public static ImageView[][] tables = new ImageView[7][13] ;
+	
+	//public static StackPane stPaneCard4 = new StackPane();
+	public static int order = 0;
+	
 	
 	public static Random rand = new Random();
 	public static Scanner scan = new Scanner(System.in);	
@@ -64,30 +69,20 @@ public class GamePlay {
 	
 	public GamePlay() {
 		
-		//start();
 		gameStage = new Stage();
 		gamePane = new AnchorPane();
 		gameScene = new Scene(gamePane, 1152,648);
 		gameStage.setScene(gameScene);
 		gameStage.setTitle("Game");
-		
-		//window = new AnchorPane();
-		//subScene = new Scene(window,300,300);
-		//subStage.setScene(subScene);
-	 
-		
-		
-		
-		
-		
+			
 		createBackground();
 		createHowToPlay();
 		createTable();
-		//createSubScene();
-		start();
 		
 		
+	
 	}
+	
 	
 	public void createBackground() {
 		BackgroundImage background = new BackgroundImage(Resloader.bgGame, BackgroundRepeat.NO_REPEAT,
@@ -191,7 +186,6 @@ public class GamePlay {
 							}
 					}
 					
-					
 				}
 				
 				tempTable2.setFitHeight(60);
@@ -202,15 +196,12 @@ public class GamePlay {
 				Group root2 = new Group(tempTable2);
 				gamePane.getChildren().add(root2);
 				
-				
 			}
 		}
 		
 	
 	}
 	public static void createSubScene(ImageView iv){
-			
-		
 			
 		Stage subStage = new Stage(StageStyle.TRANSPARENT);
 	    AnchorPane subPane = new AnchorPane();
@@ -230,19 +221,83 @@ public class GamePlay {
 		subStage.show();
 		
 	}
-	public static void start() {
-		System.out.println("start");
-		randomNumber = rand.nextInt(8);
-		Main.MrJack = Main.allCharacter.get(randomNumber);
-		System.out.println("MrJack is "+Main.chaToName(Main.MrJack));
-		Main.MrJack.setIsMrJack(true);
+	public static void createSubSceneEnd(ImageView iv){
 		
-		//createSubScene( new ImageView (Resloader.buttonPlay) );
-		createSubScene( GamePlay.indexToIV(randomNumber) );
+		Stage subStage = new Stage(StageStyle.TRANSPARENT);
+	    AnchorPane subPane = new AnchorPane();
+		subStage.setScene(new Scene(subPane,Color.TRANSPARENT));
 		
+		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				subStage.hide();
+				//
+				System.out.println("sddwwa");
+				order = 1;
+						
+				}
+			};
+				
+		iv.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
+				
+		subPane.getChildren().add(iv);
+		//gameStage=subStage;
+		subStage.show();
 		
-		//Main.loopRound();	
 	}
+	public static void createOverlabSubScane(ImageView iv1,ImageView iv2)
+	{
+		
+		Stage subStage = new Stage(StageStyle.TRANSPARENT);
+	    AnchorPane subPane = new AnchorPane();
+		subStage.setScene(new Scene(subPane,Color.TRANSPARENT));
+		
+		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				subStage.hide();
+				createSubSceneEnd(iv2);
+						
+				}
+			};
+				
+		iv1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
+				
+		subPane.getChildren().add(iv1);
+		//gameStage=subStage;
+		subStage.show();
+		
+	}
+	public static void createIV(ImageView iv ,int x,int y) {
+		
+		iv.setX(x);
+		iv.setY(y);
+		
+		Group root = new Group(iv);
+		gamePane.getChildren().add(root);
+		
+	
+		
+	}
+	public static void createCard4(ImageView bg,ImageView c1,ImageView c2,ImageView c3 ,ImageView c4) {	
+		//Stage subStage = new Stage(StageStyle.TRANSPARENT);
+	    AnchorPane stPaneCard4 = new AnchorPane();
+		
+		HBox subPane1 = new HBox();
+	    subPane1.getChildren().add(bg);
+	    
+	    HBox subPane2 = new HBox();
+	    subPane2.getChildren().addAll(c1,c2,c3,c4);
+	    
+	    stPaneCard4.getChildren().addAll(subPane1,subPane2);    
+		//subStage.setScene(new Scene(stPane,Color.TRANSPARENT));	
+		//subStage.show();	
+		//return subStage;
+	    //return stPaneCard4;
+	    gamePane.getChildren().add(stPaneCard4);
+	}
+	public static void addToPane(Pane pane) {
+		//gamePane.add(pane);
+	}
+
 	public static ImageView indexToIV(int i) {
 		ImageView iv = new ImageView();
 		if(i == 0 )
@@ -278,9 +333,7 @@ public class GamePlay {
 			iv = new ImageView(Resloader.kidCard);
 		}
 		
-		//
-		//
-		// แก้ตามตัวละคร
+		
 		iv.setFitHeight(366);
 		iv.setFitWidth(300);
 		return iv;
