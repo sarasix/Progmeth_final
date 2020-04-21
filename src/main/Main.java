@@ -52,7 +52,7 @@ public class Main {
 	
 		System.out.println("MrJack is "+chaToName(MrJack));
 		MrJack.setIsMrJack(true);
-		loopRound();
+		//loopRound();
 			
 	}
 	public static void loopRound (){
@@ -184,10 +184,12 @@ public class Main {
 			card4Index[i] = randomNumber;
 			card4.add(allCharacter.get(randomNumber));
 		}	
-		if(GamePlay.order == 1) {
+		
 			GamePlay.createCard4(new ImageView(Resloader.blue),GamePlay.indexToIV(card4Index[0]),GamePlay.indexToIV(card4Index[1]),GamePlay.indexToIV(card4Index[2]),GamePlay.indexToIV(card4Index[3]));
+			
+			
 			System.out.println("sddwwa");
-		}//GamePlay.gamePane.getChildren().add(GamePlay.createCard4(new ImageView(Resloader.blue),GamePlay.indexToIV(card4Index[0]),GamePlay.indexToIV(card4Index[1]),GamePlay.indexToIV(card4Index[2]),GamePlay.indexToIV(card4Index[3])));
+		//GamePlay.gamePane.getChildren().add(GamePlay.createCard4(new ImageView(Resloader.blue),GamePlay.indexToIV(card4Index[0]),GamePlay.indexToIV(card4Index[1]),GamePlay.indexToIV(card4Index[2]),GamePlay.indexToIV(card4Index[3])));
 	}
 	public static boolean validPosition(int[] pos) {
 		if(pos[0]>=0&&pos[0]<=6&&pos[1]>=0&&pos[1]<=12) {

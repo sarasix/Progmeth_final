@@ -34,7 +34,8 @@ public class Resloader {
 	public static final Image heijiCard = new Image(ClassLoader.getSystemResource("heijicard.jpg").toString());;
 	public static final Image haibaraCard = new Image(ClassLoader.getSystemResource("Haibaracard.jpg").toString());;
 	public static final Image kidCard = new Image(ClassLoader.getSystemResource("kidcard.jpg").toString());;
-
+	public static final Image choose = new Image(ClassLoader.getSystemResource("choosewalkorability.jpg").toString());;
+	public static final Image walk = new Image(ClassLoader.getSystemResource("walk.jpg").toString());;
 	
 
 	public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());;

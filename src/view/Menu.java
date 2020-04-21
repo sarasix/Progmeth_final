@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -50,7 +51,7 @@ public class Menu {
 				GamePlay g = new GamePlay();
 				
 				GamePlay.gameStage.show();
-				Main.start();
+				Controller.start();
 				gameStage.hide();
 				
 				
