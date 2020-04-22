@@ -315,21 +315,8 @@ public class GamePlay {
 		 StackPane stPaneCard4 = new StackPane();
 	    EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
-				/*Stage subStage = new Stage(StageStyle.TRANSPARENT);
-			    
-				subStage.setScene(new Scene(subPane,Color.TRANSPARENT));*/
-				
-					Image i = Resloader.choose;
-					AnchorPane subPane = new AnchorPane();
-					
-					ImageView iv = setCenter(i);
-					
-					subPane.getChildren().add(iv);
-					
-					gamePane.getChildren().add(subPane);
-		
-					subStage.hide();	
 					createchosse();
+					
 				}
 			};
 		c1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
@@ -359,9 +346,16 @@ public class GamePlay {
 		
 	}
 	public static void createchosse() {
-		//createOverlabSubScane_2(new ImageView(Resloader.apple),300,300,new ImageView(Resloader.walk));
+		Image i = Resloader.choose;
+		AnchorPane subPane = new AnchorPane();
+
+		ImageView iv = setCenter(i);
+		subPane.getChildren().add(iv);
 		
-		//
+		gamePane.getChildren().add(subPane);
+
+		subStage.hide();	
+		
 		
 	}
 	public static ImageView setCenter(Image i) {
