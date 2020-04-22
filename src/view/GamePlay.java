@@ -62,6 +62,7 @@ public class GamePlay {
 	public static ImageView buttonPlay = new ImageView(Resloader.buttonPlay);
 	public static ImageView[][] tables = new ImageView[7][13] ;
 	
+	
 	public static Stage card4 = new Stage();
 	public static int order = 0;
 	
@@ -228,6 +229,23 @@ public class GamePlay {
 		subStage.show();
 		
 	}
+	public static void createSubPane(Image i){
+		
+		ImageView iv = setCenter(i);
+		gamePane.getChildren().add(iv);
+		
+		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				gamePane.getChildren().remove(iv);
+						
+				}
+			};
+				
+		iv.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
+				
+		
+	}
+	
 	public static void createSubSceneEnd(ImageView iv){
 		
 		Stage subStage = new Stage(StageStyle.TRANSPARENT);
@@ -237,13 +255,7 @@ public class GamePlay {
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 				subStage.hide();
-				//
-			
-				//gamePane.getChildren().add(stPaneCard4);
-				
 				Main.randomCard();
-				//Controller.order = 1;
-				//Controller.loopRound();		
 				}
 			};
 				
@@ -272,7 +284,6 @@ public class GamePlay {
 		iv1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
 				
 		subPane.getChildren().add(iv1);
-		//gameStage=subStage;
 		subStage.show();
 		
 	}public static void createOverlabSubScane_2(ImageView iv1,int x,int y,ImageView iv2)
@@ -289,7 +300,7 @@ public class GamePlay {
 						
 				}
 			};
-				
+			
 		iv1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
 		iv1.setX(x);
 		iv1.setY(y);
@@ -297,9 +308,6 @@ public class GamePlay {
 		Group root = new Group(iv1);
 		gamePane.getChildren().add(root);
 		
-		//subPane.getChildren().add(iv1);
-		//gameStage=subStage;
-		//subStage.show();
 		
 	}
 	public static void createIV(ImageView iv ,int x,int y) {
@@ -315,8 +323,8 @@ public class GamePlay {
 		 StackPane stPaneCard4 = new StackPane();
 	    EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
-					createchosse();
-					
+					createChosse();
+					subStage.hide();
 				}
 			};
 		c1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
@@ -327,11 +335,9 @@ public class GamePlay {
 
 		HBox subPane1 = new HBox();
 	    subPane1.getChildren().add(bg);
-	    //subPane1.setAlignment(Pos.CENTER);
 	    
 	    HBox subPane2 = new HBox();
 	    subPane2.getChildren().addAll(c1,c2,c3,c4);
-	    //subPane2.setAlignment(Pos.CENTER);
 	    
 	    stPaneCard4.getChildren().addAll(subPane1,subPane2);    
 	    stPaneCard4.setAlignment(Pos.CENTER);
@@ -340,21 +346,50 @@ public class GamePlay {
 		subStage.setScene(new Scene(stPaneCard4,Color.TRANSPARENT));
 	    
 		subStage.show();
-		//createOverlabSubScane(new ImageView(Resloader.apple),new ImageView(Resloader.walk));
+	
+	}
+	
+	public static void createChosse() {	
+
+		Image i = Resloader.choose;
+		ImageView choose = setCenter(i);	
+		gamePane.getChildren().add(choose);
+
 		
+		ImageView walk = new ImageView (Resloader.apple);
+		ImageView ability = new ImageView (Resloader.apple);
+		walk.setX(576-200);
+		walk.setY(324+20);
+		ability.setX(576+80);
+		ability.setY(324+20);
+		gamePane.getChildren().addAll(walk,ability);
+		
+		EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {	
+
+				System.out.println("1");
+				gamePane.getChildren().remove(choose);
+				gamePane.getChildren().remove(walk);
+				gamePane.getChildren().remove(ability);
+				createSubPane(Resloader.walk);			
+				
+				}
+			};
+		walk.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler1);
+		
+		EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				gamePane.getChildren().remove(choose);
+				gamePane.getChildren().remove(walk);
+				gamePane.getChildren().remove(ability);
+				createSubPane(Resloader.walk);	
+			}
+		};
+		ability.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler2);
 		
 		
 	}
-	public static void createchosse() {
-		Image i = Resloader.choose;
-		AnchorPane subPane = new AnchorPane();
-
-		ImageView iv = setCenter(i);
-		subPane.getChildren().add(iv);
-		
-		gamePane.getChildren().add(subPane);
-
-		subStage.hide();	
+	public static void createChooseImage() {
 		
 		
 	}
@@ -367,7 +402,6 @@ public class GamePlay {
 		iv.setX(576-x/2);
 		iv.setY(324-y/2);
 	
-		System.out.println( (int)iv.getFitHeight()/2);
 		
 		return iv;
 	}
