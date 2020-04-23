@@ -472,6 +472,7 @@ public class GamePlay {
 		
 		if(chaSel.size()==4) {
 			Main.isLight();
+			Main.isChoice();
 			Main.randomCard();
 		}
 		else {

@@ -5,6 +5,8 @@ import javafx.scene.image.ImageView;
 
 import java.util.*;
 
+import com.sun.scenario.effect.ColorAdjust;
+
 import character.*;
 import character.Character;
 import map.Map;
@@ -594,8 +596,20 @@ public class Main {
 				choiceCharacter.add(allCharacter.get(i));
 			}
 		}
+		c = 0;
+		for(int i =0 ; i <8; i++) {
+			if(!allCharacter.get(i).getIsChoice()) {
+				
+				ColorAdjust shadow = new ColorAdjust();
+				shadow.setBrightness(-1);
+				GamePlay.isChoice.get(i).setEffect(shadow);
+			}
+		}
+		
+		
 		System.out.println("Do you want to investigate now [1]yes [2]no");
-		int inputNumber = scan.nextInt();
+		//int inputNumber = scan.nextInt();
+		int inputNumber = 0;
 		c = 0;
 		if(inputNumber ==1) {
 			System.out.println("Who is Jack");
