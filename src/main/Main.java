@@ -505,6 +505,37 @@ public class Main {
 		}
 		
 	}
+	public static void walk() {
+		
+		Character c = indexToCha ( GamePlay.cha);
+		int[] u= new int[2];
+		u[0] = c.getIndexX()+GamePlay.dir1;
+		u[1] = c.getIndexY()+GamePlay.dir2;
+		if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
+			GamePlay.indexToIVBoard(GamePlay.cha).setX(148+66*u[1]);
+			GamePlay.indexToIVBoard(GamePlay.cha).setY(100+66*u[0]);	
+			c.walk(u);
+			
+			
+		}
+		if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
+			System.out.println("Choose a hole you want to appear: ");
+			int indexXHole;
+			int indexYHole;
+			int[] newU=new int[2];
+			do
+			{
+				System.out.print("Insert a row for your hole position: ");
+				indexXHole=scan.nextInt();
+				System.out.print("\nInsert a column for your hole position: ");
+				indexYHole=scan.nextInt();
+				newU[0]=indexXHole;
+				newU[1]=indexYHole;
+			}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
+			CharacterNow.walk(newU);
+			
+		}
+	}
 	public static void isLight () {
 		for(int index = 0; index < 8; index++ ) {
 			

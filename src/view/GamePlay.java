@@ -76,6 +76,9 @@ public class GamePlay {
 	public static ArrayList <Integer> chaSel = new ArrayList<Integer> ();
 	public static int cha = 0;
 	public static ImageView chaiv;
+	public static int walk = 0;
+	public static int dir1 = 0;
+	public static int dir2 = 0;
 	
 	public static ImageView conan = new ImageView(Resloader.conan);
 	public static ImageView haibara = new ImageView(Resloader.haibara);
@@ -127,8 +130,8 @@ public class GamePlay {
 		Group root = new Group(buttonHowToPlay);
 		gamePane.getChildren().add(root);
 	}
-	private void createTable() {
-		Initial initial = new Initial();
+	private static void createTable() {
+		//Initial initial = new Initial();
 		for(int i=0 ;i<7;i++) {
 			for (int j=0 ;j<13;j++) {
 				ImageView tempTable = new ImageView();
@@ -159,100 +162,110 @@ public class GamePlay {
 				Group root = new Group(tables[i][j]);
 				gamePane.getChildren().add(root);
 				
-				ImageView tempTable2 = new ImageView();
-				
-				
-				if(Map.m2!=null)
-				{
-					if(Map.m2[i][j] instanceof Item) {
-							if(Map.m2[i][j] instanceof Lamp) {
-								tempTable2 = new ImageView(Resloader.lamp);
-							}
-							if(Map.m2[i][j] instanceof ExitBarricade) {
-								tempTable2 = new ImageView(Resloader.exitBarricade);
-							}
-							if(Map.m2[i][j] instanceof HoleCover) {
-								tempTable2 = new ImageView(Resloader.holeCover);
-							}
-							tempTable2.setFitHeight(60);
-							tempTable2.setFitWidth(60);
-						
-							tempTable2.setX(148+66*j);
-							tempTable2.setY(100+66*i);
-							Group root2 = new Group(tempTable2);
-							gamePane.getChildren().add(root2);
-						
-					}
-					if(Map.m2[i][j] instanceof Character) {
-							
-							if(Map.m2[i][j] instanceof Conan) {
-								conan.setFitHeight(60);
-								conan.setFitWidth(60);
-								conan.setX(148+66*j);
-								conan.setY(100+66*i);	
-								gamePane.getChildren().add(conan);
-								
-							}
-							if(Map.m2[i][j] instanceof Haibara) {
-								haibara.setFitHeight(60);
-								haibara.setFitWidth(60);
-								haibara.setX(148+66*j);
-								haibara.setY(100+66*i);	
-								gamePane.getChildren().add(haibara);
-								
-							}
-							if(Map.m2[i][j] instanceof Ran) {
-								ran.setFitHeight(60);
-								ran.setFitWidth(60);
-								ran.setX(148+66*j);
-								ran.setY(100+66*i);	
-								gamePane.getChildren().add(ran);
-							}
-							if(Map.m2[i][j] instanceof Kogoro) {
-								kogoro.setFitHeight(60);
-								kogoro.setFitWidth(60);
-								kogoro.setX(148+66*j);
-								kogoro.setY(100+66*i);	
-								gamePane.getChildren().add(kogoro);
-							}
-							if(Map.m2[i][j] instanceof Heiji) {
-								heiji.setFitHeight(60);
-								heiji.setFitWidth(60);
-								heiji.setX(148+66*j);
-								heiji.setY(100+66*i);	
-								gamePane.getChildren().add(heiji);
-							}
-							if(Map.m2[i][j] instanceof Gin) {
-								gin.setFitHeight(60);
-								gin.setFitWidth(60);
-								gin.setX(148+66*j);
-								gin.setY(100+66*i);	
-								gamePane.getChildren().add(gin);
-							}
-							if(Map.m2[i][j] instanceof ShadowMan) {
-								shadowMan.setFitHeight(60);
-								shadowMan.setFitWidth(60);
-								shadowMan.setX(148+66*j);
-								shadowMan.setY(100+66*i);	
-								gamePane.getChildren().add(shadowMan);
-							}
-							if(Map.m2[i][j] instanceof Kid) {
-								kid.setFitHeight(60);
-								kid.setFitWidth(60);
-								kid.setX(148+66*j);
-								kid.setY(100+66*i);	
-								gamePane.getChildren().add(kid);
-							}
-					}
-					
-				}
 				
 				
 				
 			}
 		}
+		for(int i=0;i<7;i++) {
+			for(int j=0;j<13;j++) {
+				ImageView tempTable2 = new ImageView();
+					
+				if(Map.m2!=null)
+					{
+						if(Map.m2[i][j] instanceof Item) {
+								if(Map.m2[i][j] instanceof Lamp) {
+									tempTable2 = new ImageView(Resloader.lamp);
+								}
+								if(Map.m2[i][j] instanceof ExitBarricade) {
+									tempTable2 = new ImageView(Resloader.exitBarricade);
+								}
+								if(Map.m2[i][j] instanceof HoleCover) {
+									tempTable2 = new ImageView(Resloader.holeCover);
+								}
+								tempTable2.setFitHeight(60);
+								tempTable2.setFitWidth(60);
+							
+								tempTable2.setX(148+66*j);
+								tempTable2.setY(100+66*i);
+								Group root2 = new Group(tempTable2);
+								gamePane.getChildren().add(root2);
+							
+						}
+						
+					
+				}
+			}
 		
 	
+		}
+		for(int i=0;i<7;i++) {
+			for(int j=0;j<13;j++) {
+				if(Map.m2[i][j] instanceof Character) {
+					
+					if(Map.m2[i][j] instanceof Conan) {
+						conan.setFitHeight(60);
+						conan.setFitWidth(60);
+						conan.setX(148+66*j);
+						conan.setY(100+66*i);	
+						gamePane.getChildren().add(conan);
+						
+					}
+					if(Map.m2[i][j] instanceof Haibara) {
+						haibara.setFitHeight(60);
+						haibara.setFitWidth(60);
+						haibara.setX(148+66*j);
+						haibara.setY(100+66*i);	
+						gamePane.getChildren().add(haibara);
+						
+					}
+					if(Map.m2[i][j] instanceof Ran) {
+						ran.setFitHeight(60);
+						ran.setFitWidth(60);
+						ran.setX(148+66*j);
+						ran.setY(100+66*i);	
+						gamePane.getChildren().add(ran);
+					}
+					if(Map.m2[i][j] instanceof Kogoro) {
+						kogoro.setFitHeight(60);
+						kogoro.setFitWidth(60);
+						kogoro.setX(148+66*j);
+						kogoro.setY(100+66*i);	
+						gamePane.getChildren().add(kogoro);
+					}
+					if(Map.m2[i][j] instanceof Heiji) {
+						heiji.setFitHeight(60);
+						heiji.setFitWidth(60);
+						heiji.setX(148+66*j);
+						heiji.setY(100+66*i);	
+						gamePane.getChildren().add(heiji);
+					}
+					if(Map.m2[i][j] instanceof Gin) {
+						gin.setFitHeight(60);
+						gin.setFitWidth(60);
+						gin.setX(148+66*j);
+						gin.setY(100+66*i);	
+						System.out.println(i+" "+j);
+						gamePane.getChildren().add(gin);
+					}
+					if(Map.m2[i][j] instanceof ShadowMan) {
+						shadowMan.setFitHeight(60);
+						shadowMan.setFitWidth(60);
+						shadowMan.setX(148+66*j);
+						shadowMan.setY(100+66*i);	
+						gamePane.getChildren().add(shadowMan);
+					}
+					if(Map.m2[i][j] instanceof Kid) {
+						kid.setFitHeight(60);
+						kid.setFitWidth(60);
+						kid.setX(148+66*j);
+						kid.setY(100+66*i);	
+						gamePane.getChildren().add(kid);
+					}
+				}
+			
+			}
+		}
 	}
 	public static void createSubPane(Image i){
 		
@@ -264,15 +277,12 @@ public class GamePlay {
 				gamePane.getChildren().remove(iv);
 				
 				ColorAdjust light = new ColorAdjust(); 
-				light.setBrightness(0.8);
-				
+				light.setBrightness(0.5);	
 				chaiv = indexToIVBoard(cha);
-				
 				chaiv.setEffect(light);
-				
-				conan.setEffect(light);
-				
-				System.out.println(cha);
+				//เพิ่มกรอบบ
+				walk  = 0 ;
+				createWalk();
 						
 				}
 			};
@@ -457,7 +467,7 @@ public class GamePlay {
 		EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {	
 
-				System.out.println("1");
+				
 				gamePane.getChildren().remove(choose);
 				gamePane.getChildren().remove(walk);
 				gamePane.getChildren().remove(ability);
@@ -479,7 +489,85 @@ public class GamePlay {
 		
 		
 	}
-	
+	public static void createWalk(){
+		
+		ImageView iv1 = new ImageView(Resloader.apple);//^
+		ImageView iv2 = new ImageView(Resloader.apple);//<
+		ImageView iv3 = new ImageView(Resloader.apple);//v
+		ImageView iv4 = new ImageView(Resloader.apple);//>
+		
+		iv1.setX(970);
+		iv1.setY(470);
+		
+		iv2.setX(920);
+		iv2.setY(520);
+		
+		iv3.setX(970);
+		iv3.setY(520);
+		
+		iv4.setX(1020);
+		iv4.setY(520);
+		System.out.println(cha+Main.indexToName(cha));
+		
+		EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {	
+				dir1 = -1;
+				dir2 = 0;
+				walk++;
+				Main.walk();
+				if(walk==Main.indexToCha(cha).getWalk()) {
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {	
+				dir1 = 0;
+				dir2 = -1;
+				walk++;
+				walk++;
+				Main.walk();
+				if(walk==Main.indexToCha(cha).getWalk()) {
+					
+				}
+				
+			}
+		};
+		EventHandler<MouseEvent> eventHandler3 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {	
+				dir1 = 1;
+				dir2 = 0;	
+				walk++;
+				Main.walk();
+				if(walk==Main.indexToCha(cha).getWalk()) {
+					
+				}	
+			}
+		};
+		EventHandler<MouseEvent> eventHandler4 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {	
+				dir1 = 0;
+				dir2 = 1;	
+				walk++;
+				Main.walk();
+				if(walk==Main.indexToCha(cha).getWalk()) {
+					
+				}
+			
+			}
+		};
+		iv1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler1);
+		iv2.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler2);
+		iv3.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler3);
+		iv4.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler4);
+		  
+		gamePane.getChildren().addAll(iv1,iv2,iv3,iv4);
+	  
+	}
+	public static void walker() {
+		
+			
+	}
 	public static ImageView setCenter(Image i) {
 		//gamePane.add(pane);
 		int x = (int) i.getWidth();
@@ -569,8 +657,7 @@ public class GamePlay {
 		}
 		
 		
-		iv.setFitHeight(366);
-		iv.setFitWidth(300);
+		
 		return iv;
 		
 	}
