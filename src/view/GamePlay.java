@@ -73,6 +73,8 @@ public class GamePlay {
 	
 	public static int abi = 10;
 	
+	public static ArrayList < ImageView > isChoice = new ArrayList <ImageView>();
+	
 	
 	public static ImageView conan = new ImageView(Resloader.conan);
 	public static ImageView haibara = new ImageView(Resloader.haibara);
@@ -93,9 +95,9 @@ public class GamePlay {
 		gameStage.setTitle("Game");
 			
 		createBackground();
-		createHowToPlay();
 		createTable();
-		
+		createHowToPlay();
+		createIsChoice();
 		
 		subStage.setScene(new Scene(subPane,Color.TRANSPARENT));
 		
@@ -110,8 +112,8 @@ public class GamePlay {
 	}
 	
 	private void createHowToPlay() {
-		buttonHowToPlay.setX(20);
-		buttonHowToPlay.setY(500);
+		buttonHowToPlay.setX(120);
+		buttonHowToPlay.setY(530);
 			
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
@@ -695,6 +697,35 @@ public class GamePlay {
 		
 		
 		
+	}
+	public static void createIsChoice() {
+		
+		ImageView iv1 = new ImageView(Resloader.gin);
+		ImageView iv2 = new ImageView(Resloader.shadowMan);
+		ImageView iv3 = new ImageView(Resloader.conan);
+		ImageView iv4 = new ImageView(Resloader.kogoro);
+		ImageView iv5 = new ImageView(Resloader.heiji);
+		ImageView iv6 = new ImageView(Resloader.ran);
+		ImageView iv7 = new ImageView(Resloader.haibara);
+		ImageView iv8 = new ImageView(Resloader.kid);
+		
+		isChoice.add(iv1);
+		isChoice.add(iv2);
+		isChoice.add(iv3);
+		isChoice.add(iv4);
+		isChoice.add(iv5);
+		isChoice.add(iv6);
+		isChoice.add(iv7);
+		isChoice.add(iv8);
+		
+		for(int i=0;i<8;i++) {
+			isChoice.get(i).setX(50);
+			isChoice.get(i).setY(50+i*70);
+			isChoice.get(i).setFitHeight(60);
+			isChoice.get(i).setFitWidth(60);
+			gamePane.getChildren().add(isChoice.get(i));
+		}		
+	
 	}
 	public static void createRound(){
 		
