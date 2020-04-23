@@ -625,6 +625,7 @@ public class GamePlay {
 				if(walk>=Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1,iv2,iv3,iv4,iv5);
 					chaiv.setEffect(normal);
+					//chaiv = indexToIVBoard(cha); 
 					createCardSel();
 				}
 			}
@@ -636,6 +637,7 @@ public class GamePlay {
 				Main.walk();
 				if(walk==Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1,iv2,iv3,iv4,iv5);
+					chaiv.setEffect(normal);
 					createCardSel();
 				}
 				
@@ -648,6 +650,7 @@ public class GamePlay {
 				Main.walk();
 				if(walk==Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1,iv2,iv3,iv4,iv5);
+					chaiv.setEffect(normal);
 					createCardSel();
 				}	
 			}
@@ -659,6 +662,7 @@ public class GamePlay {
 				Main.walk();
 				if(walk==Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1,iv2,iv3,iv4,iv5);
+					chaiv.setEffect(normal);
 					createCardSel();
 				}
 			
@@ -734,31 +738,33 @@ public class GamePlay {
 	
 	}
 	public static void createRound(){
-		
+		ImageView iv = new ImageView();
 		if(round==1) {
-			ivRound = new ImageView(Resloader.n1);
+			iv = new ImageView(Resloader.n1);
 		}
 		if(round==2) {
-			ivRound = new ImageView(Resloader.n2);
+			iv = new ImageView(Resloader.n2);
 		}
 		if(round==3) {
-			ivRound = new ImageView(Resloader.n3);
+			iv = new ImageView(Resloader.n3);
 		}
 		if(round==4) {
-			ivRound = new ImageView(Resloader.n4);
+			iv = new ImageView(Resloader.n4);
 		}
 		if(round==5) {
-			ivRound = new ImageView(Resloader.n5);
+			iv = new ImageView(Resloader.n5);
 		}
 		if(round==6) {
-			ivRound = new ImageView(Resloader.n6);
+			iv = new ImageView(Resloader.n6);
 		}
 		if(round==7) {
-			ivRound = new ImageView(Resloader.n7);
+			iv = new ImageView(Resloader.n7);
 		}
 		if(round==8) {
-			ivRound = new ImageView(Resloader.n8);
+			iv = new ImageView(Resloader.n8);
 		}
+		ivRound = iv;
+		
 		ivRound.setX(530);
 		ivRound.setY(9);
 		ivRound.setScaleX(0.7);

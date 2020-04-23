@@ -550,6 +550,12 @@ public class Main {
 				allCharacter.get(index).setIsLight(false);
 				
 			}
+			if(MrJack.getIsLight()==true) {
+				GamePlay.createSubPane(Resloader.apple);	
+			}
+			if(MrJack.getIsLight()==false) {
+				GamePlay.createSubPane(Resloader.wall);	
+			}
 		}
 		for (int i=0;i<8;i++) {
 			if(allCharacter.get(i).getIsLight()==true) {
