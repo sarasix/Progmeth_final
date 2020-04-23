@@ -71,7 +71,16 @@ public class GamePlay {
 	public static Scanner scan = new Scanner(System.in);	
 	private static int randomNumber;
 	
-	public static boolean start = false;
+	public static Character ChaSel;
+	
+	public static ImageView conan = new ImageView(Resloader.conan);
+	public static ImageView haibara = new ImageView(Resloader.haibara);
+	public static ImageView gin = new ImageView(Resloader.gin);
+	public static ImageView kid = new ImageView(Resloader.kid);
+	public static ImageView shadowMan = new ImageView(Resloader.shadowMan);
+	public static ImageView kogoro = new ImageView(Resloader.kogoro);
+	public static ImageView ran = new ImageView(Resloader.ran);
+	public static ImageView heiji = new ImageView(Resloader.heiji);
 	
 	public GamePlay() {
 		
@@ -152,8 +161,6 @@ public class GamePlay {
 				if(Map.m2!=null)
 				{
 					if(Map.m2[i][j] instanceof Item) {
-						if(Map.m2[i][j] instanceof Item) {
-							
 							if(Map.m2[i][j] instanceof Lamp) {
 								tempTable2 = new ImageView(Resloader.lamp);
 							}
@@ -163,52 +170,87 @@ public class GamePlay {
 							if(Map.m2[i][j] instanceof HoleCover) {
 								tempTable2 = new ImageView(Resloader.holeCover);
 							}
-						}
+							tempTable2.setFitHeight(60);
+							tempTable2.setFitWidth(60);
+						
+							tempTable2.setX(148+66*j);
+							tempTable2.setY(100+66*i);
+							Group root2 = new Group(tempTable2);
+							gamePane.getChildren().add(root2);
+						
 					}
 					if(Map.m2[i][j] instanceof Character) {
 							
 							if(Map.m2[i][j] instanceof Conan) {
-								tempTable2 = new ImageView(Resloader.conan);
+								conan.setFitHeight(60);
+								conan.setFitWidth(60);
+								conan.setX(148+66*j);
+								conan.setY(100+66*i);	
+								gamePane.getChildren().add(conan);
 								
 							}
 							if(Map.m2[i][j] instanceof Haibara) {
-								tempTable2 = new ImageView(Resloader.haibara);
+								haibara.setFitHeight(60);
+								haibara.setFitWidth(60);
+								haibara.setX(148+66*j);
+								haibara.setY(100+66*i);	
+								gamePane.getChildren().add(haibara);
+								
 							}
 							if(Map.m2[i][j] instanceof Ran) {
-								tempTable2 = new ImageView(Resloader.ran);
+								ran.setFitHeight(60);
+								ran.setFitWidth(60);
+								ran.setX(148+66*j);
+								ran.setY(100+66*i);	
+								gamePane.getChildren().add(ran);
 							}
 							if(Map.m2[i][j] instanceof Kogoro) {
-								tempTable2 = new ImageView(Resloader.kogoro);
+								kogoro.setFitHeight(60);
+								kogoro.setFitWidth(60);
+								kogoro.setX(148+66*j);
+								kogoro.setY(100+66*i);	
+								gamePane.getChildren().add(kogoro);
 							}
 							if(Map.m2[i][j] instanceof Heiji) {
-								tempTable2 = new ImageView(Resloader.heiji);
+								heiji.setFitHeight(60);
+								heiji.setFitWidth(60);
+								heiji.setX(148+66*j);
+								heiji.setY(100+66*i);	
+								gamePane.getChildren().add(heiji);
 							}
 							if(Map.m2[i][j] instanceof Gin) {
-								tempTable2 = new ImageView(Resloader.gin);
+								gin.setFitHeight(60);
+								gin.setFitWidth(60);
+								gin.setX(148+66*j);
+								gin.setY(100+66*i);	
+								gamePane.getChildren().add(gin);
 							}
 							if(Map.m2[i][j] instanceof ShadowMan) {
-								tempTable2 = new ImageView(Resloader.shadowMan);
+								shadowMan.setFitHeight(60);
+								shadowMan.setFitWidth(60);
+								shadowMan.setX(148+66*j);
+								shadowMan.setY(100+66*i);	
+								gamePane.getChildren().add(shadowMan);
 							}
 							if(Map.m2[i][j] instanceof Kid) {
-								tempTable2 = new ImageView(Resloader.kid);
+								kid.setFitHeight(60);
+								kid.setFitWidth(60);
+								kid.setX(148+66*j);
+								kid.setY(100+66*i);	
+								gamePane.getChildren().add(kid);
 							}
 					}
 					
 				}
 				
-				tempTable2.setFitHeight(60);
-				tempTable2.setFitWidth(60);
-			
-				tempTable2.setX(148+66*j);
-				tempTable2.setY(100+66*i);
-				Group root2 = new Group(tempTable2);
-				gamePane.getChildren().add(root2);
+				
 				
 			}
 		}
 		
 	
 	}
+	
 	public static void createSubScene(ImageView iv){
 			
 		Stage subStage = new Stage(StageStyle.TRANSPARENT);
@@ -218,6 +260,7 @@ public class GamePlay {
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 				subStage.hide();
+				
 						
 				}
 			};
@@ -319,6 +362,7 @@ public class GamePlay {
 		gamePane.getChildren().add(root);
 		
 	}
+	////////////////////////
 	public static void createCard4(ImageView bg,ImageView c1,ImageView c2,ImageView c3 ,ImageView c4) {	
 		StackPane stPaneCard4 = new StackPane();
 	    EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
@@ -389,10 +433,7 @@ public class GamePlay {
 		
 		
 	}
-	public static void createChooseImage() {
-		
-		
-	}
+	
 	public static ImageView setCenter(Image i) {
 		//gamePane.add(pane);
 		int x = (int) i.getWidth();

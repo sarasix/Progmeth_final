@@ -185,7 +185,7 @@ public class Main {
 			card4.add(allCharacter.get(randomNumber));
 		}	
 		
-			GamePlay.createCard4(new ImageView(Resloader.blue),GamePlay.indexToIV(card4Index[0]),GamePlay.indexToIV(card4Index[1]),GamePlay.indexToIV(card4Index[2]),GamePlay.indexToIV(card4Index[3]));
+			GamePlay.createCard4(new ImageView(Resloader.blue),card4Index[0],card4Index[1]),card4Index[2],card4Index[3]);
 			
 			
 			System.out.println("sddwwa");
