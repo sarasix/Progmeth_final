@@ -71,6 +71,8 @@ public class GamePlay {
 	public static int cha3;
 	public static int cha4;
 	
+	public static int abi = 10;
+	
 	
 	public static ImageView conan = new ImageView(Resloader.conan);
 	public static ImageView haibara = new ImageView(Resloader.haibara);
@@ -206,6 +208,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 2;
+								if(abi == 0) {
+									createWalk();
+								}
 							}
 						};
 						conan.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -220,6 +225,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 6;
+								if(abi == 0) {
+									createWalk();
+								}
 							}
 						};
 						haibara.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -234,6 +242,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 5;
+								if(abi == 0) {
+									createWalk();
+								}
 							}
 						};
 						ran.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -247,6 +258,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 3;
+								if(abi == 0) {
+									createWalk();
+								}	
 							}
 						};
 						kogoro.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -260,6 +274,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 4;
+								if(abi == 0) {
+									createWalk();
+								}
 							}
 						};
 						heiji.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -274,6 +291,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 0;
+								if(abi == 0) {
+									createWalk();
+								}
 							}
 						};
 						gin.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -287,6 +307,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 1;
+								if(abi == 0) {
+									createWalk();
+								}
 							}
 						};
 						shadowMan.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -300,6 +323,9 @@ public class GamePlay {
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 7;
+								if(abi == 0) {
+									createWalk();
+								}
 							}
 						};
 						kid.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
@@ -551,7 +577,7 @@ public class GamePlay {
 				gamePane.getChildren().remove(choose);
 				gamePane.getChildren().remove(walk);
 				gamePane.getChildren().remove(ability);
-				//ability	
+				ability();
 			}
 		};
 		ability.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler2);
@@ -648,9 +674,13 @@ public class GamePlay {
 	}
 	public static void ability() {
 		ImageView iv ;
+		
 		if(cha == 0) {
-			iv = new ImageView(Resloader.ginability);
+			abi = 0;
+	
+			iv = setCenter(Resloader.ginability);
 			gamePane.getChildren().add(iv);
+			
 			
 			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {	
