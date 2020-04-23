@@ -12,6 +12,7 @@ import character.Character;
 import map.Map;
 import resloader.Resloader;
 import view.GamePlay;
+import javafx.scene.effect.*;
 
 
 public class Main {
@@ -600,9 +601,10 @@ public class Main {
 		for(int i =0 ; i <8; i++) {
 			if(!allCharacter.get(i).getIsChoice()) {
 				
-				ColorAdjust shadow = new ColorAdjust();
-				shadow.setBrightness(-1);
-				GamePlay.isChoice.get(i).setEffect(shadow);
+				//ColorAdjust shadow = new ColorAdjust();
+				//shadow.setBrightness(-1);
+				GamePlay.isChoice.get(i).setFitHeight(10);
+				GamePlay.isChoice.get(i).setFitWidth(10);
 			}
 		}
 		

@@ -70,6 +70,8 @@ public class GamePlay {
 	public static int cha2;
 	public static int cha3;
 	public static int cha4;
+	public static ColorAdjust light = new ColorAdjust();
+	public static ColorAdjust normal = new ColorAdjust(); 
 	
 	public static int abi = 10;
 	
@@ -346,8 +348,10 @@ public class GamePlay {
 			public void handle(MouseEvent e) {
 				gamePane.getChildren().remove(iv);
 				
-				ColorAdjust light = new ColorAdjust(); 
+				
+				
 				light.setBrightness(0.5);	
+				
 				chaiv = indexToIVBoard(cha);
 				chaiv.setEffect(light);
 				//เพิ่มกรอบบ
@@ -620,6 +624,7 @@ public class GamePlay {
 				Main.walk();
 				if(walk>=Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1,iv2,iv3,iv4,iv5);
+					chaiv.setEffect(normal);
 					createCardSel();
 				}
 			}
