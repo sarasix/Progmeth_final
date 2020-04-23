@@ -320,7 +320,7 @@ public class GamePlay {
 		
 	}
 	public static void createCard4(ImageView bg,ImageView c1,ImageView c2,ImageView c3 ,ImageView c4) {	
-		 StackPane stPaneCard4 = new StackPane();
+		StackPane stPaneCard4 = new StackPane();
 	    EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 					createChosse();
