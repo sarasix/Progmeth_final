@@ -57,6 +57,7 @@ public class Main {
 		//loopRound();
 			
 	}
+	
 	public static void loopRound (){
 		for(int i=0;i<1;i++) { // แก้กลับเป็น  8 ด้วย 
 			if(gameWin==true) {
@@ -70,30 +71,7 @@ public class Main {
 				order = order2;
 			}
 			
-			if(i==0) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
-			if(i==1) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
-			if(i==2) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
-			if(i==3) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
-			if(i==4) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
-			if(i==5) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
-			if(i==6) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
-			if(i==7) {
-				GamePlay.createIV(new ImageView(Resloader.apple), 550, 25);
-			}
+			
 			//
 			//แก้ให้มันอยู๋ตรงกลาง + เปลี่ยนเป็นตัวเลข
 			//
@@ -186,8 +164,8 @@ public class Main {
 			card4Index[i] = randomNumber;
 			card4.add(allCharacter.get(randomNumber));
 		}	
-		
-			GamePlay.createCard4(new ImageView(Resloader.blue),card4Index[0],card4Index[1],card4Index[2],card4Index[3]);
+		GamePlay.round++;
+		GamePlay.createCard4(new ImageView(Resloader.blue),card4Index[0],card4Index[1],card4Index[2],card4Index[3]);
 			
 			
 	}
@@ -512,10 +490,12 @@ public class Main {
 		u[0] = c.getIndexX()+GamePlay.dir1;
 		u[1] = c.getIndexY()+GamePlay.dir2;
 		if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
+			
 			GamePlay.indexToIVBoard(GamePlay.cha).setX(148+66*u[1]);
 			GamePlay.indexToIVBoard(GamePlay.cha).setY(100+66*u[0]);	
-			c.walk(u);
 			
+			c.walk(u);
+			GamePlay.walk++;
 			
 		}
 		if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
@@ -559,6 +539,10 @@ public class Main {
 					break;
 				}
 			}
+			//int ix = allCharacter.get(6).getIndexX();
+			//int iy = allCharacter.get(6).getIndexX();
+			//int dir = ((Haibara) allCharacter.get(6)).getDirectionLight();
+			
 			if(light == 0) {
 				allCharacter.get(index).setIsLight(false);
 				

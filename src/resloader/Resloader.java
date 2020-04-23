@@ -36,8 +36,23 @@ public class Resloader {
 	public static final Image kidCard = new Image(ClassLoader.getSystemResource("kidcard.jpg").toString());;
 	public static final Image choose = new Image(ClassLoader.getSystemResource("choosewalkorability.jpg").toString());;
 	public static final Image walk = new Image(ClassLoader.getSystemResource("walk.jpg").toString());;
+	public static final Image n1 = new Image(ClassLoader.getSystemResource("number1.png").toString());;
+	public static final Image n2 = new Image(ClassLoader.getSystemResource("number2.png").toString());;
+	public static final Image n3 = new Image(ClassLoader.getSystemResource("number3.png").toString());;
+	public static final Image n4 = new Image(ClassLoader.getSystemResource("number4.png").toString());;
+	public static final Image n5 = new Image(ClassLoader.getSystemResource("number5.png").toString());;
+	public static final Image n6 = new Image(ClassLoader.getSystemResource("number6.png").toString());;
+	public static final Image n7 = new Image(ClassLoader.getSystemResource("number7.png").toString());;
+	public static final Image n8 = new Image(ClassLoader.getSystemResource("number8.png").toString());;
+	public static final Image ginability = new Image(ClassLoader.getSystemResource("ginability.jpg").toString());
+	public static final Image shadowManability = new Image(ClassLoader.getSystemResource("shadowmanability.jpg").toString());
+	public static final Image conanability = new Image(ClassLoader.getSystemResource("conanability.jpg").toString());
+	public static final Image kogoroability = new Image(ClassLoader.getSystemResource("kogoroability.jpg").toString());
+	public static final Image heijiability = new Image(ClassLoader.getSystemResource("heijiability.jpg").toString());
+	public static final Image ranability = new Image(ClassLoader.getSystemResource("ranability.jpg").toString());
+	public static final Image haibaraability = new Image(ClassLoader.getSystemResource("haibaraability.jpg").toString());
+	//public static final Image kidability = new Image(ClassLoader.getSystemResource("kidability.jpg").toString());
 	
-
 	public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());;
 
 
