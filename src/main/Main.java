@@ -48,10 +48,12 @@ public class Main {
 		randomNumber = rand.nextInt(8);
 		MrJack = allCharacter.get(randomNumber);
 		
-		GamePlay.createOverlabSubScane( new ImageView (Resloader.buttonPlay),GamePlay.indexToIV(randomNumber));
+		GamePlay.createOverlabSubScane( new ImageView (Resloader.buttonPlay),GamePlay.indexToIVCard(randomNumber));
 	
 		System.out.println("MrJack is "+chaToName(MrJack));
 		MrJack.setIsMrJack(true);
+		
+		GamePlay.chaSel = new ArrayList<Integer> ();
 		//loopRound();
 			
 	}
@@ -185,11 +187,9 @@ public class Main {
 			card4.add(allCharacter.get(randomNumber));
 		}	
 		
-			GamePlay.createCard4(new ImageView(Resloader.blue),card4Index[0],card4Index[1]),card4Index[2],card4Index[3]);
+			GamePlay.createCard4(new ImageView(Resloader.blue),card4Index[0],card4Index[1],card4Index[2],card4Index[3]);
 			
 			
-			System.out.println("sddwwa");
-		//GamePlay.gamePane.getChildren().add(GamePlay.createCard4(new ImageView(Resloader.blue),GamePlay.indexToIV(card4Index[0]),GamePlay.indexToIV(card4Index[1]),GamePlay.indexToIV(card4Index[2]),GamePlay.indexToIV(card4Index[3])));
 	}
 	public static boolean validPosition(int[] pos) {
 		if(pos[0]>=0&&pos[0]<=6&&pos[1]>=0&&pos[1]<=12) {

@@ -117,10 +117,3 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 
 #.project
-<<<<<<< HEAD
-/ExitBarricade.png
-/controller/
-=======
-/main/
->>>>>>> 211edd44570ff01e39b65bdea0ea9033ccb2e039
-/view/

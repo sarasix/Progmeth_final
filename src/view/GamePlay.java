@@ -22,6 +22,7 @@ import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -43,6 +44,7 @@ import javafx.stage.StageStyle;
 import main.Main;
 import map.Map;
 import resloader.Resloader;
+import sun.text.resources.CollationData;
 
 
 public class GamePlay {
@@ -71,7 +73,9 @@ public class GamePlay {
 	public static Scanner scan = new Scanner(System.in);	
 	private static int randomNumber;
 	
-	public static Character ChaSel;
+	public static ArrayList <Integer> chaSel = new ArrayList<Integer> ();
+	public static int cha = 0;
+	public static ImageView chaiv;
 	
 	public static ImageView conan = new ImageView(Resloader.conan);
 	public static ImageView haibara = new ImageView(Resloader.haibara);
@@ -250,7 +254,33 @@ public class GamePlay {
 		
 	
 	}
-	
+	public static void createSubPane(Image i){
+		
+		ImageView iv = setCenter(i);
+		gamePane.getChildren().add(iv);
+		
+		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				gamePane.getChildren().remove(iv);
+				
+				ColorAdjust light = new ColorAdjust(); 
+				light.setBrightness(0.8);
+				
+				chaiv = indexToIVBoard(cha);
+				
+				chaiv.setEffect(light);
+				
+				conan.setEffect(light);
+				
+				System.out.println(cha);
+						
+				}
+			};
+				
+		iv.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
+				
+		
+	}
 	public static void createSubScene(ImageView iv){
 			
 		Stage subStage = new Stage(StageStyle.TRANSPARENT);
@@ -272,22 +302,7 @@ public class GamePlay {
 		subStage.show();
 		
 	}
-	public static void createSubPane(Image i){
-		
-		ImageView iv = setCenter(i);
-		gamePane.getChildren().add(iv);
-		
-		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent e) {
-				gamePane.getChildren().remove(iv);
-						
-				}
-			};
-				
-		iv.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
-				
-		
-	}
+	
 	
 	public static void createSubSceneEnd(ImageView iv){
 		
@@ -363,18 +378,49 @@ public class GamePlay {
 		
 	}
 	////////////////////////
-	public static void createCard4(ImageView bg,ImageView c1,ImageView c2,ImageView c3 ,ImageView c4) {	
+	public static void createCard4(ImageView bg,int i1,int i2,int i3 ,int i4) {	
 		StackPane stPaneCard4 = new StackPane();
-	    EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+		 ImageView c1 = indexToIVCard(i1);
+		 ImageView c2 = indexToIVCard(i2);
+		 ImageView c3 = indexToIVCard(i3);
+		 ImageView c4 = indexToIVCard(i4);
+		
+	    EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
+					chaSel.add(1);
+					cha = i1;
 					createChosse();
 					subStage.hide();
 				}
-			};
-		c1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
-		c2.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
-		c3.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
-		c4.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler);
+		};
+		EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+					chaSel.add(2);
+					cha = i2;
+					createChosse();
+					subStage.hide();
+				}
+		};
+		EventHandler<MouseEvent> eventHandler3 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+					chaSel.add(3);
+					cha = i3;
+					createChosse();
+					subStage.hide();
+				}
+		};
+		EventHandler<MouseEvent> eventHandler4 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+					chaSel.add(4);
+					cha = i4;
+					createChosse();
+					subStage.hide();
+				}
+		};
+		c1.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler1);
+		c2.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler2);
+		c3.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler3);
+		c4.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler4);
 	  
 
 		HBox subPane1 = new HBox();
@@ -447,7 +493,7 @@ public class GamePlay {
 		return iv;
 	}
 
-	public static ImageView indexToIV(int i) {
+	public static ImageView indexToIVCard(int i) {
 		ImageView iv = new ImageView();
 		if(i == 0 )
 		{
@@ -486,6 +532,47 @@ public class GamePlay {
 		iv.setFitHeight(366);
 		iv.setFitWidth(300);
 		return iv;
+	}
+	public static ImageView indexToIVBoard(int i) {
+		ImageView iv = new ImageView();
+		if(i == 0 )
+		{
+			iv = gin;
+		}
+		if(i == 1 )
+		{
+			iv = shadowMan;
+		}
+		if(i == 2 )
+		{
+			iv = conan;
+		}
+		if(i == 3 )
+		{
+			iv = kogoro;
+		}
+		if(i == 4 )
+		{
+			iv = heiji;
+		}
+		if(i == 5 )
+		{
+			iv = ran;
+		}
+		if(i == 6 )
+		{
+			iv = haibara;
+		}
+		if(i == 7 )
+		{
+			iv = kid;
+		}
+		
+		
+		iv.setFitHeight(366);
+		iv.setFitWidth(300);
+		return iv;
+		
 	}
 	
 	
