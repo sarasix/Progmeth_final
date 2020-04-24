@@ -83,6 +83,7 @@ public class GamePlay {
 	public static ImageView kogoro = new ImageView(Resloader.kogoro);
 	public static ImageView ran = new ImageView(Resloader.ran);
 	public static ImageView heiji = new ImageView(Resloader.heiji);
+	public static ImageView lightHaibara = new ImageView(Resloader.apple);
 
 	public GamePlay() {
 
@@ -212,7 +213,11 @@ public class GamePlay {
 						haibara.setFitWidth(60);
 						haibara.setX(148 + 66 * j);
 						haibara.setY(100 + 66 * i);
-						gamePane.getChildren().add(haibara);
+						lightHaibara.setX(140 + 66 * j);
+						lightHaibara.setY(90 + 66 * i);
+						lightHaibara.setScaleX(0.3);
+						lightHaibara.setScaleY(0.3);
+						gamePane.getChildren().addAll(haibara,lightHaibara);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
 								cha = 6;
@@ -491,35 +496,58 @@ public class GamePlay {
 		ImageView choose = setCenter(i);
 		gamePane.getChildren().add(choose);
 
-		ImageView walk = new ImageView(Resloader.apple);
-		ImageView ability = new ImageView(Resloader.apple);
-		walk.setX(576 - 200);
-		walk.setY(324 + 20);
-		ability.setX(576 + 80);
-		ability.setY(324 + 20);
-		gamePane.getChildren().addAll(walk, ability);
-
-		EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent e) {
-
-				gamePane.getChildren().remove(choose);
-				gamePane.getChildren().remove(walk);
-				gamePane.getChildren().remove(ability);
-				createSubPane(Resloader.walk);
-
-			}
-		};
-		walk.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
-
-		EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent e) {
-				gamePane.getChildren().remove(choose);
-				gamePane.getChildren().remove(walk);
-				gamePane.getChildren().remove(ability);
-				ability();
-			}
-		};
-		ability.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler2);
+		System.out.print("character = "+Main.indexToName(cha));
+		
+		if(cha==6 || cha==7)
+		{
+			ImageView walk = new ImageView(Resloader.apple);
+			
+			walk.setX(576 - 60);
+			walk.setY(324 + 20);
+			EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+	
+					gamePane.getChildren().remove(choose);
+					gamePane.getChildren().remove(walk);
+					createSubPane(Resloader.walk);
+	
+				}
+			};
+			walk.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+			gamePane.getChildren().addAll(walk);
+			
+		}
+		else
+		{
+			ImageView walk = new ImageView(Resloader.apple);
+			ImageView ability = new ImageView(Resloader.apple);
+			walk.setX(576 - 200);
+			walk.setY(324 + 20);
+			ability.setX(576 + 80);
+			ability.setY(324 + 20);
+			EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+	
+					gamePane.getChildren().remove(choose);
+					gamePane.getChildren().remove(walk);
+					gamePane.getChildren().remove(ability);
+					createSubPane(Resloader.walk);
+	
+				}
+			};
+			walk.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+	
+			EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					gamePane.getChildren().remove(choose);
+					gamePane.getChildren().remove(walk);
+					gamePane.getChildren().remove(ability);
+					ability();
+				}
+			};
+			ability.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler2);
+			gamePane.getChildren().addAll(walk, ability);
+		}
 
 	}
 
@@ -551,7 +579,7 @@ public class GamePlay {
 		chaiv.setEffect(light);
 		walk = 0;
 
-		System.out.println(cha + " " + Main.indexToName(cha) + " " + Main.indexToCha(cha).getWalk());
+		//System.out.println(cha + " " + Main.indexToName(cha) + " " + Main.indexToCha(cha).getWalk());
 
 		EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
@@ -562,7 +590,15 @@ public class GamePlay {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
 					chaiv = indexToIVBoard(cha);
-					createCardSel();
+					if(cha==6)
+					{
+						abi = 6;
+						ability();
+					}
+					else
+					{
+						createCardSel();
+					}
 				}
 			}
 		};
@@ -574,7 +610,15 @@ public class GamePlay {
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
-					createCardSel();
+					if(cha==6)
+					{
+						abi = 6;
+						ability();
+					}
+					else
+					{
+						createCardSel();
+					}
 				}
 
 			}
@@ -587,7 +631,15 @@ public class GamePlay {
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
-					createCardSel();
+					if(cha==6)
+					{
+						abi = 6;
+						ability();
+					}
+					else
+					{
+						createCardSel();
+					}
 				}
 			}
 		};
@@ -599,7 +651,16 @@ public class GamePlay {
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
-					createCardSel();
+					if(cha==6)
+					{
+						abi = 6;
+						ability();
+					}
+					else
+					{
+						createCardSel();
+					}
+					
 				}
 
 			}
@@ -608,7 +669,15 @@ public class GamePlay {
 			public void handle(MouseEvent e) {
 				gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 				chaiv.setEffect(normal);
-				createCardSel();
+				if(cha==6)
+				{
+					abi = 6;
+					ability();
+				}
+				else
+				{
+					createCardSel();
+				}
 
 			}
 		};
@@ -623,11 +692,11 @@ public class GamePlay {
 	}
 
 	public static void ability() {
-		ImageView iv;
+		
 
 		if (cha == 0) {
 			abi = 0;
-
+			ImageView iv;
 			iv = setCenter(Resloader.ginability);
 			gamePane.getChildren().add(iv);
 
@@ -639,6 +708,89 @@ public class GamePlay {
 
 			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
 
+		}
+		if (cha == 2) {
+			abi = 2;
+			Main.allCharacter.get(2).ability();
+			ImageView iv;	
+			iv = setCenter(indexToICard(Conan.choice));
+			iv.setScaleX(0.5);
+			iv.setScaleY(0.5);
+			gamePane.getChildren().add(iv);
+
+			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					gamePane.getChildren().remove(iv);
+					createCardSel();
+				}
+			};
+
+			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
+
+		}
+		if(cha == 6) {
+			ImageView iv1 = new ImageView(Resloader.apple);// ^
+			ImageView iv2 = new ImageView(Resloader.apple);// <
+			ImageView iv3 = new ImageView(Resloader.apple);// v
+			ImageView iv4 = new ImageView(Resloader.apple);// >
+			ImageView iv5 = new ImageView(Resloader.apple);// x
+			iv1.setX(970);
+			iv1.setY(470);
+			iv2.setX(920);
+			iv2.setY(520);
+			iv3.setX(970);
+			iv3.setY(520);
+			iv4.setX(1020);
+			iv4.setY(520);
+			iv5.setX(800);
+			iv5.setY(520);
+			
+			//light
+			
+			chaiv = indexToIVBoard(cha);
+			light.setBrightness(0.5);
+			chaiv.setEffect(light);
+			
+
+			
+			EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					lightHaibara.setRotate(0);
+						
+						
+				}
+			};
+			EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					lightHaibara.setRotate(270);
+
+				}
+			};
+			EventHandler<MouseEvent> eventHandler3 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					lightHaibara.setRotate(180);
+				}
+			};
+			EventHandler<MouseEvent> eventHandler4 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					lightHaibara.setRotate(90);
+				}
+			};
+			EventHandler<MouseEvent> eventHandler5 = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
+					chaiv.setEffect(normal);
+					createCardSel();
+
+				}
+			};
+			iv1.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+			iv2.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler2);
+			iv3.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
+			iv4.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler4);
+			iv5.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler5);
+
+			gamePane.getChildren().addAll(iv1, iv2, iv3, iv4, iv5);
 		}
 
 	}
@@ -659,9 +811,6 @@ public class GamePlay {
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 				gamePane.getChildren().remove(iv);
-				iv.setFitHeight(0);
-				iv.setFitHeight(0);
-				System.out.println("eeeeeeeeeeeeee");
 				Main.isChoice();
 			}
 		};
