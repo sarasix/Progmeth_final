@@ -4,9 +4,6 @@ import item.*;
 import javafx.scene.image.ImageView;
 
 import java.util.*;
-
-import com.sun.scenario.effect.ColorAdjust;
-
 import character.*;
 import character.Character;
 import map.Map;
@@ -51,8 +48,8 @@ public class Main {
 		randomNumber = rand.nextInt(8);
 		MrJack = allCharacter.get(randomNumber);
 		
-		GamePlay.createOverlabSubScane( new ImageView (Resloader.buttonPlay),GamePlay.indexToIVCard(randomNumber));
-	
+		GamePlay.createJack( Resloader.buttonPlay,GamePlay.indexToICard(randomNumber));
+		
 		System.out.println("MrJack is "+chaToName(MrJack));
 		MrJack.setIsMrJack(true);
 		
@@ -550,12 +547,8 @@ public class Main {
 				allCharacter.get(index).setIsLight(false);
 				
 			}
-			if(MrJack.getIsLight()==true) {
-				GamePlay.createSubPane(Resloader.apple);	
-			}
-			if(MrJack.getIsLight()==false) {
-				GamePlay.createSubPane(Resloader.wall);	
-			}
+			
+			
 		}
 		for (int i=0;i<8;i++) {
 			if(allCharacter.get(i).getIsLight()==true) {
@@ -563,13 +556,14 @@ public class Main {
 				
 			}
 			
-			if(allCharacter.get(i).getIsLight()==true) {
+			if(allCharacter.get(i).getIsLight()==false) {
 				System.out.print("["+chaToName(allCharacter.get(i))+" "+"dark"+"] ");
 				
 			}
 		}
 		System.out.println();
 		//เพิ่ม set ใน walk
+		GamePlay.createIslight();
 	}
 	
 	public static void isChoice() {
@@ -638,6 +632,7 @@ public class Main {
 			
 			
 		}
+		GamePlay.createIsChoice();
 	
 	}
 	public static Character indexToCha(int index) {

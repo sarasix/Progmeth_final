@@ -3,12 +3,13 @@ package resloader;
 import javafx.scene.image.Image;
 
 public class Resloader {
-	public static final Image bgGame = new Image(ClassLoader.getSystemResource("project_2_background.png").toString()
-			,1152,648, false, true);
+	public static final Image bgGame = new Image(ClassLoader.getSystemResource("project_2_background.png").toString(),
+			1152, 648, false, true);
 	public static final Image buttonFree = new Image(ClassLoader.getSystemResource("apple.png").toString());
 	public static final Image table = new Image(ClassLoader.getSystemResource("tarang.jpg").toString());;
 	public static final Image bgMenu = new Image(ClassLoader.getSystemResource("bgGame.jpg").toString());;
-	public static final Image buttonPlay= new Image(ClassLoader.getSystemResource("1-16250_video-play-button-play-button-png-red-transparent.png").toString());;
+	public static final Image buttonPlay = new Image(
+			ClassLoader.getSystemResource("1-16250_video-play-button-play-button-png-red-transparent.png").toString());;
 	public static final Image apple = new Image(ClassLoader.getSystemResource("apple.png").toString());;
 	public static final Image Exit = new Image(ClassLoader.getSystemResource("Exit.png").toString());;
 	public static final Image lampBase = new Image(ClassLoader.getSystemResource("lampBase.png").toString());;
@@ -45,25 +46,20 @@ public class Resloader {
 	public static final Image n7 = new Image(ClassLoader.getSystemResource("number7.png").toString());;
 	public static final Image n8 = new Image(ClassLoader.getSystemResource("number8.png").toString());;
 	public static final Image ginability = new Image(ClassLoader.getSystemResource("ginability.jpg").toString());
-	public static final Image shadowManability = new Image(ClassLoader.getSystemResource("shadowmanability.jpg").toString());
+	public static final Image shadowManability = new Image(
+			ClassLoader.getSystemResource("shadowmanability.jpg").toString());
 	public static final Image conanability = new Image(ClassLoader.getSystemResource("conanability.jpg").toString());
 	public static final Image kogoroability = new Image(ClassLoader.getSystemResource("kogoroability.jpg").toString());
 	public static final Image heijiability = new Image(ClassLoader.getSystemResource("heijiability.jpg").toString());
 	public static final Image ranability = new Image(ClassLoader.getSystemResource("ranability.jpg").toString());
-	public static final Image haibaraability = new Image(ClassLoader.getSystemResource("haibaraability.jpg").toString());
-	//public static final Image kidability = new Image(ClassLoader.getSystemResource("kidability.jpg").toString());
-	
+	public static final Image haibaraability = new Image(
+			ClassLoader.getSystemResource("haibaraability.jpg").toString());
+	// public static final Image kidability = new
+	// Image(ClassLoader.getSystemResource("kidability.jpg").toString());
+
+	public static final Image detective = new Image(ClassLoader.getSystemResource("detectiveturn.jpg").toString());
+	public static final Image jack = new Image(ClassLoader.getSystemResource("jackturn.jpg").toString());
+
 	public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());;
 
-
-
-
-
-
-
-
-	
 }
-
-
-
