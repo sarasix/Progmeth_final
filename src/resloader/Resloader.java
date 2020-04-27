@@ -61,5 +61,6 @@ public class Resloader {
 	public static final Image jack = new Image(ClassLoader.getSystemResource("jackturn.jpg").toString());
 
 	public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());;
-
+	public static final Image holeAppear = new Image(ClassLoader.getSystemResource("holeappear.jpg").toString());;
+	public static final Image hilight = new Image(ClassLoader.getSystemResource("hilight.png").toString());;
 }

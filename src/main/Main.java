@@ -23,14 +23,16 @@ public class Main {
 	public static Character CharacterOther;
 	public static ArrayList<Character> allCharacter = initial.getAllCharacter();
 	public static ArrayList<Character> choiceCharacter = new ArrayList<Character>();
-	
+	public static int holeColumn;
+	public static int holeRow;
+	//public static 
 	public static int dir;		
 	public static int step;
 	public static int inputCard;
 	public static Item itemChosen;
 	public static ArrayList<Character> card4 = new ArrayList<Character>();
 	public static int[] indexItemField=new int[2];
-	
+	public static boolean goToHole=false;
 	public static Random rand = new Random();
 	public static Scanner scan = new Scanner(System.in);	
 	private static int randomNumber;
@@ -115,7 +117,23 @@ public class Main {
 			
 		}			
 	}
-	
+	public static void goToHole() {
+		if(Map.m2[holeRow][holeColumn]==null) {
+			GamePlay.indexToIVBoard(GamePlay.cha).setX(148+66*holeColumn);
+			GamePlay.indexToIVBoard(GamePlay.cha).setY(100+66*holeRow);	
+			
+			if(GamePlay.cha==6) {
+				GamePlay.lightHaibara.setX(140 + 66 *holeColumn);
+				GamePlay.lightHaibara.setY(90 + 66 *holeRow);
+			}
+			int[] h= new int[2];
+			h[0]=holeRow;
+			h[1]=holeColumn;
+			Main.indexToCha(GamePlay.cha).walk(h);
+			
+			goToHole=true;
+		}
+	}
 	public static void removeItem(int numLamp,int numExitBarricade,int numHoleCover) {
 		
 		if(Map.allLamp.size() > numLamp)
@@ -489,7 +507,7 @@ public class Main {
 		int[] u= new int[2];
 		u[0] = c.getIndexX()+GamePlay.dir1;
 		u[1] = c.getIndexY()+GamePlay.dir2;
-		if(validPosition(u)&&Map.m1[u[0]][u[1]]==1&&Map.m2[u[0]][u[1]]==null) {
+		if(validPosition(u)&&(Map.m1[u[0]][u[1]]==1||Map.m1[u[0]][u[1]]==4)&&Map.m2[u[0]][u[1]]==null) {
 			
 			GamePlay.indexToIVBoard(GamePlay.cha).setX(148+66*u[1]);
 			GamePlay.indexToIVBoard(GamePlay.cha).setY(100+66*u[0]);	
@@ -500,10 +518,14 @@ public class Main {
 			}
 			
 			c.walk(u);
+			if(Map.m1[c.getIndexX()][c.getIndexY()]==4) {
+				GamePlay.createWhereToGoToHole();
+			}
 			GamePlay.walk++;
 			
+			
 		}
-		if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
+		/*if (validPosition(u)&&Map.m1[u[0]][u[1]]==4&&Map.m2[u[0]][u[1]]==null) {
 			System.out.println("Choose a hole you want to appear: ");
 			int indexXHole;
 			int indexYHole;
@@ -518,8 +540,9 @@ public class Main {
 				newU[1]=indexYHole;
 			}while(!(validPosition(newU)&&Map.m1[newU[0]][newU[1]]==4&&Map.m2[newU[0]][newU[1]]==null));
 			CharacterNow.walk(newU);
+			*/
 			
-		}
+		
 	}
 	public static void isLight () {
 		for(int index = 0; index < 8; index++ ) {

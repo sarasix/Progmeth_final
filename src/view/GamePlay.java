@@ -453,6 +453,178 @@ public class GamePlay {
 		cha4 = i4;
 		createCardSel();
 	}
+	public static void createWhereToGoToHole() {
+		ImageView i=setCenter(Resloader.holeAppear);
+		gamePane.getChildren().add(i);
+		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				gamePane.getChildren().remove(i);
+				//createWalk();
+				ImageView h1= new ImageView(Resloader.hilight);
+				ImageView h2= new ImageView(Resloader.hilight);
+				ImageView h3= new ImageView(Resloader.hilight);
+				ImageView h4= new ImageView(Resloader.hilight);
+				ImageView h5= new ImageView(Resloader.hilight);
+				ImageView h6= new ImageView(Resloader.hilight);
+				ImageView h7= new ImageView(Resloader.hilight);
+				ImageView h8= new ImageView(Resloader.hilight);
+				h1.setX(144+66*5);
+				h1.setY(100+66*0);
+				
+				h2.setX(144+66*9);
+				h2.setY(100+66*1);
+				
+				h3.setX(144+66*1);
+				h3.setY(100+66*3);
+				
+				h4.setX(144+66*5);
+				h4.setY(100+66*3);
+				
+				h5.setX(144+66*7);
+				h5.setY(100+66*3);
+				
+				h6.setX(144+66*11);
+				h6.setY(100+66*3);
+				
+				h7.setX(144+66*3);
+				h7.setY(100+66*5);
+				
+				h8.setX(144+66*7);
+				h8.setY(100+66*6);
+				
+                gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8);
+                EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				Main.holeColumn=5;
+        				Main.holeRow=0;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        			}
+        		};
+
+        		h1.addEventFilter(MouseEvent.MOUSE_RELEASED, e1);
+        		
+        		
+        		
+        		EventHandler<MouseEvent> e2 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				Main.holeColumn=9;
+        				Main.holeRow=1;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        			}
+        		};
+
+        		h2.addEventFilter(MouseEvent.MOUSE_RELEASED, e2);
+        		
+        		EventHandler<MouseEvent> e3 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				Main.holeColumn=1;
+        				Main.holeRow=3;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        			}
+        		};
+
+        		h3.addEventFilter(MouseEvent.MOUSE_RELEASED, e3);
+        		
+        		EventHandler<MouseEvent> e4 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				Main.holeColumn=5;
+        				Main.holeRow=3;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        			}
+        		};
+
+        		h4.addEventFilter(MouseEvent.MOUSE_RELEASED, e4);
+        		
+        		EventHandler<MouseEvent> e5 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				Main.holeColumn=7;
+        				Main.holeRow=3;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        			}
+        		};
+
+        		h5.addEventFilter(MouseEvent.MOUSE_RELEASED, e5);
+        		
+        		EventHandler<MouseEvent> e6 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				Main.holeColumn=11;
+        				Main.holeRow=3;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        			}
+        		};
+
+        		h6.addEventFilter(MouseEvent.MOUSE_RELEASED, e6);
+        		
+        		EventHandler<MouseEvent> e7 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				Main.holeColumn=3;
+        				Main.holeRow=5;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        			}
+        		};
+
+        		h7.addEventFilter(MouseEvent.MOUSE_RELEASED, e7);
+        		
+        		EventHandler<MouseEvent> e8 = new EventHandler<MouseEvent>() {
+        			public void handle(MouseEvent e) {
+        				
+        				Main.holeColumn=7;
+        				Main.holeRow=6;
+        				Main.goToHole();
+        				if(Main.goToHole) {
+        					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        					Main.goToHole=false;
+        				}
+        					
+        			
+        			}
+        		};
+
+        		h8.addEventFilter(MouseEvent.MOUSE_RELEASED, e8);
+        		
+        		
+        		
+        		
+			}
+		};
+
+		i.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
+	}
 
 	public static void createCardSel() {
 
@@ -598,7 +770,7 @@ public class GamePlay {
 		ImageView iv3 = new ImageView(Resloader.apple);// v
 		ImageView iv4 = new ImageView(Resloader.apple);// >
 		ImageView iv5 = new ImageView(Resloader.apple);// x
-
+        
 		iv1.setX(970);
 		iv1.setY(470);
 
@@ -626,6 +798,7 @@ public class GamePlay {
 				dir1 = -1;
 				dir2 = 0;
 				Main.walk();
+				
 				if (walk >= Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
@@ -647,6 +820,7 @@ public class GamePlay {
 				dir1 = 0;
 				dir2 = -1;
 				Main.walk();
+				
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
@@ -668,6 +842,7 @@ public class GamePlay {
 				dir1 = 1;
 				dir2 = 0;
 				Main.walk();
+				
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
@@ -688,6 +863,7 @@ public class GamePlay {
 				dir1 = 0;
 				dir2 = 1;
 				Main.walk();
+				
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
