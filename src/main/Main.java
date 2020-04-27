@@ -493,6 +493,7 @@ public class Main {
 			
 			GamePlay.indexToIVBoard(GamePlay.cha).setX(148+66*u[1]);
 			GamePlay.indexToIVBoard(GamePlay.cha).setY(100+66*u[0]);	
+			
 			if(GamePlay.cha==6) {
 				GamePlay.lightHaibara.setX(140 + 66 * u[1]);
 				GamePlay.lightHaibara.setY(90 + 66 * u[0]);

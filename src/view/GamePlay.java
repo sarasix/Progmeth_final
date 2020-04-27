@@ -203,6 +203,11 @@ public class GamePlay {
 								if (abi == 0) {
 									createWalk();
 								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
+								}
 							}
 						};
 						conan.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
@@ -224,6 +229,11 @@ public class GamePlay {
 								if (abi == 0) {
 									createWalk();
 								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
+								}
 							}
 						};
 						haibara.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
@@ -241,6 +251,11 @@ public class GamePlay {
 								if (abi == 0) {
 									createWalk();
 								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
+								}
 							}
 						};
 						ran.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
@@ -257,6 +272,11 @@ public class GamePlay {
 								if (abi == 0) {
 									createWalk();
 								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
+								}
 							}
 						};
 						kogoro.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
@@ -272,6 +292,11 @@ public class GamePlay {
 								cha = 4;
 								if (abi == 0) {
 									createWalk();
+								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
 								}
 							}
 						};
@@ -290,6 +315,11 @@ public class GamePlay {
 								if (abi == 0) {
 									createWalk();
 								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
+								}
 							}
 						};
 						gin.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
@@ -306,6 +336,11 @@ public class GamePlay {
 								if (abi == 0) {
 									createWalk();
 								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
+								}
 							}
 						};
 						shadowMan.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
@@ -321,6 +356,11 @@ public class GamePlay {
 								cha = 7;
 								if (abi == 0) {
 									createWalk();
+								}
+								if(abi==1) {
+									Main.indexToCha(abi).ability();
+									createCardSel();
+
 								}
 							}
 						};
@@ -791,6 +831,21 @@ public class GamePlay {
 			iv5.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler5);
 
 			gamePane.getChildren().addAll(iv1, iv2, iv3, iv4, iv5);
+		}
+		if(cha==1) {
+			abi = 1;
+			
+			ImageView iv;
+			iv = setCenter(Resloader.ginability);
+			gamePane.getChildren().add(iv);
+
+			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					gamePane.getChildren().remove(iv);
+				}
+			};
+
+			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
 		}
 
 	}
