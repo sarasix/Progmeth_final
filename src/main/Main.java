@@ -131,6 +131,8 @@ public class Main {
 			Main.indexToCha(GamePlay.cha).walk(h);
 			
 			goToHole=true;
+			GamePlay.walk++;
+            GamePlay.maxWalkAndGoToHole();			
 		}
 	}
 	public static void removeItem() {
@@ -543,7 +545,7 @@ public class Main {
 				GamePlay.walk++;
 			}
 
-			if(Map.m1[c.getIndexX()][c.getIndexY()]==4) {
+			else {
 				GamePlay.createWhereToGoToHole();
 			}
 			

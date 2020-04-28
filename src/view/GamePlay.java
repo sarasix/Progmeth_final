@@ -52,7 +52,11 @@ public class GamePlay {
 	public static int turn = 1;
 	public static ImageView detective = new ImageView(Resloader.detective);
 	public static ImageView jack = new ImageView(Resloader.jack);
-
+    public static ImageView arrowOne;
+    public static ImageView arrowTwo;
+    public static ImageView arrowThree;
+    public static ImageView arrowFour;
+    public static ImageView arrowFive;
 	public static Random rand = new Random();
 	public static Scanner scan = new Scanner(System.in);
 	// private static int randomNumber;
@@ -526,6 +530,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         					
         				}
         			}
@@ -544,6 +550,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         				}
         			}
         		};
@@ -559,6 +567,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         				}
         			}
         		};
@@ -574,6 +584,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         				}
         			}
         		};
@@ -589,6 +601,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         				}
         			}
         		};
@@ -604,6 +618,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         				}
         			}
         		};
@@ -619,6 +635,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         				}
         			}
         		};
@@ -634,6 +652,8 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					if(walk<Main.indexToCha(cha).getWalk())
+        						gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
         				}
         					
         			
@@ -649,6 +669,7 @@ public class GamePlay {
 		};
 
 		i.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
+		gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 	}
 
 	public static void createCardSel() {
@@ -788,29 +809,47 @@ public class GamePlay {
 		}
 
 	}
+	public static void maxWalkAndGoToHole() {
+		if (walk == Main.indexToCha(cha).getWalk()) {
+			gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
+			chaiv.setEffect(normal);
+			if(cha==6&&abi!=0)
+			{
+				abi = 6;
+				ability();
+			}
+			else
+			{
+				createCardSel();
+			}
+			
+		}
+
+		
+	}
 
 	public static void createWalk() {
 		// Thread thread = new Thread();
-		ImageView iv1 = new ImageView(Resloader.apple);// ^
-		ImageView iv2 = new ImageView(Resloader.apple);// <
-		ImageView iv3 = new ImageView(Resloader.apple);// v
-		ImageView iv4 = new ImageView(Resloader.apple);// >
-		ImageView iv5 = new ImageView(Resloader.apple);// x
+		arrowOne = new ImageView(Resloader.apple);// ^
+		arrowTwo = new ImageView(Resloader.apple);// <
+		arrowThree = new ImageView(Resloader.apple);// v
+		arrowFour = new ImageView(Resloader.apple);// >
+		arrowFive = new ImageView(Resloader.apple);// x
         
-		iv1.setX(970);
-		iv1.setY(470);
+		arrowOne.setX(970);
+		arrowOne.setY(470);
 
-		iv2.setX(920);
-		iv2.setY(520);
+		arrowTwo.setX(920);
+		arrowTwo.setY(520);
 
-		iv3.setX(970);
-		iv3.setY(520);
+		arrowThree.setX(970);
+		arrowThree.setY(520);
 
-		iv4.setX(1020);
-		iv4.setY(520);
+		arrowFour.setX(1020);
+		arrowFour.setY(520);
 
-		iv5.setX(800);
-		iv5.setY(520);
+		arrowFive.setX(800);
+		arrowFive.setY(520);
 
 		chaiv = indexToIVBoard(cha);
 		light.setBrightness(0.5);
@@ -826,7 +865,7 @@ public class GamePlay {
 				Main.walk();
 				
 				if (walk >= Main.indexToCha(cha).getWalk()) {
-					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
+					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
 					chaiv = indexToIVBoard(cha);
 					if(cha==6)
@@ -848,7 +887,7 @@ public class GamePlay {
 				Main.walk();
 				
 				if (walk == Main.indexToCha(cha).getWalk()) {
-					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
+					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
 					if(cha==6)
 					{
@@ -870,7 +909,7 @@ public class GamePlay {
 				Main.walk();
 				
 				if (walk == Main.indexToCha(cha).getWalk()) {
-					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
+					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
 					if(cha==6)
 					{
@@ -891,7 +930,7 @@ public class GamePlay {
 				Main.walk();
 				
 				if (walk == Main.indexToCha(cha).getWalk()) {
-					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
+					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
 					if(cha==6&&abi!=0)
 					{
@@ -909,7 +948,7 @@ public class GamePlay {
 		};
 		EventHandler<MouseEvent> eventHandler5 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
-				gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
+				gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 				chaiv.setEffect(normal);
 				if(cha==6)
 				{
@@ -923,13 +962,13 @@ public class GamePlay {
 
 			}
 		};
-		iv1.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
-		iv2.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler2);
-		iv3.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
-		iv4.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler4);
-		iv5.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler5);
+		arrowOne.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler1);
+		arrowTwo.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler2);
+		arrowThree.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler3);
+		arrowFour.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler4);
+		arrowFive.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler5);
 
-		gamePane.getChildren().addAll(iv1, iv2, iv3, iv4, iv5);
+		gamePane.getChildren().addAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 
 	}
 
