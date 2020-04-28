@@ -1032,28 +1032,31 @@ public class GamePlay {
 			light.setBrightness(0.5);
 			chaiv.setEffect(light);
 			
-	
+			Haibara haibara = (Haibara ) Main.allCharacter.get(6);
+			
+			
 			EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
 					lightHaibara.setRotate(0);
-						
-						
+					haibara.setDirectionLight(3);
 				}
 			};
 			EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
 					lightHaibara.setRotate(270);
-
+					haibara.setDirectionLight(1);
 				}
 			};
 			EventHandler<MouseEvent> eventHandler3 = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
 					lightHaibara.setRotate(180);
+					haibara.setDirectionLight(4);
 				}
 			};
 			EventHandler<MouseEvent> eventHandler4 = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
 					lightHaibara.setRotate(90);
+					haibara.setDirectionLight(2);
 				}
 			};
 			EventHandler<MouseEvent> eventHandler5 = new EventHandler<MouseEvent>() {

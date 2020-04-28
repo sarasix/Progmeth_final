@@ -142,43 +142,48 @@ public class Main {
 		if(Map.allLamp.size() > numLamp)
 		{
 			randomNumber =   rand.nextInt(Map.allLamp.size());
-			System.out.println("Lamp remove!!");
-			Map.m2[Map.allLamp.get(randomNumber).getIndexX()][ Map.allLamp.get(randomNumber).getIndexY()] = null;
-			Map.allLamp.remove(randomNumber);
+			
 			ImageView iv = new ImageView(Resloader.lampBase);
 			iv.setFitHeight(64);
 			iv.setFitWidth(64);
 			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
 			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
+			
+			System.out.println("Lamp remove!!");
+			Map.m2[Map.allLamp.get(randomNumber).getIndexX()][ Map.allLamp.get(randomNumber).getIndexY()] = null;
+			
+			
 			System.out.println("sdfsdf");
 			GamePlay.gamePane.getChildren().add(iv);
-			
+			Map.allLamp.remove(randomNumber);
 		}
 		if(Map.allExitBarricade.size() > numExitBarricade)
 		{
 			randomNumber =   rand.nextInt(Map.allExitBarricade.size());
 			System.out.println("ExitBarricade remove!!");
 			Map.m2[Map.allExitBarricade.get(randomNumber).getIndexX()][ Map.allExitBarricade.get(randomNumber).getIndexY()] = null;
-			Map.allExitBarricade.remove(randomNumber);
+			
 			ImageView iv = new ImageView(Resloader.Exit);
 			iv.setFitHeight(64);
 			iv.setFitWidth(64);
 			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
 			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
 			GamePlay.gamePane.getChildren().add(iv);
+			Map.allExitBarricade.remove(randomNumber);
 		}
 		if(Map.allHoleCover.size() > numHoleCover)
 		{
 			randomNumber =   rand.nextInt(Map.allHoleCover.size());
 			System.out.println("HoleCover remove!!");
 			Map.m2[Map.allHoleCover.get(randomNumber).getIndexX()][ Map.allHoleCover.get(randomNumber).getIndexY()] = null;
-			Map.allHoleCover.remove(randomNumber);
+			
 			ImageView iv = new ImageView(Resloader.hole);
 			iv.setFitHeight(64);
 			iv.setFitWidth(64);
 			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
 			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
 			GamePlay.gamePane.getChildren().add(iv);
+			Map.allHoleCover.remove(randomNumber);
 		}	
 		
 		
@@ -605,6 +610,67 @@ public class Main {
 			
 			
 		}
+		
+		Haibara haibara = (Haibara ) allCharacter.get(6);
+		int dir =  haibara.getDirectionLight();
+		int x = haibara.getIndexX();
+		int y = haibara.getIndexY();
+		int c = 1;
+		if(dir == 1) {
+			while(true) {
+				int[] index = new int[] {x,y-c};
+				if(!validPosition(index)||Map.m1[x][y-c]==2||Map.m1[x][y-c]==3||Map.m1[x][y-c]==5) {
+					break;
+				}
+				if(Map.m2[x][y-c] instanceof Character) {
+					Character cha = (Character) Map.m2[x][y-c];
+					cha.setIsLight(true);
+				}
+				c++;
+			}
+		}
+		if(dir == 2) {
+			while(true) {
+				int[] index = new int[] {x,y+c};
+				if(!validPosition(index)||Map.m1[x][y+c]==2||Map.m1[x][y+c]==3||Map.m1[x][y+c]==5) {
+					break;
+				}
+				if(Map.m2[x][y+c] instanceof Character) {
+					Character cha = (Character) Map.m2[x][y+c];
+					cha.setIsLight(true);
+				}
+				c++;
+			}
+		}
+		if(dir == 3) {
+			while(true) {
+				int[] index = new int[] {x-c,y};
+				if(!validPosition(index)||Map.m1[x-c][y]==2||Map.m1[x-c][y]==3||Map.m1[x-c][y]==5) {
+					break;
+				}
+				if(Map.m2[x-c][y] instanceof Character) {
+					Character cha = (Character) Map.m2[x-c][y];
+					cha.setIsLight(true);
+				}
+				c++;
+			}
+		}
+		if(dir == 4) {
+			while(true) {
+				int[] index = new int[] {x+c,y};
+				if(!validPosition(index)||Map.m1[x+c][y]==2||Map.m1[x+c][y]==3||Map.m1[x+c][y]==5) {
+					break;
+				}
+				if(Map.m2[x+c][y] instanceof Character) {
+					Character cha = (Character) Map.m2[x+c][y];
+					cha.setIsLight(true);
+				}
+				c++;
+			}
+		}
+		
+				
+		
 		for (int i=0;i<8;i++) {
 			if(allCharacter.get(i).getIsLight()==true) {
 				System.out.print("["+chaToName(allCharacter.get(i))+" "+"light"+"] ");
