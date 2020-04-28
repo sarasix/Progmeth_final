@@ -61,12 +61,11 @@ public class Main {
 	}
 	
 	public static void loopRound (){
-		for(int i=0;i<1;i++) { // แก้กลับเป็น  8 ด้วย 
-			if(gameWin==true) {
-				break;
-			}
-			System.out.println("round"+(i+1));
-			if(i%2 == 0) {
+		
+			
+			
+			System.out.println("round"+(GamePlay.round-1+1));
+			if(GamePlay.round == 0) {
 				order = order1;
 			}
 			else {
@@ -77,17 +76,17 @@ public class Main {
 			//
 			//แก้ให้มันอยู๋ตรงกลาง + เปลี่ยนเป็นตัวเลข
 			//
-			int numLamp = initial.getLawRemoveItem(i,0);
-			int numExitBarricade = initial.getLawRemoveItem(i,1) ;
-			int numHoleCover = initial.getLawRemoveItem(i,2);
+			int numLamp = initial.getLawRemoveItem(GamePlay.round-1,0);
+			int numExitBarricade = initial.getLawRemoveItem(GamePlay.round-1,1) ;
+			int numHoleCover = initial.getLawRemoveItem(GamePlay.round-1,2);
 			
-			removeItem(numLamp,numExitBarricade,numHoleCover);
-			randomCard();
+			System.out.print(numLamp+numExitBarricade+numHoleCover);
+						randomCard();
 			//play();
-			isLight();
+			//isLight();
 			//isChoice();
 			
-		}
+		
 
 	}
 	
@@ -134,14 +133,23 @@ public class Main {
 			goToHole=true;
 		}
 	}
-	public static void removeItem(int numLamp,int numExitBarricade,int numHoleCover) {
-		
+	public static void removeItem() {
+		int numLamp = initial.getLawRemoveItem(GamePlay.round-1,0);
+		int numExitBarricade = initial.getLawRemoveItem(GamePlay.round-1,1) ;
+		int numHoleCover = initial.getLawRemoveItem(GamePlay.round-1,2);
 		if(Map.allLamp.size() > numLamp)
 		{
 			randomNumber =   rand.nextInt(Map.allLamp.size());
 			System.out.println("Lamp remove!!");
 			Map.m2[Map.allLamp.get(randomNumber).getIndexX()][ Map.allLamp.get(randomNumber).getIndexY()] = null;
 			Map.allLamp.remove(randomNumber);
+			ImageView iv = new ImageView(Resloader.lampBase);
+			iv.setFitHeight(64);
+			iv.setFitWidth(64);
+			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
+			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
+			System.out.println("sdfsdf");
+			GamePlay.gamePane.getChildren().add(iv);
 			
 		}
 		if(Map.allExitBarricade.size() > numExitBarricade)
@@ -150,7 +158,12 @@ public class Main {
 			System.out.println("ExitBarricade remove!!");
 			Map.m2[Map.allExitBarricade.get(randomNumber).getIndexX()][ Map.allExitBarricade.get(randomNumber).getIndexY()] = null;
 			Map.allExitBarricade.remove(randomNumber);
-			
+			ImageView iv = new ImageView(Resloader.Exit);
+			iv.setFitHeight(64);
+			iv.setFitWidth(64);
+			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
+			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
+			GamePlay.gamePane.getChildren().add(iv);
 		}
 		if(Map.allHoleCover.size() > numHoleCover)
 		{
@@ -158,8 +171,15 @@ public class Main {
 			System.out.println("HoleCover remove!!");
 			Map.m2[Map.allHoleCover.get(randomNumber).getIndexX()][ Map.allHoleCover.get(randomNumber).getIndexY()] = null;
 			Map.allHoleCover.remove(randomNumber);
-			
+			ImageView iv = new ImageView(Resloader.hole);
+			iv.setFitHeight(64);
+			iv.setFitWidth(64);
+			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
+			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
+			GamePlay.gamePane.getChildren().add(iv);
 		}	
+		
+		
 	}
 		
 	public static void randomCard() {
@@ -518,10 +538,15 @@ public class Main {
 			}
 			
 			c.walk(u);
+			
+			if(Map.m1[c.getIndexX()][c.getIndexY()]!=4) {
+				GamePlay.walk++;
+			}
+
 			if(Map.m1[c.getIndexX()][c.getIndexY()]==4) {
 				GamePlay.createWhereToGoToHole();
 			}
-			GamePlay.walk++;
+			
 			
 			
 		}

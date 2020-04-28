@@ -199,14 +199,16 @@ public class GamePlay {
 						gamePane.getChildren().add(conan);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 2;
+								
 								if (abi == 0) {
+									cha = 2;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 2;
 									Main.indexToCha(abi).ability();
 									createCardSel();
-
 								}
 							}
 						};
@@ -225,11 +227,14 @@ public class GamePlay {
 						gamePane.getChildren().addAll(haibara,lightHaibara);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 6;
+								
 								if (abi == 0) {
+									cha = 6;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 6;
 									Main.indexToCha(abi).ability();
 									createCardSel();
 
@@ -247,11 +252,14 @@ public class GamePlay {
 						gamePane.getChildren().add(ran);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 5;
+								
 								if (abi == 0) {
+									cha = 5;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 5;
 									Main.indexToCha(abi).ability();
 									createCardSel();
 
@@ -268,11 +276,14 @@ public class GamePlay {
 						gamePane.getChildren().add(kogoro);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 3;
+								
 								if (abi == 0) {
+									cha = 3;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 3;
 									Main.indexToCha(abi).ability();
 									createCardSel();
 
@@ -289,11 +300,14 @@ public class GamePlay {
 						gamePane.getChildren().add(heiji);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 4;
+								
 								if (abi == 0) {
+									cha = 4;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 4;
 									Main.indexToCha(abi).ability();
 									createCardSel();
 
@@ -311,11 +325,14 @@ public class GamePlay {
 						gamePane.getChildren().add(gin);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 0;
+								
 								if (abi == 0) {
+									cha = 0;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 0;
 									Main.indexToCha(abi).ability();
 									createCardSel();
 
@@ -332,11 +349,14 @@ public class GamePlay {
 						gamePane.getChildren().add(shadowMan);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 1;
+								
 								if (abi == 0) {
+									cha = 1;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 1;
 									Main.indexToCha(abi).ability();
 									createCardSel();
 
@@ -353,11 +373,14 @@ public class GamePlay {
 						gamePane.getChildren().add(kid);
 						EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent e) {
-								cha = 7;
+								
 								if (abi == 0) {
+									cha = 7;
+									abi = 10;
 									createWalk();
 								}
 								if(abi==1) {
+									cha = 7;
 									Main.indexToCha(abi).ability();
 									createCardSel();
 
@@ -446,6 +469,7 @@ public class GamePlay {
 	
 	public static void createCard4(ImageView bg, int i1, int i2, int i3, int i4) {
 		createRound();
+		Main.removeItem();
 		chaSel = new ArrayList<Integer>();
 		cha1 = i1;
 		cha2 = i2;
@@ -502,6 +526,7 @@ public class GamePlay {
         				if(Main.goToHole) {
         					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
         					Main.goToHole=false;
+        					
         				}
         			}
         		};
@@ -633,6 +658,7 @@ public class GamePlay {
 
 		} else {
 			createTurn();
+			abi = 10;
 			StackPane stPaneCard4 = new StackPane();
 
 			ImageView c1 = indexToIVCard(cha1);
@@ -867,7 +893,7 @@ public class GamePlay {
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(iv1, iv2, iv3, iv4, iv5);
 					chaiv.setEffect(normal);
-					if(cha==6)
+					if(cha==6&&abi!=0)
 					{
 						abi = 6;
 						ability();
@@ -967,8 +993,7 @@ public class GamePlay {
 			light.setBrightness(0.5);
 			chaiv.setEffect(light);
 			
-
-			
+	
 			EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
 					lightHaibara.setRotate(0);
