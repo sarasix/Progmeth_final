@@ -34,7 +34,23 @@ public class GamePlay {
 	public static Scene gameScene;
 	public static AnchorPane gamePane;
 	public static Stage gameStage = new Stage();
-
+    public static ImageView lamp0;
+    public static ImageView lamp1;
+    public static ImageView lamp2;
+    public static ImageView lamp3;
+    public static ImageView lamp4;
+    public static ImageView lamp5;
+    public static ImageView lamp6;
+    public static ImageView lamp7;
+    public static ImageView exitBarricade0;
+    public static ImageView exitBarricade1;
+    public static ImageView exitBarricade2;
+    public static ImageView holeCover0;
+    public static ImageView holeCover1;
+    public static ImageView holeCover2;
+    public static ImageView holeCover3;
+    public static ImageView holeCover4;
+    public static ImageView itemSelected;
 	public static Scene subScene;
 
 	public static Stage subStage = new Stage(StageStyle.TRANSPARENT);
@@ -168,21 +184,141 @@ public class GamePlay {
 				if (Map.m2 != null) {
 					if (Map.m2[i][j] instanceof Item) {
 						if (Map.m2[i][j] instanceof Lamp) {
-							tempTable2 = new ImageView(Resloader.lamp);
+							//tempTable2 = new ImageView(Resloader.lamp);
+							if(((Lamp) Map.m2[i][j]).getNumber()==0) {
+								lamp0=new ImageView(Resloader.lamp);
+								lamp0.setFitHeight(60);
+								lamp0.setFitWidth(60);
+								lamp0.setX(148 + 66 * j);
+								lamp0.setY(100+66*i);
+								gamePane.getChildren().add(lamp0);
+							}
+							if(((Lamp) Map.m2[i][j]).getNumber()==1) {
+								lamp1=new ImageView(Resloader.lamp);
+								lamp1.setFitHeight(60);
+								lamp1.setFitWidth(60);
+								lamp1.setX(148 + 66 * j);
+								lamp1.setY(100+66*i);
+								gamePane.getChildren().add(lamp1);
+							}
+							if(((Lamp) Map.m2[i][j]).getNumber()==2) {
+								lamp2=new ImageView(Resloader.lamp);
+								lamp2.setFitHeight(60);
+								lamp2.setFitWidth(60);
+								lamp2.setX(148 + 66 * j);
+								lamp2.setY(100+66*i);
+								gamePane.getChildren().add(lamp2);
+							}
+							if(((Lamp) Map.m2[i][j]).getNumber()==3) {
+								lamp3=new ImageView(Resloader.lamp);
+								lamp3.setFitHeight(60);
+								lamp3.setFitWidth(60);
+								lamp3.setX(148 + 66 * j);
+								lamp3.setY(100+66*i);
+								gamePane.getChildren().add(lamp3);
+							}
+							if(((Lamp) Map.m2[i][j]).getNumber()==4) {
+								lamp4=new ImageView(Resloader.lamp);
+								lamp4.setFitHeight(60);
+								lamp4.setFitWidth(60);
+								lamp4.setX(148 + 66 * j);
+								lamp4.setY(100+66*i);
+								gamePane.getChildren().add(lamp4);
+							}
+							if(((Lamp) Map.m2[i][j]).getNumber()==5) {
+								lamp5=new ImageView(Resloader.lamp);
+								lamp5.setFitHeight(60);
+								lamp5.setFitWidth(60);
+								lamp5.setX(148 + 66 * j);
+								lamp5.setY(100+66*i);
+								gamePane.getChildren().add(lamp5);
+							}
+							if(((Lamp) Map.m2[i][j]).getNumber()==6) {
+								lamp6=new ImageView(Resloader.lamp);
+								lamp6.setFitHeight(60);
+								lamp6.setFitWidth(60);
+								lamp6.setX(148 + 66 * j);
+								lamp6.setY(100+66*i);
+								gamePane.getChildren().add(lamp6);
+							}
+							if(((Lamp) Map.m2[i][j]).getNumber()==7) {
+								lamp7=new ImageView(Resloader.lamp);
+								lamp7.setFitHeight(60);
+								lamp7.setFitWidth(60);
+								lamp7.setX(148 + 66 * j);
+								lamp7.setY(100+66*i);
+								gamePane.getChildren().add(lamp7);
+							}
 						}
 						if (Map.m2[i][j] instanceof ExitBarricade) {
-							tempTable2 = new ImageView(Resloader.exitBarricade);
+							if(((ExitBarricade) Map.m2[i][j]).getNumber()==0) {
+								exitBarricade0=new ImageView(Resloader.exitBarricade);
+								exitBarricade0.setFitHeight(60);
+								exitBarricade0.setFitWidth(60);
+								exitBarricade0.setX(148 + 66 * j);
+								exitBarricade0.setY(100+66*i);
+								gamePane.getChildren().add(exitBarricade0);
+							}
+							if(((ExitBarricade) Map.m2[i][j]).getNumber()==1) {
+								exitBarricade1=new ImageView(Resloader.exitBarricade);
+								exitBarricade1.setFitHeight(60);
+								exitBarricade1.setFitWidth(60);
+								exitBarricade1.setX(148 + 66 * j);
+								exitBarricade1.setY(100+66*i);
+								gamePane.getChildren().add(exitBarricade1);
+							}
+							if(((ExitBarricade) Map.m2[i][j]).getNumber()==2) {
+								exitBarricade2=new ImageView(Resloader.exitBarricade);
+								exitBarricade2.setFitHeight(60);
+								exitBarricade2.setFitWidth(60);
+								exitBarricade2.setX(148 + 66 * j);
+								exitBarricade2.setY(100+66*i);
+								gamePane.getChildren().add(exitBarricade2);
+							}
 						}
 						if (Map.m2[i][j] instanceof HoleCover) {
-							tempTable2 = new ImageView(Resloader.holeCover);
+							if(((HoleCover) Map.m2[i][j]).getNumber()==0) {
+							    holeCover0=new ImageView(Resloader.holeCover);
+								holeCover0.setFitHeight(60);
+								holeCover0.setFitWidth(60);
+								holeCover0.setX(148 + 66 * j);
+								holeCover0.setY(100+66*i);
+								gamePane.getChildren().add(holeCover0);
+							}
+							if(((HoleCover) Map.m2[i][j]).getNumber()==1) {
+							    holeCover1=new ImageView(Resloader.holeCover);
+								holeCover1.setFitHeight(60);
+								holeCover1.setFitWidth(60);
+								holeCover1.setX(148 + 66 * j);
+								holeCover1.setY(100+66*i);
+								gamePane.getChildren().add(holeCover1);
+							}
+							if(((HoleCover) Map.m2[i][j]).getNumber()==2) {
+							    holeCover2=new ImageView(Resloader.holeCover);
+								holeCover2.setFitHeight(60);
+								holeCover2.setFitWidth(60);
+								holeCover2.setX(148 + 66 * j);
+								holeCover2.setY(100+66*i);
+								gamePane.getChildren().add(holeCover2);
+							}
+							if(((HoleCover) Map.m2[i][j]).getNumber()==3) {
+							    holeCover3=new ImageView(Resloader.holeCover);
+								holeCover3.setFitHeight(60);
+								holeCover3.setFitWidth(60);
+								holeCover3.setX(148 + 66 * j);
+								holeCover3.setY(100+66*i);
+								gamePane.getChildren().add(holeCover3);
+							}
+							if(((HoleCover) Map.m2[i][j]).getNumber()==4) {
+							    holeCover4=new ImageView(Resloader.holeCover);
+								holeCover4.setFitHeight(60);
+								holeCover4.setFitWidth(60);
+								holeCover4.setX(148 + 66 * j);
+								holeCover4.setY(100+66*i);
+								gamePane.getChildren().add(holeCover4);
+							}
 						}
-						tempTable2.setFitHeight(60);
-						tempTable2.setFitWidth(60);
-
-						tempTable2.setX(148 + 66 * j);
-						tempTable2.setY(100 + 66 * i);
-						Group root2 = new Group(tempTable2);
-						gamePane.getChildren().add(root2);
+						
 
 					}
 
@@ -524,6 +660,7 @@ public class GamePlay {
                 EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
         			public void handle(MouseEvent e) {
         				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        				
         				Main.holeColumn=5;
         				Main.holeRow=0;
         				Main.goToHole();
@@ -1090,10 +1227,303 @@ public class GamePlay {
 
 			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
 		}
+		if(cha==3) {
+			//kogoro ability lamp
+			abi=3;
+			ImageView iv=setCenter(Resloader.kogoroability);
+			gamePane.getChildren().add(iv);
+			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					gamePane.getChildren().remove(iv);
+					EventHandler<MouseEvent> l0 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp0;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(0);
+							createHighLightFieldForLamp();
+							lamp0.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp0.addEventFilter(MouseEvent.MOUSE_RELEASED, l0);
+					
+					EventHandler<MouseEvent> l1 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp1;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(1);
+							createHighLightFieldForLamp();
+							lamp1.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp1.addEventFilter(MouseEvent.MOUSE_RELEASED, l1);
+					
+					EventHandler<MouseEvent> l2 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp2;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(2);
+							createHighLightFieldForLamp();
+							lamp2.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp2.addEventFilter(MouseEvent.MOUSE_RELEASED, l2);
+					
+					EventHandler<MouseEvent> l3 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp3;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(3);
+							createHighLightFieldForLamp();
+							lamp3.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp3.addEventFilter(MouseEvent.MOUSE_RELEASED, l3);
+					
+					EventHandler<MouseEvent> l4 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp4;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(4);
+							createHighLightFieldForLamp();
+							lamp4.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp4.addEventFilter(MouseEvent.MOUSE_RELEASED, l4);
+					
+					EventHandler<MouseEvent> l5 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp5;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(5);
+							createHighLightFieldForLamp();
+							lamp5.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp5.addEventFilter(MouseEvent.MOUSE_RELEASED, l5);
+					
+					EventHandler<MouseEvent> l6 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp6;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(6);
+							createHighLightFieldForLamp();
+							lamp6.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp6.addEventFilter(MouseEvent.MOUSE_RELEASED, l6);
+					
+					EventHandler<MouseEvent> l7 = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							itemSelected=lamp7;
+							light.setBrightness(0.5);
+							itemSelected.setEffect(light);
+							Main.itemChosen=Main.findLampForTurn(7);
+							createHighLightFieldForLamp();
+							lamp7.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
+						}
+					};
+					lamp7.addEventFilter(MouseEvent.MOUSE_RELEASED, l7);
+				}
+			};
+			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
+		}
 
 	}
 	
+    public static void createHighLightFieldForLamp() {
+    	ImageView h1= new ImageView(Resloader.hilight);
+		ImageView h2= new ImageView(Resloader.hilight);
+		ImageView h3= new ImageView(Resloader.hilight);
+		ImageView h4= new ImageView(Resloader.hilight);
+		ImageView h5= new ImageView(Resloader.hilight);
+		ImageView h6= new ImageView(Resloader.hilight);
+		ImageView h7= new ImageView(Resloader.hilight);
+		ImageView h8= new ImageView(Resloader.hilight);
+		h1.setX(144+66*2);
+		h1.setY(100+66*1);
+		
+		h2.setX(144+66*5);
+		h2.setY(100+66*1);
+		
+		h3.setX(144+66*10);
+		h3.setY(100+66*1);
+		
+		h4.setX(144+66*7);
+		h4.setY(100+66*2);
+		
+		h5.setX(144+66*5);
+		h5.setY(100+66*4);
+		
+		h6.setX(144+66*10);
+		h6.setY(100+66*4);
+		
+		h7.setX(144+66*1);
+		h7.setY(100+66*5);
+		
+		h8.setX(144+66*7);
+		h8.setY(100+66*5);
+		
+        gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=2;    //column
+				Main.indexItemField[0]=1;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
 
+		h1.addEventFilter(MouseEvent.MOUSE_RELEASED, e1);
+		
+		EventHandler<MouseEvent> e2 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=5;    //column
+				Main.indexItemField[0]=1;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+
+		h2.addEventFilter(MouseEvent.MOUSE_RELEASED, e2);
+		
+		EventHandler<MouseEvent> e3 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=10;    //column
+				Main.indexItemField[0]=1;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+
+		h3.addEventFilter(MouseEvent.MOUSE_RELEASED, e3);
+		
+		EventHandler<MouseEvent> e4 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=7;    //column
+				Main.indexItemField[0]=2;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+
+		h4.addEventFilter(MouseEvent.MOUSE_RELEASED, e4);
+		
+		EventHandler<MouseEvent> e5 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=5;    //column
+				Main.indexItemField[0]=4;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+
+		h5.addEventFilter(MouseEvent.MOUSE_RELEASED, e5);
+		
+		EventHandler<MouseEvent> e6 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=10;    //column
+				Main.indexItemField[0]=4;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+
+		h6.addEventFilter(MouseEvent.MOUSE_RELEASED, e6);
+		
+		EventHandler<MouseEvent> e7 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=1;    //column
+				Main.indexItemField[0]=5;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+
+		h7.addEventFilter(MouseEvent.MOUSE_RELEASED, e7);
+		
+		EventHandler<MouseEvent> e8 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=7;    //column
+				Main.indexItemField[0]=5;        //row
+				boolean q = Main.itemMove();
+				
+				if(q) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+
+		h8.addEventFilter(MouseEvent.MOUSE_RELEASED, e8);
+    	
+    }
 	public static void createIslight() {
 		Image i = Resloader.apple;
 

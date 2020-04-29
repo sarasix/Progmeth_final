@@ -135,6 +135,36 @@ public class Main {
             GamePlay.maxWalkAndGoToHole();			
 		}
 	}
+	public static Lamp findLampForTurn(int x) {
+		int INDEX=0;
+		for(int i=0;i<Map.allLamp.size();i++) {
+			if(Map.allLamp.get(i).getNumber()==x) {
+				INDEX=i;
+				break;
+			}
+		}
+		return Map.allLamp.get(INDEX);
+	}
+	public static ExitBarricade findExitBarricadeForTurn(int x) {
+		int INDEX=0;
+		for(int i=0;i<Map.allExitBarricade.size();i++) {
+			if(Map.allExitBarricade.get(i).getNumber()==x) {
+				INDEX=i;
+				break;
+			}
+		}
+		return Map.allExitBarricade.get(INDEX);
+	}
+	public static HoleCover findHoleCoverForTurn(int x) {
+		int INDEX=0;
+		for(int i=0;i<Map.allHoleCover.size();i++) {
+			if(Map.allHoleCover.get(i).getNumber()==x) {
+				INDEX=i;
+				break;
+			}
+		}
+		return Map.allHoleCover.get(INDEX);
+	}
 	public static void removeItem() {
 		int numLamp = initial.getLawRemoveItem(GamePlay.round-1,0);
 		int numExitBarricade = initial.getLawRemoveItem(GamePlay.round-1,1) ;
@@ -143,32 +173,56 @@ public class Main {
 		{
 			randomNumber =   rand.nextInt(Map.allLamp.size());
 			
-			ImageView iv = new ImageView(Resloader.lampBase);
-			iv.setFitHeight(64);
-			iv.setFitWidth(64);
-			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
-			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
+			ImageView iv = null;
+			if(Map.allLamp.get(randomNumber).getNumber()==0)
+				iv=GamePlay.lamp0;
+			if(Map.allLamp.get(randomNumber).getNumber()==1)
+				iv=GamePlay.lamp1;
+			if(Map.allLamp.get(randomNumber).getNumber()==2)
+				iv=GamePlay.lamp2;
+			if(Map.allLamp.get(randomNumber).getNumber()==3)
+				iv=GamePlay.lamp3;
+			if(Map.allLamp.get(randomNumber).getNumber()==4)
+				iv=GamePlay.lamp4;
+			if(Map.allLamp.get(randomNumber).getNumber()==5)
+				iv=GamePlay.lamp5;
+			if(Map.allLamp.get(randomNumber).getNumber()==6)
+				iv=GamePlay.lamp6;
+			if(Map.allLamp.get(randomNumber).getNumber()==7)
+				iv=GamePlay.lamp7;
+				
+			//ImageView iv = new ImageView(Resloader.lampBase);
+			//iv.setFitHeight(64);
+			//iv.setFitWidth(64);
+			//iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
+			//iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
 			
 			System.out.println("Lamp remove!!");
 			Map.m2[Map.allLamp.get(randomNumber).getIndexX()][ Map.allLamp.get(randomNumber).getIndexY()] = null;
 			
 			
 			System.out.println("sdfsdf");
-			GamePlay.gamePane.getChildren().add(iv);
+			GamePlay.gamePane.getChildren().remove(iv);
 			Map.allLamp.remove(randomNumber);
 		}
+		
 		if(Map.allExitBarricade.size() > numExitBarricade)
 		{
 			randomNumber =   rand.nextInt(Map.allExitBarricade.size());
 			System.out.println("ExitBarricade remove!!");
 			Map.m2[Map.allExitBarricade.get(randomNumber).getIndexX()][ Map.allExitBarricade.get(randomNumber).getIndexY()] = null;
 			
-			ImageView iv = new ImageView(Resloader.Exit);
-			iv.setFitHeight(64);
-			iv.setFitWidth(64);
-			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
-			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
-			GamePlay.gamePane.getChildren().add(iv);
+			//ImageView iv = null;
+			ImageView iv = null;
+			if(Map.allExitBarricade.get(randomNumber).getNumber()==0)
+				iv=GamePlay.exitBarricade0;
+			if(Map.allExitBarricade.get(randomNumber).getNumber()==1)
+				iv=GamePlay.exitBarricade1;
+			if(Map.allExitBarricade.get(randomNumber).getNumber()==2)
+				iv=GamePlay.exitBarricade2;
+			
+			
+			GamePlay.gamePane.getChildren().remove(iv);
 			Map.allExitBarricade.remove(randomNumber);
 		}
 		if(Map.allHoleCover.size() > numHoleCover)
@@ -177,12 +231,23 @@ public class Main {
 			System.out.println("HoleCover remove!!");
 			Map.m2[Map.allHoleCover.get(randomNumber).getIndexX()][ Map.allHoleCover.get(randomNumber).getIndexY()] = null;
 			
-			ImageView iv = new ImageView(Resloader.hole);
-			iv.setFitHeight(64);
-			iv.setFitWidth(64);
-			iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
-			iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
-			GamePlay.gamePane.getChildren().add(iv);
+			ImageView iv = null; //ew ImageView(Resloader.hole);
+			//iv.setFitHeight(64);
+			//iv.setFitWidth(64);
+			//iv.setX(145 + 66 * Map.allLamp.get(randomNumber).getIndexY());
+			///iv.setY(100 + 66 * Map.allLamp.get(randomNumber).getIndexX());
+			if(Map.allHoleCover.get(randomNumber).getNumber()==0)
+				iv=GamePlay.holeCover0;
+			if(Map.allHoleCover.get(randomNumber).getNumber()==1)
+				iv=GamePlay.holeCover1;
+			if(Map.allHoleCover.get(randomNumber).getNumber()==2)
+				iv=GamePlay.holeCover2;
+			if(Map.allHoleCover.get(randomNumber).getNumber()==3)
+				iv=GamePlay.holeCover3;
+			if(Map.allHoleCover.get(randomNumber).getNumber()==4)
+				iv=GamePlay.holeCover4;
+			
+			GamePlay.gamePane.getChildren().remove(iv);
 			Map.allHoleCover.remove(randomNumber);
 		}	
 		
@@ -527,6 +592,17 @@ public class Main {
 			
 		}
 		
+	}
+	
+	
+	public static boolean itemMove() {
+		if(Map.m2[indexItemField[0]][indexItemField[1]]==null) {
+			indexToCha(GamePlay.cha).ability();
+			GamePlay.itemSelected.setX(144+66*indexItemField[1]);
+			GamePlay.itemSelected.setY(100+66*indexItemField[0]);
+			return true;
+		}
+		return false;
 	}
 	public static void walk() {
 		
