@@ -50,7 +50,7 @@ public class Main {
 		randomNumber = rand.nextInt(8);
 		MrJack = allCharacter.get(randomNumber);
 		
-		GamePlay.createJack( Resloader.buttonPlay,GamePlay.indexToICard(randomNumber));
+		GamePlay.createJack( Resloader.seeJack,GamePlay.indexToICard(randomNumber));
 		
 		System.out.println("MrJack is "+chaToName(MrJack));
 		MrJack.setIsMrJack(true);

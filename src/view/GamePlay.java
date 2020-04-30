@@ -42,6 +42,7 @@ public class GamePlay {
     public static ImageView lamp5;
     public static ImageView lamp6;
     public static ImageView lamp7;
+    //public static int jj;
     public static ImageView exitBarricade0;
     public static ImageView exitBarricade1;
     public static ImageView exitBarricade2;
@@ -52,7 +53,7 @@ public class GamePlay {
     public static ImageView holeCover4;
     public static ImageView itemSelected;
 	public static Scene subScene;
-
+	public static boolean queueForExitItem;
 	public static Stage subStage = new Stage(StageStyle.TRANSPARENT);
 	public static AnchorPane subPane = new AnchorPane();
 
@@ -192,6 +193,20 @@ public class GamePlay {
 								lamp0.setX(148 + 66 * j);
 								lamp0.setY(100+66*i);
 								gamePane.getChildren().add(lamp0);
+								EventHandler<MouseEvent> l0 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp0;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(0);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp0.addEventFilter(MouseEvent.MOUSE_RELEASED, l0);
 							}
 							if(((Lamp) Map.m2[i][j]).getNumber()==1) {
 								lamp1=new ImageView(Resloader.lamp);
@@ -200,6 +215,20 @@ public class GamePlay {
 								lamp1.setX(148 + 66 * j);
 								lamp1.setY(100+66*i);
 								gamePane.getChildren().add(lamp1);
+								EventHandler<MouseEvent> l1 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp1;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(1);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp1.addEventFilter(MouseEvent.MOUSE_RELEASED, l1);
 							}
 							if(((Lamp) Map.m2[i][j]).getNumber()==2) {
 								lamp2=new ImageView(Resloader.lamp);
@@ -208,6 +237,20 @@ public class GamePlay {
 								lamp2.setX(148 + 66 * j);
 								lamp2.setY(100+66*i);
 								gamePane.getChildren().add(lamp2);
+								EventHandler<MouseEvent> l2 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp2;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(2);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp2.addEventFilter(MouseEvent.MOUSE_RELEASED, l2);
 							}
 							if(((Lamp) Map.m2[i][j]).getNumber()==3) {
 								lamp3=new ImageView(Resloader.lamp);
@@ -216,6 +259,20 @@ public class GamePlay {
 								lamp3.setX(148 + 66 * j);
 								lamp3.setY(100+66*i);
 								gamePane.getChildren().add(lamp3);
+								EventHandler<MouseEvent> l3 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp3;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(3);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp3.addEventFilter(MouseEvent.MOUSE_RELEASED, l3);
 							}
 							if(((Lamp) Map.m2[i][j]).getNumber()==4) {
 								lamp4=new ImageView(Resloader.lamp);
@@ -224,6 +281,20 @@ public class GamePlay {
 								lamp4.setX(148 + 66 * j);
 								lamp4.setY(100+66*i);
 								gamePane.getChildren().add(lamp4);
+								EventHandler<MouseEvent> l4 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp4;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(4);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp4.addEventFilter(MouseEvent.MOUSE_RELEASED, l4);
 							}
 							if(((Lamp) Map.m2[i][j]).getNumber()==5) {
 								lamp5=new ImageView(Resloader.lamp);
@@ -232,6 +303,20 @@ public class GamePlay {
 								lamp5.setX(148 + 66 * j);
 								lamp5.setY(100+66*i);
 								gamePane.getChildren().add(lamp5);
+								EventHandler<MouseEvent> l5 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp5;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(5);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp5.addEventFilter(MouseEvent.MOUSE_RELEASED, l5);
 							}
 							if(((Lamp) Map.m2[i][j]).getNumber()==6) {
 								lamp6=new ImageView(Resloader.lamp);
@@ -240,6 +325,20 @@ public class GamePlay {
 								lamp6.setX(148 + 66 * j);
 								lamp6.setY(100+66*i);
 								gamePane.getChildren().add(lamp6);
+								EventHandler<MouseEvent> l6 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp6;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(6);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp6.addEventFilter(MouseEvent.MOUSE_RELEASED, l6);
 							}
 							if(((Lamp) Map.m2[i][j]).getNumber()==7) {
 								lamp7=new ImageView(Resloader.lamp);
@@ -248,6 +347,20 @@ public class GamePlay {
 								lamp7.setX(148 + 66 * j);
 								lamp7.setY(100+66*i);
 								gamePane.getChildren().add(lamp7);
+								EventHandler<MouseEvent> l7 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==3)
+										{
+											itemSelected=lamp7;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findLampForTurn(7);
+											createHighLightFieldForLamp();
+										}
+										
+									}
+								};
+								lamp7.addEventFilter(MouseEvent.MOUSE_RELEASED, l7);
 							}
 						}
 						if (Map.m2[i][j] instanceof ExitBarricade) {
@@ -258,6 +371,20 @@ public class GamePlay {
 								exitBarricade0.setX(148 + 66 * j);
 								exitBarricade0.setY(100+66*i);
 								gamePane.getChildren().add(exitBarricade0);
+								EventHandler<MouseEvent> e0 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==5)
+										{
+											itemSelected=exitBarricade0;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findExitBarricadeForTurn(0);
+											createHighLightFieldForExitBarricade();
+										}
+										
+									}
+								};
+								exitBarricade0.addEventFilter(MouseEvent.MOUSE_RELEASED, e0);
 							}
 							if(((ExitBarricade) Map.m2[i][j]).getNumber()==1) {
 								exitBarricade1=new ImageView(Resloader.exitBarricade);
@@ -266,6 +393,20 @@ public class GamePlay {
 								exitBarricade1.setX(148 + 66 * j);
 								exitBarricade1.setY(100+66*i);
 								gamePane.getChildren().add(exitBarricade1);
+								EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==5)
+										{
+											itemSelected=exitBarricade1;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findExitBarricadeForTurn(1);
+											createHighLightFieldForExitBarricade();
+										}
+										
+									}
+								};
+								exitBarricade1.addEventFilter(MouseEvent.MOUSE_RELEASED, e1);
 							}
 							if(((ExitBarricade) Map.m2[i][j]).getNumber()==2) {
 								exitBarricade2=new ImageView(Resloader.exitBarricade);
@@ -274,6 +415,20 @@ public class GamePlay {
 								exitBarricade2.setX(148 + 66 * j);
 								exitBarricade2.setY(100+66*i);
 								gamePane.getChildren().add(exitBarricade2);
+								EventHandler<MouseEvent> e2 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==5)
+										{
+											itemSelected=exitBarricade2;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findExitBarricadeForTurn(2);
+											createHighLightFieldForExitBarricade();
+										}
+										
+									}
+								};
+								exitBarricade2.addEventFilter(MouseEvent.MOUSE_RELEASED, e2);
 							}
 						}
 						if (Map.m2[i][j] instanceof HoleCover) {
@@ -284,6 +439,20 @@ public class GamePlay {
 								holeCover0.setX(148 + 66 * j);
 								holeCover0.setY(100+66*i);
 								gamePane.getChildren().add(holeCover0);
+								EventHandler<MouseEvent> h0 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==4)
+										{
+											itemSelected=holeCover0;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findHoleCoverForTurn(0);
+											createHighLightFieldForHoleCover();
+										}
+										
+									}
+								};
+								holeCover0.addEventFilter(MouseEvent.MOUSE_RELEASED, h0);
 							}
 							if(((HoleCover) Map.m2[i][j]).getNumber()==1) {
 							    holeCover1=new ImageView(Resloader.holeCover);
@@ -292,6 +461,20 @@ public class GamePlay {
 								holeCover1.setX(148 + 66 * j);
 								holeCover1.setY(100+66*i);
 								gamePane.getChildren().add(holeCover1);
+								EventHandler<MouseEvent> h1 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==4)
+										{
+											itemSelected=holeCover1;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findHoleCoverForTurn(1);
+											createHighLightFieldForHoleCover();
+										}
+										
+									}
+								};
+								holeCover1.addEventFilter(MouseEvent.MOUSE_RELEASED, h1);
 							}
 							if(((HoleCover) Map.m2[i][j]).getNumber()==2) {
 							    holeCover2=new ImageView(Resloader.holeCover);
@@ -300,6 +483,20 @@ public class GamePlay {
 								holeCover2.setX(148 + 66 * j);
 								holeCover2.setY(100+66*i);
 								gamePane.getChildren().add(holeCover2);
+								EventHandler<MouseEvent> h2 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==4)
+										{
+											itemSelected=holeCover2;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findHoleCoverForTurn(2);
+											createHighLightFieldForHoleCover();
+										}
+										
+									}
+								};
+								holeCover2.addEventFilter(MouseEvent.MOUSE_RELEASED, h2);
 							}
 							if(((HoleCover) Map.m2[i][j]).getNumber()==3) {
 							    holeCover3=new ImageView(Resloader.holeCover);
@@ -308,6 +505,20 @@ public class GamePlay {
 								holeCover3.setX(148 + 66 * j);
 								holeCover3.setY(100+66*i);
 								gamePane.getChildren().add(holeCover3);
+								EventHandler<MouseEvent> h3 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==4)
+										{
+											itemSelected=holeCover3;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findHoleCoverForTurn(3);
+											createHighLightFieldForHoleCover();
+										}
+										
+									}
+								};
+								holeCover3.addEventFilter(MouseEvent.MOUSE_RELEASED, h3);
 							}
 							if(((HoleCover) Map.m2[i][j]).getNumber()==4) {
 							    holeCover4=new ImageView(Resloader.holeCover);
@@ -316,6 +527,20 @@ public class GamePlay {
 								holeCover4.setX(148 + 66 * j);
 								holeCover4.setY(100+66*i);
 								gamePane.getChildren().add(holeCover4);
+								EventHandler<MouseEvent> h4 = new EventHandler<MouseEvent>() {
+									public void handle(MouseEvent e) {
+										if(abi==4)
+										{
+											itemSelected=holeCover4;
+											light.setBrightness(0.5);
+											itemSelected.setEffect(light);
+											Main.itemChosen=Main.findHoleCoverForTurn(4);
+											createHighLightFieldForHoleCover();
+										}
+										
+									}
+								};
+								holeCover4.addEventFilter(MouseEvent.MOUSE_RELEASED, h4);
 							}
 						}
 						
@@ -810,7 +1035,8 @@ public class GamePlay {
 	}
 
 	public static void createCardSel() {
-
+        cha=-1;
+        abi=-1;
 		if (chaSel.size() == 4) {
 			Main.isLight();
 
@@ -1235,109 +1461,346 @@ public class GamePlay {
 			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
 					gamePane.getChildren().remove(iv);
-					EventHandler<MouseEvent> l0 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp0;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(0);
-							createHighLightFieldForLamp();
-							lamp0.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp0.addEventFilter(MouseEvent.MOUSE_RELEASED, l0);
 					
-					EventHandler<MouseEvent> l1 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp1;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(1);
-							createHighLightFieldForLamp();
-							lamp1.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp1.addEventFilter(MouseEvent.MOUSE_RELEASED, l1);
+				}
+			};
+			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
+		}
+		if(cha==4) {
+			//heiji ability lamp
+			abi=4;
+			ImageView iv=setCenter(Resloader.heijiability);
+			gamePane.getChildren().add(iv);
+			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					gamePane.getChildren().remove(iv);
 					
-					EventHandler<MouseEvent> l2 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp2;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(2);
-							createHighLightFieldForLamp();
-							lamp2.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp2.addEventFilter(MouseEvent.MOUSE_RELEASED, l2);
+				}
+			};
+			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
+		}
+		if(cha==5) {
+			//ran ability lamp
+			abi=5;
+			ImageView iv=setCenter(Resloader.ranability);
+			gamePane.getChildren().add(iv);
+			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					gamePane.getChildren().remove(iv);
 					
-					EventHandler<MouseEvent> l3 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp3;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(3);
-							createHighLightFieldForLamp();
-							lamp3.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp3.addEventFilter(MouseEvent.MOUSE_RELEASED, l3);
-					
-					EventHandler<MouseEvent> l4 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp4;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(4);
-							createHighLightFieldForLamp();
-							lamp4.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp4.addEventFilter(MouseEvent.MOUSE_RELEASED, l4);
-					
-					EventHandler<MouseEvent> l5 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp5;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(5);
-							createHighLightFieldForLamp();
-							lamp5.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp5.addEventFilter(MouseEvent.MOUSE_RELEASED, l5);
-					
-					EventHandler<MouseEvent> l6 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp6;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(6);
-							createHighLightFieldForLamp();
-							lamp6.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp6.addEventFilter(MouseEvent.MOUSE_RELEASED, l6);
-					
-					EventHandler<MouseEvent> l7 = new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							itemSelected=lamp7;
-							light.setBrightness(0.5);
-							itemSelected.setEffect(light);
-							Main.itemChosen=Main.findLampForTurn(7);
-							createHighLightFieldForLamp();
-							lamp7.removeEventFilter(MouseEvent.MOUSE_RELEASED, this);
-						}
-					};
-					lamp7.addEventFilter(MouseEvent.MOUSE_RELEASED, l7);
 				}
 			};
 			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
 		}
 
+
+
 	}
-	
-    public static void createHighLightFieldForLamp() {
+	public static void createHighLightFieldForHoleCover() {
+		ImageView h1= new ImageView(Resloader.hilight);
+		ImageView h2= new ImageView(Resloader.hilight);
+		ImageView h3= new ImageView(Resloader.hilight);
+		ImageView h4= new ImageView(Resloader.hilight);
+		ImageView h5= new ImageView(Resloader.hilight);
+		ImageView h6= new ImageView(Resloader.hilight);
+		ImageView h7= new ImageView(Resloader.hilight);
+		ImageView h8= new ImageView(Resloader.hilight);
+		queueForExitItem=false;
+		h1.setX(144+66*5);
+		h1.setY(100+66*0);
+		
+		h2.setX(144+66*9);
+		h2.setY(100+66*1);
+		
+		h3.setX(144+66*1);
+		h3.setY(100+66*3);
+		
+		h4.setX(144+66*5);
+		h4.setY(100+66*3);
+		
+		h5.setX(144+66*7);
+		h5.setY(100+66*3);
+		
+		h6.setX(144+66*11);
+		h6.setY(100+66*3);
+		
+		h7.setX(144+66*3);
+		h7.setY(100+66*5);
+		
+		h8.setX(144+66*7);
+		h8.setY(100+66*6);
+		ImageView cancelAbi=new ImageView(Resloader.apple);
+		cancelAbi.setX(800);
+		cancelAbi.setY(520);
+		gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+        EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=5;    //column
+				Main.indexItemField[0]=0;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		//gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+        EventHandler<MouseEvent> e2 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=9;    //column
+				Main.indexItemField[0]=1;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		//gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+        EventHandler<MouseEvent> e3 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=1;    //column
+				Main.indexItemField[0]=3;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		//gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+        EventHandler<MouseEvent> e4 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=5;    //column
+				Main.indexItemField[0]=3;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		//gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+        EventHandler<MouseEvent> e5 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=7;    //column
+				Main.indexItemField[0]=3;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		//gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+        EventHandler<MouseEvent> e6 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=11;    //column
+				Main.indexItemField[0]=3;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> e7 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=3;    //column
+				Main.indexItemField[0]=5;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> e8 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=7;    //column
+				Main.indexItemField[0]=6;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> eAbi = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+				itemSelected.setEffect(normal);
+				if(!queueForExitItem)
+					createCardSel();	
+				
+			}
+		};
+		h1.addEventFilter(MouseEvent.MOUSE_RELEASED, e1);
+		h2.addEventFilter(MouseEvent.MOUSE_RELEASED, e2);
+
+		h3.addEventFilter(MouseEvent.MOUSE_RELEASED, e3);
+		h4.addEventFilter(MouseEvent.MOUSE_RELEASED, e4);
+
+		h5.addEventFilter(MouseEvent.MOUSE_RELEASED, e5);
+
+		h6.addEventFilter(MouseEvent.MOUSE_RELEASED, e6);
+
+		h7.addEventFilter(MouseEvent.MOUSE_RELEASED, e7);
+
+		h8.addEventFilter(MouseEvent.MOUSE_RELEASED, e8);
+		cancelAbi.addEventFilter(MouseEvent.MOUSE_RELEASED, eAbi);
+
+		
+	}
+	public static void createHighLightFieldForExitBarricade() {
+		ImageView h1= new ImageView(Resloader.hilight);
+		ImageView h2= new ImageView(Resloader.hilight);
+		ImageView h3= new ImageView(Resloader.hilight);
+		ImageView h4= new ImageView(Resloader.hilight);
+		h1.setX(144+66*0);
+		h1.setY(100+66*0);
+		
+		h2.setX(144+66*12);
+		h2.setY(100+66*0);
+		
+		h3.setX(144+66*0);
+		h3.setY(100+66*6);
+		
+		h4.setX(144+66*12);
+		h4.setY(100+66*6);
+		queueForExitItem=false;
+		ImageView cancelAbi=new ImageView(Resloader.apple);
+		cancelAbi.setX(800);
+		cancelAbi.setY(520);
+		
+        gamePane.getChildren().addAll(h1,h2,h3,h4,cancelAbi);
+        EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=0;    //column
+				Main.indexItemField[0]=0;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> e2 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=12;    //column
+				Main.indexItemField[0]=0;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> e3 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=0;    //column
+				Main.indexItemField[0]=6;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> e4 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				Main.indexItemField[1]=12;    //column
+				Main.indexItemField[0]=6;        //row
+				queueForExitItem = Main.itemMove();
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,cancelAbi);
+					itemSelected.setEffect(normal);
+					createCardSel();
+					
+				}
+			}
+		};
+		EventHandler<MouseEvent> eAbi = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				gamePane.getChildren().removeAll(h1,h2,h3,h4,cancelAbi);
+				itemSelected.setEffect(normal);
+				if(!queueForExitItem)
+					createCardSel();	
+				
+			}
+		};
+		h1.addEventFilter(MouseEvent.MOUSE_RELEASED, e1);
+		h2.addEventFilter(MouseEvent.MOUSE_RELEASED, e2);
+		h3.addEventFilter(MouseEvent.MOUSE_RELEASED, e3);
+		h4.addEventFilter(MouseEvent.MOUSE_RELEASED, e4);
+		cancelAbi.addEventFilter(MouseEvent.MOUSE_RELEASED, eAbi);
+		
+		
+	}
+    
+	public static void createHighLightFieldForLamp() {
     	ImageView h1= new ImageView(Resloader.hilight);
 		ImageView h2= new ImageView(Resloader.hilight);
 		ImageView h3= new ImageView(Resloader.hilight);
@@ -1346,6 +1809,7 @@ public class GamePlay {
 		ImageView h6= new ImageView(Resloader.hilight);
 		ImageView h7= new ImageView(Resloader.hilight);
 		ImageView h8= new ImageView(Resloader.hilight);
+		queueForExitItem=false;
 		h1.setX(144+66*2);
 		h1.setY(100+66*1);
 		
@@ -1369,18 +1833,21 @@ public class GamePlay {
 		
 		h8.setX(144+66*7);
 		h8.setY(100+66*5);
+		ImageView cancelAbi=new ImageView(Resloader.apple);
+		cancelAbi.setX(800);
+		cancelAbi.setY(520);
 		
-        gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8);
+        gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
         EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
 				
 				Main.indexItemField[1]=2;    //column
 				Main.indexItemField[0]=1;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1396,10 +1863,10 @@ public class GamePlay {
 				
 				Main.indexItemField[1]=5;    //column
 				Main.indexItemField[0]=1;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1415,10 +1882,10 @@ public class GamePlay {
 				
 				Main.indexItemField[1]=10;    //column
 				Main.indexItemField[0]=1;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1434,10 +1901,10 @@ public class GamePlay {
 				
 				Main.indexItemField[1]=7;    //column
 				Main.indexItemField[0]=2;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1453,10 +1920,10 @@ public class GamePlay {
 				
 				Main.indexItemField[1]=5;    //column
 				Main.indexItemField[0]=4;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1472,10 +1939,10 @@ public class GamePlay {
 				
 				Main.indexItemField[1]=10;    //column
 				Main.indexItemField[0]=4;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1491,10 +1958,17 @@ public class GamePlay {
 				
 				Main.indexItemField[1]=1;    //column
 				Main.indexItemField[0]=5;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				
+				
+				
+				
+				
+				
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1510,10 +1984,10 @@ public class GamePlay {
 				
 				Main.indexItemField[1]=7;    //column
 				Main.indexItemField[0]=5;        //row
-				boolean q = Main.itemMove();
+				queueForExitItem = Main.itemMove();
 				
-				if(q) {
-					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				if(queueForExitItem) {
+					gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
 					itemSelected.setEffect(normal);
 					createCardSel();
 					
@@ -1522,6 +1996,22 @@ public class GamePlay {
 		};
 
 		h8.addEventFilter(MouseEvent.MOUSE_RELEASED, e8);
+		EventHandler<MouseEvent> eAbi = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				//gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8);
+				
+				gamePane.getChildren().removeAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
+				itemSelected.setEffect(normal);
+				if(!queueForExitItem)
+					createCardSel();	
+				
+			}
+		};
+		cancelAbi.addEventFilter(MouseEvent.MOUSE_RELEASED, eAbi);
+		
+		
+		
+
     	
     }
 	public static void createIslight() {

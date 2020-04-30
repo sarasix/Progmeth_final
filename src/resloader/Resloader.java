@@ -20,9 +20,9 @@ public class Resloader {
 	public static final Image holeCover = new Image(ClassLoader.getSystemResource("holecover.png").toString());;
 	public static final Image wheat = new Image(ClassLoader.getSystemResource("wheat.png").toString());;
 	public static final Image conan = new Image(ClassLoader.getSystemResource("conanonboard1.png").toString());;
-	public static final Image haibara = new Image(ClassLoader.getSystemResource("haibaraonboard.png").toString());;
+	public static final Image haibara = new Image(ClassLoader.getSystemResource("haibaraonboard2.png").toString());;
 	public static final Image gin = new Image(ClassLoader.getSystemResource("ginonboard.png").toString());;
-	public static final Image kid = new Image(ClassLoader.getSystemResource("kidonboard.png").toString());;
+	public static final Image kid = new Image(ClassLoader.getSystemResource("kidonboard2.png").toString());;
 	public static final Image shadowMan = new Image(ClassLoader.getSystemResource("shadowmanonboard.png").toString());;
 	public static final Image kogoro = new Image(ClassLoader.getSystemResource("kogoroonboard.png").toString());;
 	public static final Image ran = new Image(ClassLoader.getSystemResource("ranonboard.png").toString());;
@@ -59,6 +59,7 @@ public class Resloader {
 
 	public static final Image detective = new Image(ClassLoader.getSystemResource("detectiveturn.jpg").toString());
 	public static final Image jack = new Image(ClassLoader.getSystemResource("jackturn.jpg").toString());
+	public static final Image seeJack = new Image(ClassLoader.getSystemResource("seejackcharacter.jpg").toString());
 
 	public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());;
 	public static final Image holeAppear = new Image(ClassLoader.getSystemResource("holeappear.jpg").toString());;
