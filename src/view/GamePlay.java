@@ -1571,15 +1571,12 @@ public class GamePlay {
 		
 		h8.setX(144+66*7);
 		h8.setY(100+66*6);
-<<<<<<< HEAD
 		ImageView cancelAbi=new ImageView(Resloader.cancelAbi);
 		cancelAbi.setX(800);
 		cancelAbi.setY(580);
-=======
-		ImageView cancelAbi=new ImageView(Resloader.apple);
-		cancelAbi.setX(800);
-		cancelAbi.setY(520);
->>>>>>> 2aa0e2d21c3a4e7ff76b9384848db54b36db11d4
+
+		
+		
 		gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
         EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
@@ -1736,17 +1733,13 @@ public class GamePlay {
 		h6.addEventFilter(MouseEvent.MOUSE_RELEASED, e6);
 
 		h7.addEventFilter(MouseEvent.MOUSE_RELEASED, e7);
-<<<<<<< HEAD
 
 		h8.addEventFilter(MouseEvent.MOUSE_RELEASED, e8);
 		cancelAbi.addEventFilter(MouseEvent.MOUSE_RELEASED, eAbi);
 
-=======
 
-		h8.addEventFilter(MouseEvent.MOUSE_RELEASED, e8);
-		cancelAbi.addEventFilter(MouseEvent.MOUSE_RELEASED, eAbi);
 
->>>>>>> 2aa0e2d21c3a4e7ff76b9384848db54b36db11d4
+		
 		
 	}
 	public static void createHighLightFieldForExitBarricade() {
@@ -1766,16 +1759,11 @@ public class GamePlay {
 		h4.setX(144+66*12);
 		h4.setY(100+66*6);
 		queueForExitItem=false;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		ImageView cancelAbi=new ImageView(Resloader.cancelAbi);
 		cancelAbi.setX(800);
 		cancelAbi.setY(580);
-=======
-		ImageView cancelAbi=new ImageView(Resloader.apple);
-		cancelAbi.setX(800);
-		cancelAbi.setY(520);
->>>>>>> 2aa0e2d21c3a4e7ff76b9384848db54b36db11d4
-		
+
         gamePane.getChildren().addAll(h1,h2,h3,h4,cancelAbi);
         EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
@@ -1894,15 +1882,11 @@ public class GamePlay {
 		
 		h8.setX(144+66*7);
 		h8.setY(100+66*5);
-<<<<<<< HEAD
+
 		ImageView cancelAbi=new ImageView(Resloader.cancelAbi);
 		cancelAbi.setX(800);
 		cancelAbi.setY(580);
-=======
-		ImageView cancelAbi=new ImageView(Resloader.apple);
-		cancelAbi.setX(800);
-		cancelAbi.setY(520);
->>>>>>> 2aa0e2d21c3a4e7ff76b9384848db54b36db11d4
+
 		
         gamePane.getChildren().addAll(h1,h2,h3,h4,h5,h6,h7,h8,cancelAbi);
         EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
