@@ -35,12 +35,15 @@ public class Resloader {
 	
 	public static final Image titleMiss = new Image(ClassLoader.getSystemResource("titlemiss2.jpg").toString());
 
-	
+	public static final Image catchOrNext = new Image(ClassLoader.getSystemResource("nextroundorguess.jpg").toString());;
+
 	public static final Image table = new Image(ClassLoader.getSystemResource("tarang.jpg").toString());;
 	public static final Image bgMenu = new Image(ClassLoader.getSystemResource("bgGame.jpg").toString());;
 	public static final Image buttonPlay = new Image(
 			ClassLoader.getSystemResource("1-16250_video-play-button-play-button-png-red-transparent.png").toString());;
 	public static final Image apple = new Image(ClassLoader.getSystemResource("apple.png").toString());;
+	public static final Image catchJ = new Image(ClassLoader.getSystemResource("catchJ.jpg").toString());
+	public static final Image next = new Image(ClassLoader.getSystemResource("next.jpg").toString());;;
 	public static final Image Exit = new Image(ClassLoader.getSystemResource("Exit.png").toString());;
 	public static final Image lampBase = new Image(ClassLoader.getSystemResource("lampBase.png").toString());;
 	public static final Image hole = new Image(ClassLoader.getSystemResource("hole.png").toString());;

@@ -186,7 +186,7 @@ public class GamePlay {
 		}
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 13; j++) {
-				ImageView tempTable2 = new ImageView();
+				//ImageView tempTable2 = new ImageView();
 
 				if (Map.m2 != null) {
 					if (Map.m2[i][j] instanceof Item) {
@@ -1381,20 +1381,30 @@ public class GamePlay {
 		if (cha == 2) {
 			abi = 2;
 			Main.allCharacter.get(2).ability();
-			ImageView iv;	
-			iv = setCenter(indexToICard(Conan.choice));
-			iv.setScaleX(0.5);
-			iv.setScaleY(0.5);
-			gamePane.getChildren().add(iv);
+			
+			ImageView ivMain=setCenter(Resloader.conanability);
+			gamePane.getChildren().add(ivMain);
 
 			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
-					gamePane.getChildren().remove(iv);
-					createCardSel();
+					gamePane.getChildren().remove(ivMain);
+					ImageView iv;	
+					iv = setCenter(indexToICard(Conan.choice));
+					iv.setScaleX(0.5);
+					iv.setScaleY(0.5);
+					gamePane.getChildren().add(iv);
+					EventHandler<MouseEvent> ell = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(iv);
+							
+							createCardSel();
+						}
+					};
+					iv.addEventFilter(MouseEvent.MOUSE_RELEASED, ell);
 				}
 			};
 
-			iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
+			ivMain.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
 
 		}
 		if(cha == 6) {
@@ -1484,7 +1494,7 @@ public class GamePlay {
 			abi = 1;
 			
 			ImageView iv;
-			iv = setCenter(Resloader.ginability);
+			iv = setCenter(Resloader.shadowManability);
 			gamePane.getChildren().add(iv);
 
 			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
@@ -2089,8 +2099,8 @@ public class GamePlay {
 	}
 
 	public static void createIsChoice() {
-		Image i = Resloader.ginability;
-		ImageView iv = setCenter(Resloader.ginability);
+		Image i = Resloader.catchOrNext;
+		ImageView iv = setCenter(Resloader.catchOrNext);
 		StackPane pane = new StackPane();
 
 		HBox h = new HBox();
@@ -2104,13 +2114,13 @@ public class GamePlay {
 			}
 		}
 
-		ImageView yes = new ImageView(Resloader.apple);
-		ImageView no = new ImageView(Resloader.apple);
+		ImageView yes = new ImageView(Resloader.catchJ);
+		ImageView no = new ImageView(Resloader.next);
 
-		yes.setX(576 - 200);
-		yes.setY(315);
-		no.setX(576 + 80);
-		no.setY(315);
+		yes.setX(576 + 80+20);
+		yes.setY(380);
+		no.setX(576 + 80+20);
+		no.setY(430);
 
 		EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
