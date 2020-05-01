@@ -24,6 +24,7 @@ public class Menu {
 	
 	public Menu() {
 		gameStage = new Stage();
+		gameStage.setResizable(false);
 		gamePane = new AnchorPane();
 		gameScene = new Scene(gamePane, 1152,648);
 		gameStage.setScene(gameScene);
