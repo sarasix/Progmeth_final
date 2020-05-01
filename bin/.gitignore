@@ -121,6 +121,7 @@ local.properties
 /main/
 /hilight2.png
 /resloader/
+<<<<<<< HEAD
 /cancelabi.jpg
 /nomoresteps.jpg
 /down2.png
@@ -135,3 +136,5 @@ local.properties
 /torchupstandard.png
 /suspects.jpg
 /titlemiss2.jpg
+=======
+>>>>>>> 2aa0e2d21c3a4e7ff76b9384848db54b36db11d4
