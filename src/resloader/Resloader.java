@@ -53,6 +53,8 @@ public class Resloader {
 	public static final Image guessRan = new Image(ClassLoader.getSystemResource("guessran.jpg").toString());
 	public static final Image guessKogoro = new Image(ClassLoader.getSystemResource("guesskogoro.jpg").toString());
 	public static final Image guessKid = new Image(ClassLoader.getSystemResource("guesskid.jpg").toString());
+	public static final Image jackDark = new Image(ClassLoader.getSystemResource("jackdark.png").toString());
+	public static final Image jackLight = new Image(ClassLoader.getSystemResource("jacklight.jpg").toString());
 
 	public static final Image catchJ = new Image(ClassLoader.getSystemResource("catchJ.jpg").toString());
 	public static final Image next = new Image(ClassLoader.getSystemResource("next.jpg").toString());;;

@@ -26,7 +26,8 @@ public class Main {
 	public static int holeColumn;
 	public static int holeRow;
 	//public static 
-	public static int dir;		
+	public static int dir;
+	public static boolean jackEscape=false;
 	public static int step;
 	public static int inputCard;
 	public static Item itemChosen;
@@ -610,6 +611,22 @@ public class Main {
 		int[] u= new int[2];
 		u[0] = c.getIndexX()+GamePlay.dir1;
 		u[1] = c.getIndexY()+GamePlay.dir2;
+		if(GamePlay.turn==2&&validPosition(u)&&Map.m1[u[0]][u[1]]==5&&Map.m2[u[0]][u[1]]==null&&c.getIsMrJack()) {
+			GamePlay.indexToIVBoard(GamePlay.cha).setX(148+66*u[1]);
+			GamePlay.indexToIVBoard(GamePlay.cha).setY(100+66*u[0]);	
+			
+			if(GamePlay.cha==6) {
+				GamePlay.lightHaibara.setX(140 + 66 * u[1]);
+				GamePlay.lightHaibara.setY(90 + 66 * u[0]);
+			}
+			
+			c.walk(u);
+			jackEscape=true;
+			GamePlay.walk++;
+			GamePlay.gamePane.getChildren().removeAll(GamePlay.arrowOne,GamePlay.arrowTwo,GamePlay.arrowThree,GamePlay.arrowFour,GamePlay.arrowFive);
+			ImageView k=GamePlay.setCenter(Resloader.lose);
+			GamePlay.gamePane.getChildren().add(k);
+		}
 		if(validPosition(u)&&(Map.m1[u[0]][u[1]]==1||Map.m1[u[0]][u[1]]==4)&&Map.m2[u[0]][u[1]]==null) {
 			
 			GamePlay.indexToIVBoard(GamePlay.cha).setX(148+66*u[1]);
@@ -625,6 +642,7 @@ public class Main {
 			if(Map.m1[c.getIndexX()][c.getIndexY()]!=4) {
 				GamePlay.walk++;
 			}
+			
 
 			else {
 				GamePlay.createWhereToGoToHole();

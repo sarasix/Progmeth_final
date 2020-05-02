@@ -34,8 +34,8 @@ import map.Map;
 import resloader.Resloader;
 
 public class GamePlay {
-	public static int guessClick=0;
-	public static int chooseGuess=0;
+	//public static int guessClick=0;
+	//public static int chooseGuess=0;
 	public static Scene gameScene;
 	public static AnchorPane gamePane;
 	public static Stage gameStage = new Stage();
@@ -1261,14 +1261,17 @@ public class GamePlay {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
 					chaiv = indexToIVBoard(cha);
-					if(cha==6)
-					{
-						abi = 6;
-						ability();
-					}
-					else
-					{
-						createCardSel();
+					if(!Main.jackEscape) {
+						if(cha==6)
+						{
+							abi = 6;
+							ability();
+						}
+						else
+						{
+							
+							createCardSel();
+						}
 					}
 				}
 			}
@@ -1282,14 +1285,16 @@ public class GamePlay {
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
-					if(cha==6)
-					{
-						abi = 6;
-						ability();
-					}
-					else
-					{
-						createCardSel();
+					if(!Main.jackEscape) {
+						if(cha==6)
+						{
+							abi = 6;
+							ability();
+						}
+						else
+						{
+							createCardSel();
+						}
 					}
 				}
 
@@ -1304,14 +1309,16 @@ public class GamePlay {
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
-					if(cha==6)
-					{
-						abi = 6;
-						ability();
-					}
-					else
-					{
-						createCardSel();
+					if(!Main.jackEscape) {
+						if(cha==6)
+						{
+							abi = 6;
+							ability();
+						}
+						else
+						{
+							createCardSel();
+						}
 					}
 				}
 			}
@@ -1325,14 +1332,16 @@ public class GamePlay {
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 					chaiv.setEffect(normal);
-					if(cha==6&&abi!=0)
-					{
-						abi = 6;
-						ability();
-					}
-					else
-					{
-						createCardSel();
+					if(!Main.jackEscape) {
+						if(cha==6&&abi!=0)
+						{
+							abi = 6;
+							ability();
+						}
+						else
+						{
+							createCardSel();
+						}
 					}
 					
 				}
@@ -1343,14 +1352,16 @@ public class GamePlay {
 			public void handle(MouseEvent e) {
 				gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
 				chaiv.setEffect(normal);
-				if(cha==6)
-				{
-					abi = 6;
-					ability();
-				}
-				else
-				{
-					createCardSel();
+				if(!Main.jackEscape) {
+					if(cha==6)
+					{
+						abi = 6;
+						ability();
+					}
+					else
+					{
+						createCardSel();
+					}
 				}
 
 			}
@@ -2084,10 +2095,10 @@ public class GamePlay {
 		Image i = Resloader.apple;
 
 		if (Main.MrJack.getIsLight() == true) {
-			i = Resloader.apple;
+			i = Resloader.jackLight;
 		}
 		if (Main.MrJack.getIsLight() == false) {
-			i = Resloader.wall;
+			i = Resloader.jackDark;
 		}
 		
 		ImageView iv = setCenter(i);
