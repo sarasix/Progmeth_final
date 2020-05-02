@@ -21,7 +21,10 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -31,6 +34,8 @@ import map.Map;
 import resloader.Resloader;
 
 public class GamePlay {
+	public static int guessClick=0;
+	public static int chooseGuess=0;
 	public static Scene gameScene;
 	public static AnchorPane gamePane;
 	public static Stage gameStage = new Stage();
@@ -2128,6 +2133,177 @@ public class GamePlay {
 				gamePane.getChildren().remove(h);
 				gamePane.getChildren().remove(yes);
 				gamePane.getChildren().remove(no);
+				GridPane c=new GridPane();
+				//GridPane root = new GridPane();
+		        //root.setGridLinesVisible(true);
+		        final int numCols = 4 ;
+		        final int numRows = 2 ;
+		        for (int i = 0; i < numCols; i++) {
+		            ColumnConstraints colConst = new ColumnConstraints();
+		            colConst.setPercentWidth(100.0 / numCols);
+		            c.getColumnConstraints().add(colConst);
+		        }
+		        for (int i = 0; i < numRows; i++) {
+		            RowConstraints rowConst = new RowConstraints();
+		            rowConst.setPercentHeight(100.0 / numRows);
+		            c.getRowConstraints().add(rowConst);         
+		        }
+				if(Main.indexToCha(0).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessGin);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(0).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,0,0,1,1);
+				}
+				if(Main.indexToCha(1).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessShadowMan);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(1).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,1,0,1,1);
+				}
+				if(Main.indexToCha(2).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessConan);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(2).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,2,0,1,1);
+				}
+				if(Main.indexToCha(3).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessKogoro);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(3).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,3,0,1,1);
+				}
+				if(Main.indexToCha(4).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessHeiji);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(4).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,0,1,1,1);
+				}
+				if(Main.indexToCha(5).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessRan);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(5).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,1,1,1,1);
+				}
+				if(Main.indexToCha(6).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessHaibara);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(6).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,2,1,1,1);
+				}
+				if(Main.indexToCha(7).getIsChoice()) {
+					ImageView k=setCenter(Resloader.guessKid);
+					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent e) {
+							gamePane.getChildren().remove(c);
+						    if(Main.indexToCha(7).getIsMrJack()) {
+						    	ImageView g=setCenter(Resloader.win);
+						    	gamePane.getChildren().add(g);
+						    }
+						    else {
+						    	ImageView g=setCenter(Resloader.lose);
+						    	gamePane.getChildren().add(g);
+						    }
+						}
+					};
+					k.addEventFilter(MouseEvent.MOUSE_RELEASED, l);
+					c.add(k,3,1,1,1);
+				}
+				
+				//StackPane G=new StackPane();
+				//G.getChildren().add(c);
+				c.setAlignment(Pos.CENTER);
+				c.setLayoutX(150);
+				c.setLayoutY(100);
+				gamePane.getChildren().add(c);
+				
+				
+				
+				
+				
 			}
 		};
 

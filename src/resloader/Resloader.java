@@ -42,6 +42,18 @@ public class Resloader {
 	public static final Image buttonPlay = new Image(
 			ClassLoader.getSystemResource("1-16250_video-play-button-play-button-png-red-transparent.png").toString());;
 	public static final Image apple = new Image(ClassLoader.getSystemResource("apple.png").toString());;
+	public static final Image win = new Image(ClassLoader.getSystemResource("win2.jpg").toString());;
+	public static final Image lose = new Image(ClassLoader.getSystemResource("gameover.jpg").toString());;
+
+	public static final Image guessConan = new Image(ClassLoader.getSystemResource("guessconan.jpg").toString());
+	public static final Image guessHaibara = new Image(ClassLoader.getSystemResource("guesshaibara.jpg").toString());
+	public static final Image guessGin = new Image(ClassLoader.getSystemResource("guessgin.jpg").toString());
+	public static final Image guessShadowMan = new Image(ClassLoader.getSystemResource("guessshadowman.jpg").toString());
+	public static final Image guessHeiji = new Image(ClassLoader.getSystemResource("guessheiji.jpg").toString());
+	public static final Image guessRan = new Image(ClassLoader.getSystemResource("guessran.jpg").toString());
+	public static final Image guessKogoro = new Image(ClassLoader.getSystemResource("guesskogoro.jpg").toString());
+	public static final Image guessKid = new Image(ClassLoader.getSystemResource("guesskid.jpg").toString());
+
 	public static final Image catchJ = new Image(ClassLoader.getSystemResource("catchJ.jpg").toString());
 	public static final Image next = new Image(ClassLoader.getSystemResource("next.jpg").toString());;;
 	public static final Image Exit = new Image(ClassLoader.getSystemResource("Exit.png").toString());;
