@@ -1136,7 +1136,14 @@ public class GamePlay {
 
 		System.out.print("character = "+Main.indexToName(cha));
 		
-		if(cha==6 || cha==7)
+		int choice= 0 ;
+		for(int j =0 ; j <8; j++) {
+			if(Main.allCharacter.get(j).getIsChoice()) {
+				choice ++;
+			}
+		}
+		
+		if(cha==6 || cha==7 ||(cha==2&&choice == 1))
 		{
 			ImageView walk = new ImageView(Resloader.walkButton);
 			
