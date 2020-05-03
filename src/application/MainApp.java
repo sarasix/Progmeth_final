@@ -12,9 +12,9 @@ public class MainApp extends Application {
 		try {
 
 			Menu.load();
-			Media musicMenu = new Media(ClassLoader.getSystemResource("MusicMenu.mp3").toString());
-			MediaPlayer mp = new MediaPlayer(musicMenu);
-			mp.play();
+			//Media musicMenu = new Media(ClassLoader.getSystemResource("MusicMenu.mp3").toString());
+			//MediaPlayer mp = new MediaPlayer(musicMenu);
+			//mp.play();
 			
 			primaryStage = Menu.gameStage;
 			primaryStage.show();
