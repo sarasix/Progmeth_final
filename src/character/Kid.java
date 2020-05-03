@@ -1,24 +1,8 @@
 package character;
 
-public class Kid extends Character implements Walk{
-	//private int walk;
-	public Kid(int indexX, int indexY,boolean isLight) {
-		super(indexX,indexY,isLight,4);
-	//	walk=4;
-		
-	}
+public class Kid extends Character implements Walk {
 
-	
-	
-	
-	
-	
-	
-	
-	
-	public void ability() {
-		
+	public Kid(int indexX, int indexY, boolean isLight) {
+		super(indexX, indexY, isLight, 5);
 	}
-	
-
 }

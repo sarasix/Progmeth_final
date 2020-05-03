@@ -132,12 +132,10 @@ local.properties
 /bothwalkandability.jpg
 /cancelabi.jpg
 /catchJ.jpg
-/character/
 /choosewalkorability.jpg
 /conanability.jpg
 /conanonboard1.png
 /conanonboard1selected.png
-/controller/
 /detectiveturn.jpg
 /down.png
 /down2.png
@@ -172,8 +170,6 @@ local.properties
 /hole.png
 /holeappear.jpg
 /holecover.png
-/initial/
-/item/
 /jackdark.png
 /jacklight.jpg
 /jackturn.jpg
@@ -190,8 +186,6 @@ local.properties
 /left.png
 /left2.png
 /leftlight.png
-/main/
-/map/
 /next.jpg
 /nextroundorguess.jpg
 /nomoresteps.jpg
@@ -218,7 +212,6 @@ local.properties
 /ranonboard.png
 /ranonboardselected.png
 /replay-button-png-6.png
-/resloader/
 /right.png
 /right2.png
 /rightlight.png
@@ -231,6 +224,12 @@ local.properties
 /shadowmanonboardselected.png
 /sixmiss.png
 /suspects.jpg
+/character/
+/initial/
+/item/
+/main/
+/map/
+/resloader/
 /tarang.jpg
 /threemiss.png
 /titlemiss.jpg
