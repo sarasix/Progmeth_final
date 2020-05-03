@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import java.util.*;
 import character.*;
 import character.Character;
+import exception.WalkInvalid;
 import map.Map;
 import resloader.Resloader;
 import view.GamePlay;
@@ -206,12 +207,15 @@ public class Main {
 		return false;
 	}
 
-	public static void walk() {
-
+	public static void walk() throws WalkInvalid {
+		
 		Character c = indexToCha(GamePlay.cha);
 		int[] u = new int[2];
 		u[0] = c.getIndexX() + GamePlay.dir1;
 		u[1] = c.getIndexY() + GamePlay.dir2;
+		if(!validPosition(u)) {
+			throw  new WalkInvalid("You go out of index");
+		}
 		if (GamePlay.turn == 2 && validPosition(u) && Map.m1[u[0]][u[1]] == 5 && Map.m2[u[0]][u[1]] == null
 				&& c.getIsMrJack()) {
 			GamePlay.indexToIVBoard(GamePlay.cha).setX(148 + 66 * u[1]);
@@ -251,6 +255,7 @@ public class Main {
 			}
 
 		}
+		
 
 	}
 

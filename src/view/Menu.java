@@ -10,6 +10,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import main.Main;
 import resloader.Resloader;
@@ -27,13 +29,14 @@ public class Menu {
 		gameScene = new Scene(gamePane, 1152, 648);
 		gameStage.setScene(gameScene);
 		gameStage.setTitle("Game");
-
+		
 		createBackground();
 		createPlay();
+		
 
 	}
 
-	public static void createBackground() {
+	private static void createBackground() {
 		BackgroundImage background = new BackgroundImage(Resloader.bgMenu, BackgroundRepeat.NO_REPEAT,
 				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, null);
 		gamePane.setBackground(new Background(background));
@@ -41,8 +44,8 @@ public class Menu {
 	}
 
 	private static void createPlay() {
-		buttonPlay.setX(800);
-		buttonPlay.setY(400);
+		buttonPlay.setX(100);
+		buttonPlay.setY(500);
 
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {

@@ -1,19 +1,18 @@
 package view;
 
-import java.lang.Character.Subset;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 import character.*;
 import character.Character;
+import exception.WalkInvalid;
 import initial.Initial;
 import item.*;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.SubScene;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,10 +22,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -1223,7 +1220,12 @@ public class GamePlay {
 			public void handle(MouseEvent e) {
 				dir1 = -1;
 				dir2 = 0;
-				Main.walk();
+				try {
+					Main.walk();
+				} catch (WalkInvalid e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 				if (walk >= Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
@@ -1245,7 +1247,12 @@ public class GamePlay {
 			public void handle(MouseEvent e) {
 				dir1 = 0;
 				dir2 = -1;
-				Main.walk();
+				try {
+					Main.walk();
+				} catch (WalkInvalid e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
@@ -1266,7 +1273,12 @@ public class GamePlay {
 			public void handle(MouseEvent e) {
 				dir1 = 1;
 				dir2 = 0;
-				Main.walk();
+				try {
+					Main.walk();
+				} catch (WalkInvalid e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
@@ -1286,7 +1298,12 @@ public class GamePlay {
 			public void handle(MouseEvent e) {
 				dir1 = 0;
 				dir2 = 1;
-				Main.walk();
+				try {
+					Main.walk();
+				} catch (WalkInvalid e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 				if (walk == Main.indexToCha(cha).getWalk()) {
 					gamePane.getChildren().removeAll(arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive);
