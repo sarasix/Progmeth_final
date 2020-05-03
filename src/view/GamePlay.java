@@ -1,5 +1,6 @@
 package view;
 
+import java.lang.Character.Subset;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -12,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.SubScene;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -1516,9 +1518,11 @@ public class GamePlay {
 		ImageView h8 = new ImageView(Resloader.hilight);
 		queueForExitItem = false;
 
+		
+		
 		h1.setX(144 + 66 * 5);
 		h1.setY(100 + 66 * 0);
-
+		
 		h2.setX(144 + 66 * 9);
 		h2.setY(100 + 66 * 1);
 
@@ -1542,8 +1546,32 @@ public class GamePlay {
 		ImageView cancelAbi = new ImageView(Resloader.cancelAbi);
 		cancelAbi.setX(800);
 		cancelAbi.setY(580);
-
-		gamePane.getChildren().addAll(h1, h2, h3, h4, h5, h6, h7, h8, cancelAbi);
+		
+		if(Map.m2[0][5]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[1][9]==null) {
+			gamePane.getChildren().addAll(h2);
+		}
+		if(Map.m2[3][1]==null) {
+			gamePane.getChildren().addAll(h3);
+		}
+		if(Map.m2[3][5]==null) {
+			gamePane.getChildren().addAll(h4);
+		}
+		if(Map.m2[3][7]==null) {
+			gamePane.getChildren().addAll(h5);
+		}
+		if(Map.m2[3][11]==null) {
+			gamePane.getChildren().addAll(h6);
+		}
+		if(Map.m2[5][3]==null) {
+			gamePane.getChildren().addAll(h7);
+		}
+		if(Map.m2[6][7]==null) {
+			gamePane.getChildren().addAll(h8);
+		}
+		gamePane.getChildren().addAll(cancelAbi);
 		EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 
@@ -1679,17 +1707,13 @@ public class GamePlay {
 		};
 		h1.addEventFilter(MouseEvent.MOUSE_RELEASED, e1);
 		h2.addEventFilter(MouseEvent.MOUSE_RELEASED, e2);
-
 		h3.addEventFilter(MouseEvent.MOUSE_RELEASED, e3);
 		h4.addEventFilter(MouseEvent.MOUSE_RELEASED, e4);
-
 		h5.addEventFilter(MouseEvent.MOUSE_RELEASED, e5);
-
 		h6.addEventFilter(MouseEvent.MOUSE_RELEASED, e6);
-
 		h7.addEventFilter(MouseEvent.MOUSE_RELEASED, e7);
-
 		h8.addEventFilter(MouseEvent.MOUSE_RELEASED, e8);
+		
 		cancelAbi.addEventFilter(MouseEvent.MOUSE_RELEASED, eAbi);
 
 	}
@@ -1715,8 +1739,19 @@ public class GamePlay {
 		ImageView cancelAbi = new ImageView(Resloader.cancelAbi);
 		cancelAbi.setX(800);
 		cancelAbi.setY(580);
-
-		gamePane.getChildren().addAll(h1, h2, h3, h4, cancelAbi);
+		if(Map.m2[0][0]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[0][12]==null) {
+			gamePane.getChildren().addAll(h2);
+		}
+		if(Map.m2[6][0]==null) {
+			gamePane.getChildren().addAll(h3);
+		}
+		if(Map.m2[6][12]==null) {
+			gamePane.getChildren().addAll(h4);
+		}
+		gamePane.getChildren().addAll(cancelAbi);
 		EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 
@@ -1804,6 +1839,8 @@ public class GamePlay {
 		ImageView h6 = new ImageView(Resloader.hilight);
 		ImageView h7 = new ImageView(Resloader.hilight);
 		ImageView h8 = new ImageView(Resloader.hilight);
+		
+		
 		queueForExitItem = false;
 		h1.setX(144 + 66 * 2);
 		h1.setY(100 + 66 * 1);
@@ -1833,7 +1870,31 @@ public class GamePlay {
 		cancelAbi.setX(800);
 		cancelAbi.setY(580);
 
-		gamePane.getChildren().addAll(h1, h2, h3, h4, h5, h6, h7, h8, cancelAbi);
+		if(Map.m2[1][2]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[1][5]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[1][10]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[2][7]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[4][5]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[4][10]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[5][1]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		if(Map.m2[5][7]==null) {
+			gamePane.getChildren().addAll(h1);
+		}
+		gamePane.getChildren().addAll(cancelAbi);
 		EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
 
@@ -2041,24 +2102,26 @@ public class GamePlay {
 				gamePane.getChildren().remove(yes);
 				gamePane.getChildren().remove(no);
 				GridPane c = new GridPane();
-
-				final int numCols = 4;
-				final int numRows = 2;
-				for (int i = 0; i < numCols; i++) {
-					ColumnConstraints colConst = new ColumnConstraints();
-					colConst.setPercentWidth(100.0 / numCols);
-					c.getColumnConstraints().add(colConst);
-				}
-				for (int i = 0; i < numRows; i++) {
-					RowConstraints rowConst = new RowConstraints();
-					rowConst.setPercentHeight(100.0 / numRows);
-					c.getRowConstraints().add(rowConst);
-				}
+				StackPane st = new StackPane();
+				st.getChildren().add(c);
+				
+				st.setAlignment(Pos.CENTER);
+				
+				Scene s = new Scene(st,800, 400);
+				
+				s.setFill(Color.TRANSPARENT);
+		       
+				subStage.setScene(s);
+				//subStage.initStyle(StageStyle.TRANSPARENT);
+				subStage.show();
+				
+			
+				
 				if (Main.indexToCha(0).getIsChoice()) {
 					ImageView k = setCenter(Resloader.guessGin);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(0).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2075,7 +2138,7 @@ public class GamePlay {
 					ImageView k = setCenter(Resloader.guessShadowMan);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(1).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2092,7 +2155,7 @@ public class GamePlay {
 					ImageView k = setCenter(Resloader.guessConan);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(2).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2109,7 +2172,7 @@ public class GamePlay {
 					ImageView k = setCenter(Resloader.guessKogoro);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(3).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2126,7 +2189,7 @@ public class GamePlay {
 					ImageView k = setCenter(Resloader.guessHeiji);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(4).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2143,7 +2206,7 @@ public class GamePlay {
 					ImageView k = setCenter(Resloader.guessRan);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(5).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2160,7 +2223,7 @@ public class GamePlay {
 					ImageView k = setCenter(Resloader.guessHaibara);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(6).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2177,7 +2240,7 @@ public class GamePlay {
 					ImageView k = setCenter(Resloader.guessKid);
 					EventHandler<MouseEvent> l = new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent e) {
-							gamePane.getChildren().remove(c);
+							subStage.hide();
 							if (Main.indexToCha(7).getIsMrJack()) {
 								ImageView g = setCenter(Resloader.win);
 								gamePane.getChildren().add(g);
@@ -2191,9 +2254,7 @@ public class GamePlay {
 					c.add(k, 3, 1, 1, 1);
 				}
 
-				c.setLayoutX(150);
-				c.setLayoutY(100);
-				gamePane.getChildren().add(c);
+								
 
 			}
 		};

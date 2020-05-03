@@ -364,8 +364,8 @@ public class Main {
 
 		for (int i = 0; i < 8; i++) {
 			if (!allCharacter.get(i).getIsChoice()) {
-				GamePlay.isChoice.get(i).setFitHeight(0);
-				GamePlay.isChoice.get(i).setFitWidth(0);
+				GamePlay.gamePane.getChildren().remove(GamePlay.isChoice.get(i));
+				
 			}
 		}
 
