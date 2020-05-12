@@ -61,9 +61,9 @@ public class GamePlay {
 	public static Stage subStage = new Stage(StageStyle.TRANSPARENT);
 	public static AnchorPane subPane = new AnchorPane();
 
-	public static ImageView buttonHowToPlay = new ImageView(Resloader.buttonFree);
-	public static ImageView table = new ImageView(Resloader.table);
-	public static ImageView buttonPlay = new ImageView(Resloader.buttonPlay);
+	
+	
+	
 	public static ImageView[][] tables = new ImageView[7][13];
 
 	public static Stage card4 = new Stage();
@@ -79,7 +79,7 @@ public class GamePlay {
 	public static ImageView arrowFour;
 	public static ImageView arrowFive;
 	public static Random rand = new Random();
-	public static Scanner scan = new Scanner(System.in);
+	
 
 	public static ArrayList<Integer> chaSel = new ArrayList<Integer>();
 	public static int cha = 0;
@@ -119,7 +119,7 @@ public class GamePlay {
 
 		createBackground();
 		createTable();
-		createHowToPlay();
+		
 		createTableChoice();
 		createMissItem();
 
@@ -140,19 +140,6 @@ public class GamePlay {
 
 	}
 
-	private static void createHowToPlay() {
-		buttonHowToPlay.setX(120);
-		buttonHowToPlay.setY(530);
-
-		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent e) {
-				createSubSceneHowToPlay(Resloader.ginability);
-			}
-		};
-		buttonHowToPlay.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
-		Group root = new Group(buttonHowToPlay);
-		gamePane.getChildren().add(root);
-	}
 
 	private static void createTable() {
 
@@ -767,24 +754,7 @@ public class GamePlay {
 
 	}
 
-	public static void createSubSceneHowToPlay(Image i) {
-
-		ImageView iv = setCenter(i);
-		iv.setScaleX(0.5);
-		iv.setScaleY(0.5);
-
-		gamePane.getChildren().add(iv);
-
-		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent e) {
-				gamePane.getChildren().remove(iv);
-
-			}
-		};
-
-		iv.addEventFilter(MouseEvent.MOUSE_RELEASED, eventHandler);
-
-	}
+	
 
 	public static void createJack(Image i1, Image i2) {
 

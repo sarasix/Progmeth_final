@@ -124,8 +124,8 @@ local.properties
 /Haibaracard.jpg
 /LampBase.png
 /MusicGame.mp3
-/application/
 /MusicMenu.mp3
+/application/
 /abilitybutton.jpg
 /apple.png
 /apple1.png
@@ -134,6 +134,7 @@ local.properties
 /buttonPlay.png
 /cancelabi.jpg
 /catchJ.jpg
+/character/
 /choosewalkorability.jpg
 /conanability.jpg
 /conanonboard1.png
@@ -143,6 +144,7 @@ local.properties
 /down2.png
 /downlight.png
 /eightmiss.png
+/exception/
 /exitbutton.png
 /fivemiss.png
 /fourmiss.png
@@ -172,6 +174,8 @@ local.properties
 /hole.png
 /holeappear.jpg
 /holecover.png
+/initial/
+/item/
 /jackdark.png
 /jacklight.jpg
 /jackturn.jpg
@@ -189,6 +193,8 @@ local.properties
 /left.png
 /left2.png
 /leftlight.png
+/main/
+/map/
 /next.jpg
 /nextroundorguess.jpg
 /nomoresteps.jpg
@@ -215,6 +221,7 @@ local.properties
 /ranonboard.png
 /ranonboardselected.png
 /replay-button-png-6.png
+/resloader/
 /right.png
 /right2.png
 /rightlight.png
@@ -237,17 +244,10 @@ local.properties
 /up.png
 /up2.png
 /uplight.png
+/view/
 /walk.jpg
 /walkbutton.jpg
 /wall.png
 /wheat.png
 /win.jpg
 /win2.jpg
-/character/
-/exception/
-/initial/
-/item/
-/main/
-/map/
-/resloader/
-/view/
