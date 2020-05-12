@@ -10,6 +10,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -21,6 +22,7 @@ public class Menu {
 	public static AnchorPane gamePane;
 	public static Stage gameStage = new Stage();
 	public static ImageView buttonPlay = new ImageView(Resloader.buttonPlay);
+	public static AudioClip sound = new AudioClip ("file:res/MusicMenu.mp3");
 
 	public static void load() {
 		gameStage = new Stage();
@@ -31,8 +33,8 @@ public class Menu {
 		gameStage.setTitle("Game");
 		
 		createBackground();
-		createPlay();
-		
+		createPlay();	
+		sound.play();
 
 	}
 
@@ -53,6 +55,8 @@ public class Menu {
 				GamePlay.gameStage.show();
 				Main.start();
 				gameStage.hide();
+				sound.stop();
+				
 			}
 		};
 		buttonPlay.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);

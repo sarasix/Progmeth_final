@@ -25,6 +25,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -128,6 +129,8 @@ public class GamePlay {
 		gamePane.getChildren().add(choiceTitle);
 
 		subStage.setScene(new Scene(subPane, Color.TRANSPARENT));
+		AudioClip sound = new AudioClip ("file:res/MusicGame.mp3");
+		sound.play();
 	}
 
 	public static void createBackground() {
