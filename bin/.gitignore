@@ -117,8 +117,14 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 
 #.project
+/.gitignore
+/Conancard.jpg
+/Exit.png
+/ExitBarricade.png
+/Haibaracard.jpg
 /LampBase.png
 /MusicGame.mp3
+/application/
 /MusicMenu.mp3
 /abilitybutton.jpg
 /apple.png
@@ -220,12 +226,6 @@ local.properties
 /shadowmanonboard.png
 /shadowmanonboardselected.png
 /sixmiss.png
-/suspects.jpg
-/tarang.jpg
-/threemiss.png
-/titlemiss.jpg
-/titlemiss2.jpg
-/torch.png
 /character/
 /exception/
 /initial/
@@ -233,6 +233,12 @@ local.properties
 /main/
 /map/
 /resloader/
+/suspects.jpg
+/tarang.jpg
+/threemiss.png
+/titlemiss.jpg
+/titlemiss2.jpg
+/torch.png
 /torchupstandard.png
 /twomiss.png
 /up.png
