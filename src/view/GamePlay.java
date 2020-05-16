@@ -108,6 +108,8 @@ public class GamePlay {
 	public static ImageView ran = new ImageView(Resloader.ran);
 	public static ImageView heiji = new ImageView(Resloader.heiji);
 	public static ImageView lightHaibara = new ImageView(Resloader.lightH);
+	
+	public static boolean select = false; 
 
 	public static void load() {
 		gameStage = new Stage();
@@ -130,7 +132,9 @@ public class GamePlay {
 
 		subStage.setScene(new Scene(subPane, Color.TRANSPARENT));
 		AudioClip sound = new AudioClip ("file:res/MusicGame.mp3");
+		sound.setVolume(0.1);
 		sound.play();
+		
 	}
 
 	public static void createBackground() {
@@ -203,7 +207,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp0);
 								EventHandler<MouseEvent> l0 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp0;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -224,7 +229,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp1);
 								EventHandler<MouseEvent> l1 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp1;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -245,7 +251,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp2);
 								EventHandler<MouseEvent> l2 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp2;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -266,7 +273,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp3);
 								EventHandler<MouseEvent> l3 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp3;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -287,7 +295,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp4);
 								EventHandler<MouseEvent> l4 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp4;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -308,7 +317,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp5);
 								EventHandler<MouseEvent> l5 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp5;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -329,7 +339,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp6);
 								EventHandler<MouseEvent> l6 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp6;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -350,7 +361,8 @@ public class GamePlay {
 								gamePane.getChildren().add(lamp7);
 								EventHandler<MouseEvent> l7 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 3) {
+										if (abi == 3 && select == false) {
+											select = true;
 											itemSelected = lamp7;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -373,7 +385,8 @@ public class GamePlay {
 								gamePane.getChildren().add(exitBarricade0);
 								EventHandler<MouseEvent> e0 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 5) {
+										if (abi == 5 && select == false) {
+											select = true;
 											itemSelected = exitBarricade0;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -394,7 +407,8 @@ public class GamePlay {
 								gamePane.getChildren().add(exitBarricade1);
 								EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 5) {
+										if (abi == 5 && select == false) {
+											select = true;
 											itemSelected = exitBarricade1;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -415,7 +429,8 @@ public class GamePlay {
 								gamePane.getChildren().add(exitBarricade2);
 								EventHandler<MouseEvent> e2 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 5) {
+										if (abi == 5 && select == false) {
+											select = true;
 											itemSelected = exitBarricade2;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -438,7 +453,8 @@ public class GamePlay {
 								gamePane.getChildren().add(holeCover0);
 								EventHandler<MouseEvent> h0 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 4) {
+										if (abi == 4 && select == false) {
+											select = true;
 											itemSelected = holeCover0;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -459,7 +475,8 @@ public class GamePlay {
 								gamePane.getChildren().add(holeCover1);
 								EventHandler<MouseEvent> h1 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 4) {
+										if (abi == 4 && select == false) {
+											select = true;
 											itemSelected = holeCover1;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -480,7 +497,8 @@ public class GamePlay {
 								gamePane.getChildren().add(holeCover2);
 								EventHandler<MouseEvent> h2 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 4) {
+										if (abi == 4 && select == false) {
+											select = true;
 											itemSelected = holeCover2;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -501,7 +519,8 @@ public class GamePlay {
 								gamePane.getChildren().add(holeCover3);
 								EventHandler<MouseEvent> h3 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 4) {
+										if (abi == 4 && select == false) {
+											select = true;
 											itemSelected = holeCover3;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -522,7 +541,8 @@ public class GamePlay {
 								gamePane.getChildren().add(holeCover4);
 								EventHandler<MouseEvent> h4 = new EventHandler<MouseEvent>() {
 									public void handle(MouseEvent e) {
-										if (abi == 4) {
+										if (abi == 4 && select == false) {
+											select = true;
 											itemSelected = holeCover4;
 											light.setBrightness(0.5);
 											itemSelected.setEffect(light);
@@ -1488,6 +1508,7 @@ public class GamePlay {
 		}
 		if (cha == 3) {
 			abi = 3;
+			select = false;
 			ImageView iv = setCenter(Resloader.kogoroability);
 			gamePane.getChildren().add(iv);
 			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
@@ -1501,6 +1522,7 @@ public class GamePlay {
 		if (cha == 4) {
 
 			abi = 4;
+			select = false;
 			ImageView iv = setCenter(Resloader.heijiability);
 			gamePane.getChildren().add(iv);
 			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
@@ -1514,6 +1536,7 @@ public class GamePlay {
 		if (cha == 5) {
 
 			abi = 5;
+			select = false;
 			ImageView iv = setCenter(Resloader.ranability);
 			gamePane.getChildren().add(iv);
 			EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
@@ -1894,25 +1917,25 @@ public class GamePlay {
 			gamePane.getChildren().addAll(h1);
 		}
 		if(Map.m2[1][5]==null) {
-			gamePane.getChildren().addAll(h1);
+			gamePane.getChildren().addAll(h2);
 		}
 		if(Map.m2[1][10]==null) {
-			gamePane.getChildren().addAll(h1);
+			gamePane.getChildren().addAll(h3);
 		}
 		if(Map.m2[2][7]==null) {
-			gamePane.getChildren().addAll(h1);
+			gamePane.getChildren().addAll(h4);
 		}
 		if(Map.m2[4][5]==null) {
-			gamePane.getChildren().addAll(h1);
+			gamePane.getChildren().addAll(h5);
 		}
 		if(Map.m2[4][10]==null) {
-			gamePane.getChildren().addAll(h1);
+			gamePane.getChildren().addAll(h6);
 		}
 		if(Map.m2[5][1]==null) {
-			gamePane.getChildren().addAll(h1);
+			gamePane.getChildren().addAll(h7);
 		}
 		if(Map.m2[5][7]==null) {
-			gamePane.getChildren().addAll(h1);
+			gamePane.getChildren().addAll(h8);
 		}
 		gamePane.getChildren().addAll(cancelAbi);
 		EventHandler<MouseEvent> e1 = new EventHandler<MouseEvent>() {
@@ -2112,6 +2135,8 @@ public class GamePlay {
 
 		yes.setX(576 + 80 + 20);
 		yes.setY(380);
+		
+		
 		no.setX(576 + 80 + 20);
 		no.setY(430);
 
@@ -2298,7 +2323,10 @@ public class GamePlay {
 
 		pane.setLayoutX(576 - i.getWidth() / 2);
 		pane.setLayoutY(324 - i.getHeight() / 2);
-		gamePane.getChildren().addAll(pane, h, yes, no);
+		gamePane.getChildren().addAll(pane, h, yes);
+		if(round != 8) {
+			gamePane.getChildren().add(no);
+		}
 	}
 
 	public static void createTableChoice() {

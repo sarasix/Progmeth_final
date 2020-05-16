@@ -34,7 +34,9 @@ public class Menu {
 		
 		createBackground();
 		createPlay();	
+		sound.setVolume(0.1);
 		sound.play();
+		
 
 	}
 
