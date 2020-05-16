@@ -13,7 +13,7 @@ public class Resloader {
 	public static final Image arrowDown = new Image(ClassLoader.getSystemResource("down2.png").toString());
 	public static final Image arrowLeft = new Image(ClassLoader.getSystemResource("left2.png").toString());
 	public static final Image arrowRight = new Image(ClassLoader.getSystemResource("right2.png").toString());
-	public static final Image buttonFree = new Image(ClassLoader.getSystemResource("apple.png").toString());
+	//public static final Image buttonFree = new Image(ClassLoader.getSystemResource("apple.png").toString());
 	public static final Image cancelAbi = new Image(ClassLoader.getSystemResource("cancelabi.jpg").toString());
 	public static final Image cancelWalk = new Image(ClassLoader.getSystemResource("nomoresteps.jpg").toString());
 	public static final Image setLight = new Image(ClassLoader.getSystemResource("setthelight.jpg").toString());
@@ -38,7 +38,7 @@ public class Resloader {
 	public static final Image table = new Image(ClassLoader.getSystemResource("tarang.jpg").toString());
 	public static final Image bgMenu = new Image(ClassLoader.getSystemResource("bgGame.jpg").toString());
 	public static final Image buttonPlay = new Image(ClassLoader.getSystemResource("buttonPlay.png").toString());
-	public static final Image apple = new Image(ClassLoader.getSystemResource("apple.png").toString());
+	//public static final Image apple = new Image(ClassLoader.getSystemResource("apple.png").toString());
 	public static final Image win = new Image(ClassLoader.getSystemResource("win2.jpg").toString());
 	public static final Image lose = new Image(ClassLoader.getSystemResource("gameover.jpg").toString());
 
@@ -56,13 +56,13 @@ public class Resloader {
 	public static final Image catchJ = new Image(ClassLoader.getSystemResource("catchJ.jpg").toString());
 	public static final Image next = new Image(ClassLoader.getSystemResource("next.jpg").toString());
 	public static final Image Exit = new Image(ClassLoader.getSystemResource("Exit.png").toString());
-	public static final Image lampBase = new Image(ClassLoader.getSystemResource("lampBase.png").toString());
+	public static final Image lampBase = new Image(ClassLoader.getSystemResource("LampBase.png").toString());
 	public static final Image hole = new Image(ClassLoader.getSystemResource("hole.png").toString());
 	public static final Image wall = new Image(ClassLoader.getSystemResource("wall.png").toString());
 	public static final Image lamp = new Image(ClassLoader.getSystemResource("lampfix.png").toString());
-	public static final Image exitBarricade = new Image(ClassLoader.getSystemResource("exitBarricade.png").toString());
+	public static final Image exitBarricade = new Image(ClassLoader.getSystemResource("ExitBarricade.png").toString());
 	public static final Image holeCover = new Image(ClassLoader.getSystemResource("holecover.png").toString());
-	public static final Image wheat = new Image(ClassLoader.getSystemResource("wheat.png").toString());
+	//public static final Image wheat = new Image(ClassLoader.getSystemResource("wheat.png").toString());
 	public static final Image conan = new Image(ClassLoader.getSystemResource("conanonboard1.png").toString());
 	public static final Image haibara = new Image(ClassLoader.getSystemResource("haibaraonboard2.png").toString());
 	public static final Image gin = new Image(ClassLoader.getSystemResource("ginonboard.png").toString());
@@ -104,7 +104,7 @@ public class Resloader {
 	public static final Image jack = new Image(ClassLoader.getSystemResource("jackturn.jpg").toString());
 	public static final Image seeJack = new Image(ClassLoader.getSystemResource("seejackcharacter.jpg").toString());
 
-	public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());
+	//public static final Image blue = new Image(ClassLoader.getSystemResource("apple1.png").toString());
 	public static final Image holeAppear = new Image(ClassLoader.getSystemResource("holeappear.jpg").toString());
 	public static final Image hilight = new Image(ClassLoader.getSystemResource("hilight.png").toString());
 	

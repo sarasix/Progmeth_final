@@ -811,7 +811,7 @@ public class GamePlay {
 
 	}
 
-	public static void createCard4(ImageView bg, int i1, int i2, int i3, int i4) {
+	public static void createCard4(int i1, int i2, int i3, int i4) {
 		createRound();
 		Main.removeItem();
 		chaSel = new ArrayList<Integer>();

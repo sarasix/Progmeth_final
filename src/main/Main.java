@@ -185,8 +185,11 @@ public class Main {
 			card4Index[i] = randomNumber;
 			card4.add(allCharacter.get(randomNumber));
 		}
+		
+		
 		GamePlay.round++;
-		GamePlay.createCard4(new ImageView(Resloader.blue), card4Index[0], card4Index[1], card4Index[2], card4Index[3]);
+		GamePlay.createCard4(card4Index[0], card4Index[1], card4Index[2], card4Index[3]);
+		
 
 	}
 

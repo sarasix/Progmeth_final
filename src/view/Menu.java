@@ -20,9 +20,9 @@ import resloader.Resloader;
 public class Menu {
 	public static Scene gameScene;
 	public static AnchorPane gamePane;
-	public static Stage gameStage = new Stage();
-	public static ImageView buttonPlay = new ImageView(Resloader.buttonPlay);
-	public static AudioClip sound = new AudioClip ("file:res/MusicMenu.mp3");
+	public static Stage gameStage;
+	public static ImageView buttonPlay;
+	public static AudioClip sound;
 
 	public static void load() {
 		gameStage = new Stage();
@@ -31,7 +31,8 @@ public class Menu {
 		gameScene = new Scene(gamePane, 1152, 648);
 		gameStage.setScene(gameScene);
 		gameStage.setTitle("Game");
-		
+		buttonPlay = new ImageView(Resloader.buttonPlay);
+		sound = new AudioClip ("file:res/MusicMenu.mp3");
 		createBackground();
 		createPlay();	
 		sound.setVolume(0.1);
