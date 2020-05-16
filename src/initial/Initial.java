@@ -96,7 +96,7 @@ public class Initial  {
 	public ArrayList<HoleCover> getAllHoleCover (){
 		return this.allHoleCover;
 	}
-	public void setCharactor() {
+	public void setCharacter() {
 		m2[0][3] = gin;
 		m2[4][2] = shadowMan;
 		m2[4][4] = conan;
@@ -162,7 +162,7 @@ public class Initial  {
 		allHoleCover.add(holeCover2);
 		allHoleCover.add(holeCover3);
 		allHoleCover.add(holeCover4);
-		setCharactor();
+		setCharacter();
 		setOrder();
 		setChoice();
 		Map.m1 = m1;
