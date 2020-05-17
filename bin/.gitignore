@@ -125,10 +125,10 @@ local.properties
 /LampBase.png
 /MusicGame.mp3
 /MusicMenu.mp3
-/application/
 /abilitybutton.jpg
 /apple.png
 /apple1.png
+/application/
 /bgGame.jpg
 /bothwalkandability.jpg
 /buttonPlay.png
@@ -233,13 +233,6 @@ local.properties
 /shadowmanonboard.png
 /shadowmanonboardselected.png
 /sixmiss.png
-/character/
-/exception/
-/initial/
-/item/
-/main/
-/map/
-/resloader/
 /suspects.jpg
 /tarang.jpg
 /threemiss.png
